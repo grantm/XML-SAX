@@ -3,7 +3,7 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'	=> 'XML::SAX',
     'VERSION_FROM' => 'SAX.pm', # finds $VERSION
-    
+    'PREREQ_PM' => { 'File::Temp' => 0 },    
 );
 
 sub MY::install {
