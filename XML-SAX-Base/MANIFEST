@@ -19,5 +19,6 @@ t/12sax2multiclass.t
 t/13handlerswitch.t
 t/14downstreamswitch.t
 t/15parentswitch.t
+t/16gethandlers.t
 t/events.pl
 
