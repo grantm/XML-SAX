@@ -23,6 +23,7 @@ for my $id (1..119) {
     };
     if ($@) {
         ok(0, 1, $@);
+        warn($@) if $ENV{DEBUG_XML};
     }
     else {
         ok(1);

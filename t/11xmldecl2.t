@@ -23,7 +23,7 @@ print $@;
 
 ok($@->{Message});
 ok($@->{LineNumber}, 1);
-ok($@->{ColumnNumber}, 15);
+ok($@->{ColumnNumber}, 6);
 
 # check invalid version number
 eval {
@@ -34,5 +34,5 @@ ok($@);
 print $@;
 
 ok($@->{LineNumber}, 1);
-ok($@->{ColumnNumber}, 15);
+ok($@->{ColumnNumber}, 19);
 

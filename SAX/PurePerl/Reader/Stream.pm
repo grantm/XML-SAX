@@ -8,60 +8,62 @@ use vars qw(@ISA);
 use XML::SAX::PurePerl::Reader qw(
     EOF
     BUFFER
-    INTERNAL_BUFFER
     LINE
     COLUMN
-    CURRENT
     ENCODING
 );
 use XML::SAX::Exception;
 
 @ISA = ('XML::SAX::PurePerl::Reader');
 
-use constant FH => 11;
-use constant BUFFER_SIZE => 12;
+# subclassed by adding 1 to last element
+use constant FH => 7;
+
+use constant BUFFER_SIZE => 4096;
 
 sub new {
     my $class = shift;
     my $ioref = shift;
     XML::SAX::PurePerl::Reader::set_raw_stream($ioref);
     my @parts;
-    @parts[FH, LINE, COLUMN, BUFFER, EOF, INTERNAL_BUFFER, BUFFER_SIZE] =
-        ($ioref, 1,   0,      '',     0,   '',              1);
+    @parts[FH, LINE, COLUMN, BUFFER, EOF] =
+        ($ioref, 1,   0,      '',     0);
     return bless \@parts, $class;
 }
 
-sub next {
+sub read_more {
     my $self = shift;
-    
-    # check for chars in buffer first.
-    if (length($self->[BUFFER])) {
-        return $self->[CURRENT] = substr($self->[BUFFER], 0, 1, ''); # last param truncates buffer
-    }
-    
-
-    if (length($self->[INTERNAL_BUFFER])) {
-BUFFERED_READ:
-        $self->[CURRENT] = substr($self->[INTERNAL_BUFFER], 0, 1, '');
-        if ($self->[CURRENT] eq "\x0A") {
-            $self->[LINE]++;
-            $self->[COLUMN] = 1;
-        }
-        else { $self->[COLUMN]++ }
-        return;
-    }
-    
-    my $bytesread = read($self->[FH], $self->[INTERNAL_BUFFER], $self->[BUFFER_SIZE]);
+    my $buf;
+    my $bytesread = read($self->[FH], $buf, BUFFER_SIZE);
     if ($bytesread) {
-        goto BUFFERED_READ;
+        $self->[BUFFER] .= $buf;
+        return 1;
     }
     elsif (defined($bytesread)) {
         $self->[EOF]++;
-        return $self->[CURRENT] = undef;
+        return 0;
     }
-    throw XML::SAX::Exception::Parse(
-        Message => "Error reading from filehandle: $!",
-    );
+    else {
+        throw XML::SAX::Exception::Parse(
+            Message => "Error reading from filehandle: $!",
+        );
+    }
+}
+
+sub move_along {
+    my $self = shift;
+    my $discarded = substr($self->[BUFFER], 0, $_[0], '');
+    
+    # Wish I could skip this lot - tells us where we are in the file
+    my $lines = $discarded =~ tr/\n//;
+    $self->[LINE] += $lines;
+    if ($lines) {
+        $discarded =~ /\n([^\n]*)$/;
+        $self->[COLUMN] = length($1);
+    }
+    else {
+        $self->[COLUMN] += $_[0];
+    }
 }
 
 sub set_encoding {
@@ -69,7 +71,7 @@ sub set_encoding {
     my ($encoding) = @_;
     # warn("set encoding to: $encoding\n");
     XML::SAX::PurePerl::Reader::switch_encoding_stream($self->[FH], $encoding);
-    $self->[BUFFER_SIZE] = 1024;
+    XML::SAX::PurePerl::Reader::switch_encoding_string($self->[BUFFER], $encoding);
     $self->[ENCODING] = $encoding;
 }
 

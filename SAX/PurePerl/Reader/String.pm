@@ -6,10 +6,8 @@ use strict;
 use vars qw(@ISA);
 
 use XML::SAX::PurePerl::Reader qw(
-    CURRENT
     LINE
     COLUMN
-    INTERNAL_BUFFER
     BUFFER
     ENCODING
     EOF
@@ -17,43 +15,41 @@ use XML::SAX::PurePerl::Reader qw(
 
 @ISA = ('XML::SAX::PurePerl::Reader');
 
-use constant DISCARDED => 11;
+use constant DISCARDED => 7;
 
 sub new {
     my $class = shift;
     my $string = shift;
     my @parts;
-    @parts[BUFFER, EOF, LINE, COLUMN, INTERNAL_BUFFER, DISCARDED] =
-            ('',   0,   1,    0,      $string,         '');
+    @parts[BUFFER, EOF, LINE, COLUMN, DISCARDED] =
+        ($string,   0,   1,    0,       '');
     return bless \@parts, $class;
 }
 
-sub next {
-    my $self = shift;
-    
-    $self->[DISCARDED] .= $self->[CURRENT] if defined $self->[CURRENT];
-    
-    # check for chars in buffer first.
-    if (length($self->[BUFFER])) {
-        return $self->[CURRENT] = substr($self->[BUFFER], 0, 1, ''); # last param truncates buffer
-    }
-    
-    $self->[CURRENT] = substr($self->[INTERNAL_BUFFER], 0, 1, '');
-    
-    if ($self->[CURRENT] eq "\x0A") {
-        $self->[LINE]++;
-        $self->[COLUMN] = 1;
-    } else { $self->[COLUMN]++ }
+sub read_more () { }
 
-    $self->[EOF]++ unless length($self->[INTERNAL_BUFFER]);
-    return;
+sub move_along {
+    my $self = shift;
+    my $discarded = substr($self->[BUFFER], 0, $_[0], '');
+    $self->[DISCARDED] .= $discarded;
+    
+    # Wish I could skip this lot - tells us where we are in the file
+    my $lines = $discarded =~ tr/\n//;
+    $self->[LINE] += $lines;
+    if ($lines) {
+        $discarded =~ /\n([^\n]*)$/;
+        $self->[COLUMN] = length($1);
+    }
+    else {
+        $self->[COLUMN] += $_[0];
+    }
 }
 
 sub set_encoding {
     my $self = shift;
     my ($encoding) = @_;
 
-    XML::SAX::PurePerl::Reader::switch_encoding_string($self->[INTERNAL_BUFFER], $encoding, "utf-8");
+    XML::SAX::PurePerl::Reader::switch_encoding_string($self->[BUFFER], $encoding, "utf-8");
     $self->[ENCODING] = $encoding;
 }
 

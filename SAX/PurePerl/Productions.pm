@@ -11,7 +11,7 @@ use Exporter;
 ### WARNING!!! All productions here must *only* match a *single* character!!! ###
 
 BEGIN {
-$S = qr/^[\x20\x09\x0D\x0A]$/;
+$S = qr/[\x20\x09\x0D\x0A]/;
 
 $CharMinusDash = qr/[^-]/x;
 
