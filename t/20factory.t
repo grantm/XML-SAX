@@ -1,5 +1,5 @@
 use Test;
-BEGIN { plan tests => 14 }
+BEGIN { plan tests => 16 }
 use XML::SAX::ParserFactory;
 
 # load SAX parsers (no ParserDetails.ini available at first in blib)
@@ -33,4 +33,10 @@ eval {
     ok(1);
 };
 ok(!$@);
+
+local $XML::SAX::ParserPackage = 'XML::SAX::PurePerl';
+ok(XML::SAX::ParserFactory->parser);
+
+local $XML::SAX::ParserPackage = 'XML::SAX::PurePerl (0.01)';
+ok(XML::SAX::ParserFactory->parser);
 
