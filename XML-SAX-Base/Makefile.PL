@@ -18,11 +18,6 @@ sub build_xml_sax_base {
     my $code = <<'EOHEADER';
 package XML::SAX::Base;
 
-use strict;
-use vars qw($VERSION);
-
-$VERSION = 0.25;
-
 # version 0.10 - Kip Hampton <khampton@totalcinema.com>
 # version 0.13 - Robin Berjon <robin@knowscape.com>
 # version 0.15 - Kip Hampton <khampton@totalcinema.com>
@@ -44,8 +39,6 @@ $VERSION = 0.25;
 # If you need to make changes, patch that file NOT
 # this one.
 #-----------------------------------------------------#
-
-package XML::SAX::Base;
 
 use strict;
 use vars qw($VERSION);
