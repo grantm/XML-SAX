@@ -27,10 +27,15 @@ sub parser {
     
     my $parser_class = $self->_parser_class();
 
+    my $version = '';
+    if ($parser_class =~ s/\s*\(([\d\.]+)\)\s*$//) {
+        $version = " $1";
+    }
+
     {
         no strict 'refs';
         if (!keys %{"${parser_class}::"}) {
-            eval "use $parser_class;";
+            eval "use $parser_class $version;";
         }
     }
 
