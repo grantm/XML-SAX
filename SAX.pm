@@ -126,7 +126,7 @@ sub add_parser {
 
     require $parser_file;
 
-    my @features = $parser_module->features();
+    my @features = $parser_module->supported_features();
     
     my $new = { Name => $parser_module };
     foreach my $feature (@features) {

@@ -310,6 +310,18 @@ sub features {
 }
 #-------------------------------------------------------------------#
 
+#-------------------------------------------------------------------#
+# supported_features
+#-------------------------------------------------------------------#
+sub supported_features {
+    my $self = shift;
+    # Only namespaces are required by all parsers
+    return (
+        'http://xml.org/sax/features/namespaces',
+    );
+}
+#-------------------------------------------------------------------#
+
 sub no_op {
     # this space intentionally blank
 }
