@@ -114,7 +114,7 @@ sub $ev {
             EOCANBLOCK
             $aload_string .= <<"            EOALOADBLOCK";
         elsif (defined \$callbacks->{'$h'} and \$callbacks->{'$h'}->can('AUTOLOAD') ) {
-            eval { \$callbacks->{'$h'}->$ev(\@_) };
+            my \$res = eval { \$callbacks->{'$h'}->$ev(\@_) };
             if (\$@) {
                 die \$@;
             }
@@ -124,6 +124,7 @@ sub $ev {
                 # Not fatal, but we might want to address it.
                 \$self->{Methods}->{'$ev'} = sub { \$callbacks->{'$h'}->$ev(\@_) };
             }
+            return \$res;
         }
             EOALOADBLOCK
         }
