@@ -4,6 +4,8 @@ use XML::SAX::PurePerl;
 use XML::SAX::PurePerl::DebugHandler;
 use XML::SAX qw(Namespaces);
 
+warn("This test should show just 1 warning about an entity already existing\n");
+
 my $handler = XML::SAX::PurePerl::DebugHandler->new();
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
 
