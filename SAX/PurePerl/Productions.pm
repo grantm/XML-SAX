@@ -22,7 +22,7 @@ $VersionNum = qr/ [a-zA-Z0-9_.:-]+ /x;
 $EncNameStart = qr/ [A-Za-z] /x;
 $EncNameEnd = qr/ [A-Za-z0-9\._-] /x;
 
-$PubidChar = qr/ [\x20\x0D\x0Aa-zA-Z0-9'()\+,.\/:=\?;!*\#@\$_\%] /x;
+$PubidChar = qr/ [\x20\x0D\x0Aa-zA-Z0-9'()\+,.\/:=\?;!*\#@\$_\%-] /x;
 
 if ($] < 5.006) {
     eval <<'    PERL';
