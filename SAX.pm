@@ -163,9 +163,13 @@ sub save_parsers {
     my $dir = $INC{'XML/SAX.pm'};
     $dir = dirname($dir);
     
+    my $file = File::Spec->catfile($dir, "SAX", PARSER_DETAILS);
+    chmod 0644, $file;
+    unlink($file);
+    
     my $fh = gensym();
-    open($fh, ">" . File::Spec->catfile($dir, "SAX", PARSER_DETAILS)) ||
-        die "Cannot write to " . PARSER_DETAILS . " file: $!";
+    open($fh, ">$file") ||
+        die "Cannot write to $file: $!";
 
     foreach my $p (@$known_parsers) {
         print $fh "[$p->{Name}]\n";
@@ -174,7 +178,7 @@ sub save_parsers {
         }
     }
 
-    print $fh "\n\n";
+    print $fh "\n";
 
     close $fh;
 
