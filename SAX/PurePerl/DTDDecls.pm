@@ -3,7 +3,7 @@
 package XML::SAX::PurePerl;
 
 use strict;
-use XML::SAX::PurePerl::Productions qw($NameChar);
+use XML::SAX::PurePerl::Productions qw($NameChar $SingleChar);
 
 sub elementdecl {
     my ($self, $reader) = @_;
@@ -492,7 +492,7 @@ sub EntityValue {
                 }
                 $reader->match(';') ||
                     $self->parser_error("No semi-colon found after character reference", $reader);
-                if ($char !~ /^$Char$/) { # match a single character
+                if ($char !~ $SingleChar) { # match a single character
                     $self->parser_error("Character reference '&#$ref;' refers to an illegal XML character ($char)", $reader);
                 }
                 $value .= $char;

@@ -7,7 +7,7 @@ use vars qw/$VERSION/;
 
 $VERSION = '0.90';
 
-use XML::SAX::PurePerl::Productions qw($S $Letter $NameChar $Any $CharMinusDash $Char);
+use XML::SAX::PurePerl::Productions qw($S $Letter $NameChar $Any $CharMinusDash $SingleChar);
 use XML::SAX::PurePerl::Reader;
 use XML::SAX::PurePerl::EncodingDetect ();
 use XML::SAX::Exception;
@@ -398,7 +398,7 @@ sub Reference {
         }
         $reader->match(';') ||
                 $self->parser_error("No semi-colon found after character reference", $reader);
-        if ($char !~ /^$Char$/) { # match a single character
+        if ($char !~ $SingleChar) { # match a single character
             $self->parser_error("Character reference &#$ref; refers to an illegal XML character ($char)", $reader);
         }
         $self->characters({ Data => $char });
@@ -459,7 +459,7 @@ sub AttReference {
         }
         $reader->match(';') ||
                 $self->parser_error("No semi-colon found after character reference", $reader);
-        if ($char !~ /^$Char$/) { # match a single character
+        if ($char !~ $SingleChar) { # match a single character
             $self->parser_error("Character reference '&#$ref;' refers to an illegal XML character ($char)", $reader);
         }
         return $char;

@@ -6,7 +6,7 @@ use Exporter;
 @ISA = ('Exporter');
 @EXPORT_OK = qw($S $Char $VersionNum $BaseChar $Letter $Ideographic
     $Extender $Digit $CombiningChar $EncNameStart $EncNameEnd $NameChar $CharMinusDash
-    $PubidChar $Any);
+    $PubidChar $Any $SingleChar);
 
 ### WARNING!!! All productions here must *only* match a *single* character!!! ###
 
@@ -45,15 +45,33 @@ if ($] < 5.006) {
     die $@ if $@;
 }
 else {
-    eval <<'    PERL';
+    my $char_defn;
+    if ($] >= 5.007002) {
+        $char_defn = '
     
-    use utf8; # for 5.6
-
     $Char = qr/ \x09 | \x0A | \x0D |
             [\x{0020}-\x{D7FF}] | 
             [\x{E000}-\x{FFFD}] |
             [\x{10000}-\x{10FFFF}]
             /x;
+    ';
+    }
+    else {
+        $char_defn = '
+    
+    use utf8; # for 5.6
+ 
+    # 5.6 cannot cope with unicode chars in a character class > \x10000. Doh!
+    $Char = qr/ \x09 | \x0A | \x0D |
+            [\x{0020}-\x{D7FF}] | 
+            [\x{E000}-\x{FFFD}]
+            /x;
+        ';
+    }
+    
+    my $rest = $char_defn . <<'    PERL';
+
+    $SingleChar = qr/^$Char$/;
 
     $BaseChar = qr/
 [\x{0041}-\x{005A}] | [\x{0061}-\x{007A}] | [\x{00C0}-\x{00D6}] | [\x{00D8}-\x{00F6}] |
@@ -144,6 +162,8 @@ else {
 
     $NameChar = qr/ $Letter | $Digit | [._:-] | $CombiningChar | $Extender /x;
     PERL
+
+    eval $rest;
     die $@ if $@;
 }
 

@@ -6,7 +6,7 @@ use strict;
 use XML::SAX::PurePerl::Reader::Stream;
 use XML::SAX::PurePerl::Reader::String;
 use XML::SAX::PurePerl::Reader::URI;
-use XML::SAX::PurePerl::Productions qw( $Char );
+use XML::SAX::PurePerl::Productions qw( $SingleChar );
 
 sub new {
     my $class = shift;
@@ -101,7 +101,7 @@ sub nextchar {
 sub match {
     my $self = shift;
     if ($self->match_nocheck(@_)) {
-        if ($self->{matched} =~ /^$Char$/) {
+        if ($self->{matched} =~ $SingleChar) {
             return 1;
         }
         throw XML::SAX::Exception ( Message => "Not a valid XML character: '&#x".sprintf("%X", ord($self->{matched})).";'", reader => $self );
