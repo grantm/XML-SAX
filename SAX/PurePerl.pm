@@ -150,7 +150,7 @@ sub element {
     if ($reader->match('<')) {
         my $name = $self->Name($reader) ||
                 $self->parser_error("Invalid element name", $reader);
-        
+
         my %attribs;
         
         while( my ($k, $v) = $self->Attribute($reader) ) {

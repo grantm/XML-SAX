@@ -52,6 +52,7 @@ sub init {
 sub nextchar {
     my $self = shift;
     $self->next;
+    return unless $self->{encoding};
     my $n = ord($self->{current});
     # warn(sprintf("ch: 0x%x ($self->{current})\n", $n));
     if (($] < 5.007002) && ($n > 0x7F)) {
@@ -201,7 +202,7 @@ sub buffer {
     # warn("buffering: '$_[0]' + '$self->{current}' + '$self->{buffer}'\n");
     local $^W;
     my $current = $self->{current};
-    if ($] >= 5.006) {
+    if ($] >= 5.006 && $] < 5.007) {
         $current = pack("C0A*", $current);
     }
     $self->{buffer} = $_[0] . $current . $self->{buffer};
