@@ -1,5 +1,9 @@
 Revision history for Perl extension XML::SAX.
 
+0.10
+    - PurePerl: Fixed PubidChar missing '-'
+    - ParserFactory: Allow version in parser package
+
 0.09
     - PurePerl: Performance enhancements
     - PurePerl: Line End handling implemented.
