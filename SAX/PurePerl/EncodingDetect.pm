@@ -27,7 +27,7 @@ sub encoding_detect {
         return;
     }
     elsif ($data =~ /^\x00\x00\x3C\x00/) {
-        $reader-set_encoding('UCS-4-2143');
+        $reader->set_encoding('UCS-4-2143');
         return;
     }
     elsif ($data =~ /^\x00\x3C\x00\x00/) {

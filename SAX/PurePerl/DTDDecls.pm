@@ -323,7 +323,7 @@ sub NotationType {
         $self->parser_error("No name in notation section", $reader);
     $model .= $name;
     $self->skip_whitespace($reader);
-    my $data = $reader->data;
+    $data = $reader->data;
     while ($data =~ /^\|/) {
         $reader->move_along(1);
         $model .= '|';
