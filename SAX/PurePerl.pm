@@ -186,7 +186,7 @@ sub element {
         
         my $localname = $name;
         if ($namespace && $prefix) {
-            ($localname) = $name =~ /^[^:]:(.*)$/;
+            ($localname) = $name =~ /^[^:]+:(.*)$/;
         }
         
         # Create element object and fire event
@@ -350,7 +350,7 @@ sub CharData {
         last;
     }
     
-    $self->characters({ Data => $chars });
+    $self->characters({ Data => $chars }) if length($chars);
 }
 
 sub Misc {
