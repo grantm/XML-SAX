@@ -58,7 +58,7 @@ sub _parser_class {
     # Now check if required/preferred is there
     if ($self->{RequiredFeatures}) {
         my %required = %{$self->{RequiredFeatures}};
-        # note - we never go onto the next try (SAX.ini),
+        # note - we never go onto the next try (ParserDetails.ini),
         # because if we can't provide the requested feature
         # we need to throw an exception.
         PARSER:
@@ -77,7 +77,7 @@ sub _parser_class {
             );
     }
 
-    # Next try SAX.ini
+    # Next try ParserDetails.ini
     for my $dir (@INC) {
         my $fh = gensym();
         if (open($fh, "$dir/SAX.ini")) {

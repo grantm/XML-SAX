@@ -218,6 +218,9 @@ XML::SAX - Simple API for XML
   # add/update a parser
   XML::SAX->add_parser(q(XML::SAX::PurePerl));
 
+  # remove parser
+  XML::SAX->remove_parser(q(XML::SAX::Foodelberry));
+
   # save parsers
   XML::SAX->save_parsers();
 
@@ -319,13 +322,6 @@ following:
     $parser->parse_string("<tag/>");
     ok($handler->{seen}{start_element});
   };
-  unlink("ParserDetails.ini");
-
-This will test XML::SAX loading the driver, using 
-ParserDetails.ini to know which driver
-to load. Again, not to change the Driver module 
-from XML::SAX::MyDriver to
-whatever you called your SAX driver.
 
 =back
 
@@ -354,6 +350,15 @@ Robin Berjon, robin@knowscape.com
 
 This is free software, you may use it and distribute it under
 the same terms as Perl itself.
+
+=head1 SEE ALSO
+
+L<XML::SAX::Base> for writing SAX Filters and Parsers
+
+L<XML::SAX::PurePerl> for an XML parser written in 100%
+pure perl.
+
+L<XML::SAX::Exception> for details on exception handling
 
 =cut
 
