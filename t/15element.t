@@ -85,13 +85,13 @@ sub start_element {
     if ($self->{test_el}) {
         foreach my $key (keys %{ $self->{test_el} }) {
             #warn $key, "\n";
-            ok($el->{$key}, $self->{test_el}{$key});
+            ok("$key: $el->{$key}", "$key: $self->{test_el}{$key}");
         }
     }
     if ($self->{test_attr}) {
         foreach my $key (keys %{ $self->{test_attr} }) {
             #warn $key, "\n";
-            ok($el->{Attributes}{ $self->{attr_name} }{$key}, $self->{test_attr}{$key});
+            ok("$key: $el->{Attributes}{ $self->{attr_name} }{$key}", "$key: $self->{test_attr}{$key}");
         }
     }
 }
