@@ -5,7 +5,7 @@ package XML::SAX;
 use strict;
 use vars qw($VERSION @ISA @EXPORT_OK);
 
-$VERSION = '0.02';
+$VERSION = '0.04';
 
 require Exporter;
 @ISA = ('Exporter');
@@ -110,6 +110,19 @@ sub parsers {
     return $known_parsers;
 }
 
+sub remove_parser {
+    my $class = shift;
+    my ($parser_module) = @_;
+
+    if (!$known_parsers) {
+        $class->load_parsers();
+    }
+    
+    @$known_parsers = grep { $_->{Name} ne $parser_module } @$known_parsers;
+
+    return $class;
+}
+ 
 sub add_parser {
     my $class = shift;
     my ($parser_module) = @_;
