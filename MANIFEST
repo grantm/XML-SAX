@@ -2,4 +2,7 @@ Changes
 Makefile.PL
 MANIFEST
 SAX.pm
-test.pl
+README
+LICENSE
+t/00basic.t
+
