@@ -1,5 +1,11 @@
 Revision history for Perl extension XML::SAX::Base.
 
+1.03 Mon Jan 21 2002
+    - set namespaces feature on by default as per SAX spec
+
+1.02 Fri Nov 30 2001
+    - implemented get/set_feature in terms of supported_features
+
 1.01 Mon Nov 26 01:56:33 2001
 	- added set_handler method (and friends).
 	- added to test suite

@@ -31,6 +31,7 @@ package XML::SAX::Base;
 # version 1.00 - Kip Hampton <khampton@totalcinema.com>
 # version 1.01 - Kip Hampton <khampton@totalcinema.com>
 # version 1.02 - Robin Berjon <robin@knowscape.com>
+# version 1.03 - Matt Sergeant <matt@sergeant.org>
 
 #-----------------------------------------------------#
 # STOP!!!!!
@@ -44,7 +45,7 @@ package XML::SAX::Base;
 use strict;
 use vars qw($VERSION);
 use XML::SAX::Exception qw();
-$VERSION = '1.01';
+$VERSION = '1.03';
 
 EOHEADER
 
@@ -151,7 +152,10 @@ sub new {
     my $options = ($#_ == 0) ? shift : { @_ };
 
     $options->{Handler} ||= XML::SAX::Base::NoHandler->new;
-    return bless $options, $class;
+    my $self = bless $options, $class;
+    # turn NS processing on by default
+    $self->set_feature('http://xml.org/sax/features/namespaces', 1);
+    return $self;
 }
 #-------------------------------------------------------------------#
 
@@ -266,10 +270,27 @@ sub get_features {
 sub get_feature {
     my $self = shift;
     my $feat = shift;
+
     # check %FEATURES to see if it's there, and return it if so
     # throw XML::SAX::Exception::NotRecognized if it's not there
     # throw XML::SAX::Exception::NotSupported if it's there but we
     # don't support it
+    
+    my %features = $self->get_features();
+    if (exists $features{$feat}) {
+        my %supported = map { $_ => 1 } $self->supported_features();
+        if ($supported{$feat}) {
+            return $self->{__PACKAGE__ . "::Features"}{$feat};
+        }
+        throw XML::SAX::Exception::NotSupported(
+            Message => "The feature '$feat' is not supported by " . ref($self),
+            Exception => undef,
+            );
+    }
+    throw XML::SAX::Exception::NotRecognized(
+        Message => "The feature '$feat' is not recognized by " . ref($self),
+        Exception => undef,
+        );
 }
 #-------------------------------------------------------------------#
 
@@ -284,6 +305,22 @@ sub set_feature {
     # throw XML::SAX::Exception::NotRecognized if it's not there
     # throw XML::SAX::Exception::NotSupported if it's there but we
     # don't support it
+    
+    my %features = $self->get_features();
+    if (exists $features{$feat}) {
+        my %supported = map { $_ => 1 } $self->supported_features();
+        if ($supported{$feat}) {
+            return $self->{__PACKAGE__ . "::Features"}{$feat} = $value;
+        }
+        throw XML::SAX::Exception::NotSupported(
+            Message => "The feature '$feat' is not supported by " . ref($self),
+            Exception => undef,
+            );
+    }
+    throw XML::SAX::Exception::NotRecognized(
+        Message => "The feature '$feat' is not recognized by " . ref($self),
+        Exception => undef,
+        );
 }
 #-------------------------------------------------------------------#
 
