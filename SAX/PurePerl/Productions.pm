@@ -26,7 +26,7 @@ $PubidChar = qr/ \x20 | \x0D | \x0A | [a-zA-Z0-9] | [\'()\+,.\/:=\?;!*\#@\$_\%] 
 
 if ($] < 5.007002) {
     eval <<'    PERL';
-    $Char = qr/ \x09 | \x0A | \x0D | [\x20-\xFF] /x;
+    $Char = qr/ \x09 | \x0A | \x0D | [\x20-\x7F] | ([\xC0-\xFD][\x80-\xBF]+) /x;
     $BaseChar = qr/
             [\x41-\x5A] | [\x61-\x7A] | [\xC0-\xD6] | [\xD8-\xF6] |
             [\xF8-\xFF] /x;
@@ -42,6 +42,7 @@ if ($] < 5.007002) {
     
     $NameChar = qr/ $Letter | $Digit | [._:-] | $Extender /x;
     PERL
+    die $@ if $@;
 }
 else {
     eval <<'    PERL';
@@ -140,6 +141,7 @@ else {
 
     $NameChar = qr/ $Letter | $Digit | [._:-] | $CombiningChar | $Extender /x;
     PERL
+    die $@ if $@;
 }
 
 }

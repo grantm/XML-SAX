@@ -347,6 +347,31 @@ sub Misc {
     return 0;
 }
 
+sub chr_ref {
+    my $n = shift;
+    if ($] >= 5.006) { # unicode available
+        return chr($n);
+    }
+    if ($n < 0x80) {
+        return chr ($n);
+    }
+    elsif ($n < 0x800) {
+        return pack ("CC", (($n >> 6) | 0xc0), (($n & 0x3f) | 0x80));
+    }
+    elsif ($n < 0x10000) {
+        return pack ("CCC", (($n >> 12) | 0xe0), ((($n >> 6) & 0x3f) | 0x80),
+                                    (($n & 0x3f) | 0x80));
+    }
+    elsif ($n < 0x110000)
+    {
+        return pack ("CCCC", (($n >> 18) | 0xf0), ((($n >> 12) & 0x3f) | 0x80),
+        ((($n >> 6) & 0x3f) | 0x80), (($n & 0x3f) | 0x80));
+    }
+    else {
+        return undef;
+    }
+}
+
 sub Reference {
     my ($self, $reader) = @_;
     
@@ -357,22 +382,24 @@ sub Reference {
     if ($reader->match('#')) {
         # CharRef
         my $char;
+        my $ref;
         if ($reader->match('x')) {
             $reader->consume(qr/[0-9a-fA-F]/) ||
                 $self->parser_error("Hex character reference contains illegal characters", $reader);
-            my $hexref = $reader->consumed;
-            $char = chr(hex($hexref));
+            $ref = $reader->consumed;
+            $char = chr_ref(hex($ref));
+            $ref = "x$ref";
         }
         else {
             $reader->consume(qr/[0-9]/) ||
                 $self->parser_error("Decimal character reference contains illegal characters", $reader);
-            my $decref = $reader->consumed;
-            $char = chr($decref);
+            $ref = $reader->consumed;
+            $char = chr_ref($ref);
         }
         $reader->match(';') ||
                 $self->parser_error("No semi-colon found after character reference", $reader);
         if ($char !~ /^$Char$/) { # match a single character
-            $self->parser_error("Character reference refers to an illegal XML character", $reader);
+            $self->parser_error("Character reference &#$ref; refers to an illegal XML character ($char)", $reader);
         }
         $self->characters({ Data => $char });
         return 1;
@@ -416,22 +443,24 @@ sub AttReference {
     if ($reader->match('#')) {
         # CharRef
         my $char;
+        my $ref;
         if ($reader->match('x')) {
             $reader->consume(qr/[0-9a-fA-F]/) ||
                 $self->parser_error("Hex character reference contains illegal characters", $reader);
-            my $hexref = $reader->consumed;
-            $char = chr(hex($hexref));
+            $ref = $reader->consumed;
+            $char = chr_ref(hex($ref));
+            $ref = "x$ref";
         }
         else {
             $reader->consume(qr/[0-9]/) ||
                 $self->parser_error("Decimal character reference contains illegal characters", $reader);
-            my $decref = $reader->consumed;
-            $char = chr($decref);
+            $ref = $reader->consumed;
+            $char = chr_ref($ref);
         }
         $reader->match(';') ||
                 $self->parser_error("No semi-colon found after character reference", $reader);
         if ($char !~ /^$Char$/) { # match a single character
-            $self->parser_error("Character reference refers to an illegal XML character", $reader);
+            $self->parser_error("Character reference '&#$ref;' refers to an illegal XML character ($char)", $reader);
         }
         return $char;
     }

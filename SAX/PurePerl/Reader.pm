@@ -45,17 +45,61 @@ sub init {
     my $self = shift;
     $self->{line} = 1;
     $self->{column} = 1;
-    $self->next;
+    $self->nextchar;
     return $self;
+}
+
+sub nextchar {
+    my $self = shift;
+    $self->next;
+    my $n = ord($self->{current});
+    if (($] < 5.007002) && ($n > 0x7F)) {
+        # utf8 surrogate
+        my $current = $self->{current};
+        if    ($n >= 0xFC) {
+            # read 5 chars
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+        }
+        elsif ($n >= 0xF8) {
+            # read 4 chars
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+        }
+        elsif ($n >= 0xF0) {
+            # read 3 chars
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+        }
+        elsif ($n >= 0xE0) {
+            # read 2 chars
+            $self->next; $current .= $self->{current};
+            $self->next; $current .= $self->{current};
+        }
+        elsif ($n >= 0xC0) {
+            # read 1 char
+            $self->next; $current .= $self->{current};
+        }
+        else {
+            throw XML::SAX::Exception( Message => "Invalid character $n" );
+        }
+        $self->{current} = $current;
+    }
 }
 
 sub match {
     my $self = shift;
     if ($self->match_nocheck(@_)) {
-        if ($self->{matched} =~ $Char) {
+        if ($self->{matched} =~ /^$Char$/) {
             return 1;
         }
-        throw XML::SAX::PurePerl::Exception ( Message => "Not a valid XML character: '$self->{matched}'", reader => $self );
+        throw XML::SAX::Exception ( Message => "Not a valid XML character: '&#x".sprintf("%X", ord($self->{matched})).";'", reader => $self );
     }
     return 0;
 }
@@ -88,7 +132,8 @@ sub match_nocheck {
     my $self = shift;
     
     if ($self->match_nonext(@_)) {
-        $self->next;
+        $self->nextchar;
+
         return 1;
     }
     return 0;
@@ -143,7 +188,7 @@ sub buffer {
     # warn("buffering: '$_[0]' + '$self->{current}' + '$self->{buffer}'\n");
     local $^W;
     $self->{buffer} = $_[0] . $self->{current} . $self->{buffer};
-    $self->next;
+    $self->nextchar;
 }
 
 sub eof {
