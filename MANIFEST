@@ -52,4 +52,16 @@ testfiles/koi8_r.xml
 testfiles/utf-16.xml
 testfiles/utf-16le.xml
 testfiles/xmltest.xml
-
+t/sax_base/01simpledriver.t
+t/sax_base/02simplefilter.t
+t/sax_base/03chdriver.t
+t/sax_base/04chfilter.t
+t/sax_base/05dtdhdriver.t
+t/sax_base/06lexhdriver.t
+t/sax_base/07declhdriver.t
+t/sax_base/08errorhdriver.t
+t/sax_base/09resoldriver.t
+t/sax_base/10dochdriver.t
+t/sax_base/11sax1multiclass.t
+t/sax_base/12sax2multiclass.t
+t/sax_base/events.pl
