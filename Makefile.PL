@@ -49,6 +49,7 @@ $VERSION = 0.24;
 # version 0.21 - Kip Hampton <khampton@totalcinema.com>
 # version 0.22 - Robin Berjon <robin@knowscape.com>
 # version 0.23 - Matt Sergeant <matt@sergeant.org>
+# version 0.24 - Robin Berjon <robin@knowscape.com>
 
 #-----------------------------------------------------#
 # STOP!!!!!
@@ -64,14 +65,11 @@ package XML::SAX::Base;
 use strict;
 use vars qw($VERSION);
 use XML::SAX::Exception qw();
-$VERSION = '0.23';
+$VERSION = '0.24';
 
 EOHEADER
 
     my %EVENT_SPEC = (
-                        start_document          => [qw(ContentHandler DocumentHandler Handler)],
-                        end_document            => [qw(ContentHandler DocumentHandler Handler)],
-                        start_element           => [qw(ContentHandler DocumentHandler Handler)],
                         start_document          => [qw(ContentHandler DocumentHandler Handler)],
                         end_document            => [qw(ContentHandler DocumentHandler Handler)],
                         start_element           => [qw(ContentHandler DocumentHandler Handler)],
@@ -89,14 +87,14 @@ EOHEADER
                         entity_reference        => [qw(DocumentHandler Handler)],
                         notation_decl           => [qw(DTDHandler Handler)],
                         unparsed_entity_decl    => [qw(DTDHandler Handler)],
-                        element_decl            => [qw(DTDHandler Handler)],
+                        element_decl            => [qw(DeclHandler Handler)],
                         attlist_decl            => [qw(DTDHandler Handler)],
                         doctype_decl            => [qw(DTDHandler Handler)],
-                        xml_decl                => [qw(DTDHandler Handler)],
+                        xml_decl                => [qw(LexicalHandler Handler)],
                         entity_decl             => [qw(DTDHandler Handler)],
-                        attribute_decl          => [qw(Handler)],
-                        internal_entity_decl    => [qw(Handler)],
-                        external_entity_decl    => [qw(Handler)],
+                        attribute_decl          => [qw(DeclHandler Handler)],
+                        internal_entity_decl    => [qw(DeclHandler Handler)],
+                        external_entity_decl    => [qw(DeclHandler Handler)],
                         resolve_entity          => [qw(EntityResolver Handler)],
                         start_dtd               => [qw(LexicalHandler Handler)],
                         end_dtd                 => [qw(LexicalHandler Handler)],
@@ -246,7 +244,10 @@ sub get_options {
 }
 #-------------------------------------------------------------------#
 
-sub FEATURES {
+#-------------------------------------------------------------------#
+# get_features
+#-------------------------------------------------------------------#
+sub get_features {
    return (
     'http://xml.org/sax/features/external-general-entities'     => undef,
     'http://xml.org/sax/features/external-parameter-entities'   => undef,
@@ -259,17 +260,12 @@ sub FEATURES {
     'http://xml.org/sax/features/use-attributes2'               => undef,
     'http://xml.org/sax/features/use-locator2'                  => undef,
     'http://xml.org/sax/features/validation'                    => undef,
+
+    'http://xml.org/sax/properties/dom-node'                    => undef,
+    'http://xml.org/sax/properties/xml-string'                  => undef,
                );
 }
-
-sub PROPERTIES {
-    return (
-    'http://xml.org/sax/properties/declaration-handler' => undef,
-    'http://xml.org/sax/properties/dom-node'            => undef,
-    'http://xml.org/sax/properties/lexical-handler'     => undef,
-    'http://xml.org/sax/properties/xml-string'          => undef,
-                 );
-}
+#-------------------------------------------------------------------#
 
 #-------------------------------------------------------------------#
 # get_feature
@@ -303,7 +299,7 @@ sub set_feature {
 #-------------------------------------------------------------------#
 sub features {
     my $self = shift;
-    my %f = $self->FEATURES; # must call in OO fashion!
+    my %f = $self->get_features; # must call in OO fashion!
     my @results;
     foreach my $feature (keys %f) {
         if ($f{$feature}) {
@@ -312,34 +308,7 @@ sub features {
     }
     return @results;
 }
-
 #-------------------------------------------------------------------#
-# get_property
-#-------------------------------------------------------------------#
-sub get_property {
-    my $self = shift;
-    my $prop = shift;
-    # check %PROPERTIES to see if it's there, and return it if so
-    # throw XML::SAX::Exception::NotRecognized if it's not there
-    # throw XML::SAX::Exception::NotSupported if it's there but we
-    # don't support it
-}
-#-------------------------------------------------------------------#
-
-#-------------------------------------------------------------------#
-# set_property
-#-------------------------------------------------------------------#
-sub set_property {
-    my $self = shift;
-    my $prop = shift;
-    my $value = shift;
-    # check %PROPERTIES to see if it's there, and set it if so
-    # throw XML::SAX::Exception::NotRecognized if it's not there
-    # throw XML::SAX::Exception::NotSupported if it's there but we
-    # don't support it
-}
-#-------------------------------------------------------------------#
-
 
 sub no_op {
     # this space intentionally blank
@@ -357,7 +326,6 @@ sub new {
 
 1;
 
-__END__
 BODY
 
     $code .= <<'FOOTER';
@@ -490,15 +458,15 @@ generically either as hashes or as hashrefs (it returns a hashref).
 You will probably want to use this method in your own implementations
 of parse() and of new().
 
-=item * get_feature, set_feature, get_property, set_property
+=item * get_feature, set_feature
 
-These simply get and set features or properties, and throw the
+These simply get and set features, and throw the
 appropriate exceptions defined in the specification if need be.
 
-If your subclass defines features or properties not defined in this one,
+If your subclass defines features not defined in this one,
 then you should override these methods in such a way that they check for
-your features/properties first, and then call the base class's methods
-for features/properties not defined by your class. An example would be:
+your features first, and then call the base class's methods
+for features not defined by your class. An example would be:
 
   sub get_feature {
       my $self = shift;
