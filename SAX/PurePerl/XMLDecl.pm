@@ -33,6 +33,7 @@ sub XMLDecl {
         
         $reader->match_string('?>') || $self->parser_error("Syntax error in XML declaration", $reader);
         # TODO: Call SAX event (xml_decl?)
+        # actually, sax has no xml_decl event.
     }
     else {
         # no xml decl
