@@ -24,7 +24,7 @@ $EncNameEnd = qr/ [A-Za-z0-9\._-] /x;
 
 $PubidChar = qr/ \x20 | \x0D | \x0A | [a-zA-Z0-9] | [\'()\+,.\/:=\?;!*\#@\$_\%] /x;
 
-if ($] < 5.007002) {
+if ($] < 5.006) {
     eval <<'    PERL';
     $Char = qr/ \x09 | \x0A | \x0D | [\x20-\x7F] | ([\xC0-\xFD][\x80-\xBF]+) /x;
     $BaseChar = qr/
@@ -46,6 +46,9 @@ if ($] < 5.007002) {
 }
 else {
     eval <<'    PERL';
+    
+    use utf8; # for 5.6
+
     $Char = qr/ \x09 | \x0A | \x0D |
             [\x{0020}-\x{D7FF}] | 
             [\x{E000}-\x{FFFD}] |
