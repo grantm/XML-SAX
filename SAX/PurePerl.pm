@@ -245,8 +245,8 @@ sub element {
             $reader->match_char('>') || $self->parser_error("No close '>' on end tag", $reader);
         }
         
-        delete $el->{Attributes};
         my %end_el = %$el;
+        delete $end_el{Attributes};
         $self->end_element(\%end_el);
 
         for my $ns (@new_ns) {
