@@ -2,7 +2,6 @@ Makefile.PL
 Changes
 README
 MANIFEST
-lib/XML/SAX/Exception.pm
 t/00basic.t
 t/01exception.t
 t/01simpledriver.t
