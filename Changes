@@ -1,5 +1,9 @@
 Revision history for Perl extension XML::SAX.
 
+0.12
+    - Made sure SAX.ini works as documented
+    - Fixed when you specify Module (version)
+    
 0.11
     - Base: Merged in XML::SAX::Base 1.04 (including memory leak fixes)
     - ParserFactory: Made it do what the docs say when you specify

@@ -9,6 +9,7 @@ $VERSION = '1.01';
 
 use Symbol qw(gensym);
 use XML::SAX;
+use XML::SAX::Exception;
 
 sub new {
     my $class = shift;
@@ -79,12 +80,12 @@ sub _parser_class {
             );
     }
 
-    # Next try ParserDetails.ini
+    # Next try SAX.ini
     for my $dir (@INC) {
         my $fh = gensym();
         if (open($fh, "$dir/SAX.ini")) {
             my $param_list = XML::SAX->_parse_ini_file($fh);
-            my $params = $param_list->[0];
+            my $params = $param_list->[0]->{Features};
             if ($params->{ParserPackage}) {
                 return $params->{ParserPackage};
             }
@@ -99,7 +100,7 @@ sub _parser_class {
                     }
                     return $parser->{Name};
                 }
-                throw XML::SAX::Exception ("Unable to provide SAX.ini required features");
+                XML::SAX->do_warn("Unable to provide SAX.ini required features. Using fallback\n");
             } 
             last; # stop after first INI found
         }

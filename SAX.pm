@@ -5,7 +5,7 @@ package XML::SAX;
 use strict;
 use vars qw($VERSION @ISA @EXPORT_OK);
 
-$VERSION = '0.11';
+$VERSION = '0.12';
 
 use Exporter ();
 @ISA = ('Exporter');
@@ -59,7 +59,7 @@ sub load_parsers {
     
     my $fh = gensym();
     if (!open($fh, File::Spec->catfile($dir, "SAX", PARSER_DETAILS))) {
-        warn("could not find " . PARSER_DETAILS . " in $dir/SAX\n");
+        XML::SAX->do_warn("could not find " . PARSER_DETAILS . " in $dir/SAX\n");
         return $class;
     }
 
@@ -94,7 +94,9 @@ sub _parse_ini_file {
         
         # instruction
         elsif ($line =~ /^(.*?)\s*?=\s*(.*)$/) {
-            die "No heading at line $lineno\n>>> $original\n" unless @config;
+            unless(@config) {
+                push @config, { Name => '' };
+            }
             $config[-1]{Features}{$1} = $2;
         }
 
@@ -202,6 +204,12 @@ sub save_parsers {
     close $fh;
 
     return $class;
+}
+
+sub do_warn {
+    my $class = shift;
+    # Don't output warnings if running under Test::Harness
+    warn(@_) unless $ENV{HARNESS_ACTIVE};
 }
 
 1;
