@@ -61,7 +61,7 @@ simply as:
   use XML::SAX;
   use MySAXHandler;
   
-  my $parser = XML::SAX::ParserFactory->new(
+  my $parser = XML::SAX::ParserFactory->parser(
   	Handler => MySAXHandler->new
   );
   
@@ -249,7 +249,7 @@ in other situations. A SAX parser has to make no guarantees whatsoever
 about how many times it may call characters for a stretch of text in an
 XML document - it may call once, or it may call once for every
 character in the text. In order to work around this it is often
-important for the SAX developer to use s bundling technique, where text
+important for the SAX developer to use a bundling technique, where text
 is gathered up and processed in one of the other callbacks. This is not
 always necessary, but it is a worthwhile technique to learn, which we
 will cover in XML::SAX::Advanced (when I get around to writing it).
