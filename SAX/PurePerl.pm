@@ -5,7 +5,7 @@ package XML::SAX::PurePerl;
 use strict;
 use vars qw/$VERSION/;
 
-$VERSION = '0.82';
+$VERSION = '0.90';
 
 use XML::SAX::PurePerl::Productions qw($S $Letter $NameChar $Any $CharMinusDash $Char);
 use XML::SAX::PurePerl::Reader;
@@ -14,7 +14,10 @@ use XML::SAX::Exception;
 use XML::SAX::PurePerl::DocType ();
 use XML::SAX::PurePerl::DTDDecls ();
 use XML::SAX::PurePerl::XMLDecl ();
+use XML::SAX::DocumentLocator ();
 use XML::SAX::Base ();
+use XML::SAX qw(Namespaces);
+use XML::NamespaceSupport ();
 use IO::File;
 
 use vars qw(@ISA);
@@ -67,14 +70,17 @@ sub _parse {
     $reader->public_id($self->{ParseOptions}{Source}{PublicId});
     $reader->system_id($self->{ParseOptions}{Source}{SystemId});
     $reader->next;
-    
-    $self->{InScopeNamespaceStack} = [ { 
-        '#Default' => undef,
-        'xmlns' => $xmlns_ns,
-        'xml' => $xml_ns,
-    } ];
-    
-    my $results;
+
+    $self->{NSHelper} = XML::NamespaceSupport->new({xmlns => 1});
+
+    $self->set_document_locator(
+        XML::SAX::DocumentLocator->new(
+            sub { $reader->public_id },
+            sub { $reader->system_id },
+            sub { $reader->line },
+            sub { $reader->column },
+        ),
+    );
     
     $self->start_document({});
 
@@ -145,9 +151,11 @@ sub element {
         my $name = $self->Name($reader) ||
                 $self->parser_error("Invalid element name", $reader);
         
-        my @attribs;
+        my %attribs;
         
-        1 while( @attribs < push(@attribs, $self->Attribute($reader)) );
+        while( my ($k, $v) = $self->Attribute($reader) ) {
+            $attribs{$k} = $v;
+        }
         
         $self->skip_whitespace($reader);
         
@@ -162,51 +170,61 @@ sub element {
         }
         
         # Namespace processing
-        # TODO: start/end_prefix_mapping
-        push @{ $self->{InScopeNamespaceStack} },
-             { %{ $self->{InScopeNamespaceStack}[-1] } };
-        $self->_scan_namespaces(@attribs);
-        
-        my ($prefix, $namespace) = $self->_namespace($name);
-        if ($prefix && !defined $namespace) {
-            $self->parser_error("prefix '$prefix' not bound to any namespace", $reader);
+        $self->{NSHelper}->push_context;
+        my @new_ns;
+#        my %attrs = @attribs;
+#        while (my ($k,$v) = each %attrs) {
+        if ($self->get_feature(Namespaces)) {
+            while ( my ($k, $v) = each %attribs ) {
+                if ($k =~ m/^xmlns(:(.*))?$/) {
+                    my $prefix = $2 || '';
+                    $self->{NSHelper}->declare_prefix($prefix, $v);
+                    my $ns = 
+                        {
+                            Prefix       => $prefix,
+                            NamespaceURI => $v,
+                        };
+                    push @new_ns, $ns;
+                    $self->SUPER::start_prefix_mapping($ns);
+                }
+            }
         }
-        $namespace = "" unless defined $namespace;
-        
-        my $localname = $name;
-        if ($namespace && $prefix) {
-            ($localname) = $name =~ /^[^:]+:(.*)$/;
-        }
-        
+
         # Create element object and fire event
         my %attrib_hash;
-        while (@attribs) {
-            my ($name, $value) = splice(@attribs, 0, 2);
-            my ($namespace, $localname, $prefix) = ('', $name, '');
-            if (index($name, ':') >= 0) {
-                # prefixed attribute - get namespace
-                ($prefix, $namespace) = $self->_namespace($name);
-                if (!defined $namespace) {
-                    $self->parser_error("prefix '$prefix' not bound to any namespace", $reader);
-                }
-                ($localname) = $name =~ /^[^:]*:(.*)$/;
+        while (my ($name, $value) = each %attribs ) {
+            # TODO normalise value here
+            my ($ns, $prefix, $lname);
+            if ($self->get_feature(Namespaces)) {
+                ($ns, $prefix, $lname) = $self->{NSHelper}->process_attribute_name($name);
             }
-            $attrib_hash{"{$namespace}$localname"} = {
-                        Name => $name,
-                        LocalName => $localname,
-                        Prefix => $prefix,
-                        NamespaceURI => $namespace,
-                        Value => $value,
+            $ns ||= ''; $prefix ||= ''; $lname ||= '';
+            $attrib_hash{"{$ns}$lname"} = {
+                Name => $name,
+                LocalName => $lname,
+                Prefix => $prefix,
+                NamespaceURI => $ns,
+                Value => $value,
             };
         }
         
-        $self->start_element({
-                Name => $name,
-                LocalName => $localname,
-                Prefix => $prefix,
-                NamespaceURI => $namespace,
-                Attributes => \%attrib_hash,
-            });
+        %attribs = (); # lose the memory since we recurse deep
+        
+        my ($ns, $prefix, $lname);
+        if ($self->get_feature(Namespaces)) {
+            ($ns, $prefix, $lname) = $self->{NSHelper}->process_element_name($name);
+        }
+        $ns ||= ''; $prefix ||= ''; $lname ||= '';
+
+        my $el = 
+        {
+            Name => $name,
+            LocalName => $lname,
+            Prefix => $prefix,
+            NamespaceURI => $ns,
+            Attributes => \%attrib_hash,
+        };
+        $self->start_element($el);
         
         # warn("($name\n");
         
@@ -218,50 +236,21 @@ sub element {
             $end_name eq $name || $self->parser_error("End tag mismatch ($end_name != $name)", $reader);
             $self->skip_whitespace($reader);
             $reader->match('>') || $self->parser_error("No close '>' on end tag", $reader);
-            pop @{ $self->{InScopeNamespaceStack} };
         }
         
-        $self->end_element({
-                Name => $name,
-                LocalName => $localname,
-                Prefix => $prefix,
-                NamespaceURI => $namespace,
-            } );
+        delete $el->{Attributes};
+        $self->end_element($el);
+
+        for my $ns (@new_ns) {
+            $self->end_prefix_mapping($ns);
+        }
+        $self->{NSHelper}->pop_context;
         
         return 1;
     }
     
     return 0;
 }
-
-sub _scan_namespaces {
-    my ($self, %attributes) = @_;
-
-    while (my ($attr_name, $value) = each %attributes) {
-        if ($attr_name eq 'xmlns') {
-            $self->{InScopeNamespaceStack}[-1]{'#Default'} = $value;
-        } elsif ($attr_name =~ /^xmlns:(.*)$/) {
-            my $prefix = $1;
-            $self->{InScopeNamespaceStack}[-1]{$prefix} = $value;
-        }
-    }
-}
-
-sub _namespace {
-    my ($self, $name) = @_;
-
-    my ($prefix, $localname) = split(/:/, $name);
-    if (!defined($localname)) {
-        if ($prefix eq 'xmlns') {
-            return '', undef;
-        } else {
-            return '', $self->{InScopeNamespaceStack}[-1]{'#Default'};
-        }
-    } else {
-        return $prefix, $self->{InScopeNamespaceStack}[-1]{$prefix};
-    }
-}
-
 
 sub content {
     my ($self, $reader) = @_;
