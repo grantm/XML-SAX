@@ -27,6 +27,9 @@ $PubidChar = qr/ \x20 | \x0D | \x0A | [a-zA-Z0-9] | [\'()\+,.\/:=\?;!*\#@\$_\%] 
 if ($] < 5.006) {
     eval <<'    PERL';
     $Char = qr/ \x09 | \x0A | \x0D | [\x20-\x7F] | ([\xC0-\xFD][\x80-\xBF]+) /x;
+
+    $SingleChar = qr/^$Char$/;
+
     $BaseChar = qr/
             [\x41-\x5A] | [\x61-\x7A] | [\xC0-\xD6] | [\xD8-\xF6] |
             [\xF8-\xFF] /x;

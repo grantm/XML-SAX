@@ -350,7 +350,7 @@ sub Misc {
 sub chr_ref {
     my $n = shift;
     if ($] >= 5.006) { # unicode available
-        return chr($n);
+        return pack("U", $n);
     }
     if ($n < 0x80) {
         return chr ($n);

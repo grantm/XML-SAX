@@ -53,6 +53,7 @@ sub nextchar {
     my $self = shift;
     $self->next;
     my $n = ord($self->{current});
+    # warn(sprintf("ch: 0x%x ($self->{current})\n", $n));
     if (($] < 5.007002) && ($n > 0x7F)) {
         # utf8 surrogate
         my $current = $self->{current};
@@ -87,7 +88,13 @@ sub nextchar {
             $self->next; $current .= $self->{current};
         }
         else {
-            throw XML::SAX::Exception( Message => "Invalid character $n" );
+            throw XML::SAX::Exception::Parse(
+                Message => sprintf("Invalid character 0x%x", $n),
+                ColumnNumber => $self->column,
+                LineNumber => $self->line,
+                PublicId => $self->public_id,
+                SystemId => $self->system_id,
+            );
         }
         if ($] >= 5.006001) {
             $self->{current} = pack("U0A*", $current);
@@ -95,6 +102,7 @@ sub nextchar {
         else {
             $self->{current} = $current;
         }
+        # warn("read extra. current now: $current\n");
     }
 }
 
@@ -192,7 +200,11 @@ sub buffer {
     my $self = shift;
     # warn("buffering: '$_[0]' + '$self->{current}' + '$self->{buffer}'\n");
     local $^W;
-    $self->{buffer} = $_[0] . $self->{current} . $self->{buffer};
+    my $current = $self->{current};
+    if ($] >= 5.006) {
+        $current = pack("C0A*", $current);
+    }
+    $self->{buffer} = $_[0] . $current . $self->{buffer};
     $self->nextchar;
 }
 
