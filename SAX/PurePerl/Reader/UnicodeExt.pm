@@ -8,7 +8,7 @@ use Encode;
 
 sub set_raw_stream {
     my ($fh) = @_;
-    binmode($fh, ":raw");
+    binmode($fh, ":bytes");
 }
 
 sub switch_encoding_stream {
