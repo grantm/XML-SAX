@@ -70,7 +70,7 @@ sub _parse_ini_file {
     my @config;
     
     my $lineno = 0;
-    while (my $line = <$fh>) {
+    while (defined(my $line = <$fh>)) {
         $lineno++;
         my $original = $line;
         # strip whitespace
@@ -176,6 +176,7 @@ sub save_parsers {
         foreach my $key (keys %{$p->{Features}}) {
             print $fh "$key = $p->{Features}{$key}\n";
         }
+        print $fh "\n";
     }
 
     print $fh "\n";
