@@ -27,7 +27,7 @@ my $known_parsers = undef;
 # load_parsers takes the ParserDetails.ini file out of the same directory
 # that XML::SAX is in, and looks at it. Format in POD below
 
-=begin example
+my $____example = <<'EOEXAMPLE';
 
 [XML::SAX::PurePerl]
 http://xml.org/sax/features/namespaces = 1
@@ -40,7 +40,7 @@ http://xml.org/sax/features/validation = 0
 http://xml.org/sax/features/namespaces = 0
 http://xml.org/sax/features/validation = 1
 
-=cut
+EOEXAMPLE
 
 sub load_parsers {
     my $class = shift;
@@ -290,14 +290,13 @@ following:
   use XML::SAX;
   use XML::SAX::PurePerl::DebugHandler;
   XML::SAX->add_parser(q(XML::SAX::MyDriver));
-  open(INI, ">SAX.ini") || die "Cannot write SAX.ini";
-  print INI "ParserPackage = XML::SAX::MyDriver\n";
-  close INI;
+  local $XML::SAX::ParserPackage = 'XML::SAX::MyDriver';
   eval {
     my $handler = XML::SAX::PurePerl::DebugHandler->new();
     ok($handler);
     my $parser = XML::SAX::ParserFactory->parser(Handler => $handler);
     ok($parser);
+    ok($parser->isa('XML::SAX::MyDriver');
     $parser->parse_string("<tag/>");
     ok($handler->{seen}{start_element});
   };
