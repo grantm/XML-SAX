@@ -40,6 +40,10 @@ SAX/PurePerl/Reader.pm
 SAX/PurePerl/Reader/Stream.pm
 SAX/PurePerl/Reader/String.pm
 SAX/PurePerl/Reader/URI.pm
+SAX/PurePerl/Reader/UnicodeExt.pm
+SAX/PurePerl/Reader/NoUnicodeExt.pm
+SAX/PurePerl/UnicodeExt.pm
+SAX/PurePerl/NoUnicodeExt.pm
 SAX/PurePerl/XMLDecl.pm
 testfiles/01.xml
 testfiles/02a.xml

@@ -1,5 +1,10 @@
 Revision history for Perl extension XML::SAX.
 
+0.09
+    - Performance enhancements
+    - Line End handling implemented.
+    - Attribute Value Normalization implemented (mostly).
+
 0.08  Wed Jan 30, 2002
     - Fixes for perl 5.7.2
     
