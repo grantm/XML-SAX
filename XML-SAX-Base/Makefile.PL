@@ -645,7 +645,8 @@ use strict;
 use overload '""' => "stringify",
     'fallback' => 1;
 
-use vars qw/$StackTrace/;
+use vars qw/$StackTrace $VERSION/;
+$VERSION = '1.01';
 use Carp;
 
 $StackTrace = $ENV{XML_DEBUG} || 0;
