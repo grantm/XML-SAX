@@ -71,13 +71,23 @@ sub _parser_class {
     for my $dir (@INC) {
         my $fh = gensym();
         if (open($fh, "$dir/SAX.ini")) {
-            my $params = $self->_parse_ini($fh);
+            my $param_list = XML::SAX->_parse_ini_file($fh);
+            my $params = $param_list->[0];
             if ($params->{ParserPackage}) {
                 return $params->{ParserPackage};
             }
             else {
+                PARSER:
+                foreach my $parser (reverse @{$self->{KnownParsers}}) {
+                    foreach my $feature (keys %$params) {
+                        if (!exists $parser->{Features}{$feature}) {
+                            next PARSER;
+                        }
+                    }
+                    return $parser->{Name};
+                }
             } 
-            last;
+            last; # stop after first INI found
         }
     }
 
