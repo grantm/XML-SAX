@@ -5,7 +5,7 @@ package XML::SAX::ParserFactory;
 use strict;
 use vars qw($VERSION);
 
-$VERSION = '1.00';
+$VERSION = '1.01';
 
 use Symbol qw(gensym);
 use XML::SAX;
@@ -28,12 +28,8 @@ sub parser {
     my $parser_class = $self->_parser_class();
 
     {
-        my $parser_file = $parser_class;
-        $parser_file =~ s/::/\//g;
-        $parser_file .= ".pm";
-        no strict 'refs';
         if (!keys %{"${parser_class}::"}) {
-            require $parser_file;
+            eval "use $parser_class;";
         }
     }
 
