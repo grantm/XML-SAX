@@ -1,5 +1,13 @@
 Revision history for Perl extension XML::SAX.
 
+0.04  Mon Jan 21, 2002
+    - More PurePerl updates and fixes
+    - Added DocumentLocator class
+    - Added remove_parser() to XML::SAX
+
+0.03
+    - Changes lost. Mostly PurePerl parser updates
+
 0.02  Wed Nov 14 2001
     - Removed windows line endings so perldocs look ok.
     - Fixed some docs
