@@ -5,9 +5,9 @@ package XML::SAX;
 use strict;
 use vars qw($VERSION @ISA @EXPORT_OK);
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 
-require Exporter;
+use Exporter ();
 @ISA = ('Exporter');
 
 @EXPORT_OK = qw(Namespaces Validation);
@@ -27,7 +27,7 @@ my $known_parsers = undef;
 # load_parsers takes the ParserDetails.ini file out of the same directory
 # that XML::SAX is in, and looks at it. Format in POD below
 
-my $____example = <<'EOEXAMPLE';
+=begin EXAMPLE
 
 [XML::SAX::PurePerl]
 http://xml.org/sax/features/namespaces = 1
@@ -40,7 +40,9 @@ http://xml.org/sax/features/validation = 0
 http://xml.org/sax/features/namespaces = 0
 http://xml.org/sax/features/validation = 1
 
-EOEXAMPLE
+=end EXAMPLE
+
+=cut
 
 sub load_parsers {
     my $class = shift;
@@ -278,14 +280,17 @@ cause more than just a warning.
   sub MY::install {
     package MY;
     my $script = shift->SUPER::install(@_);
-    $script =~ s/install :: (.*)$/install :: $1 install_sax_driver/m;
-    $script .= <<"INSTALL";
-
+    if (ExtUtils::MakeMaker::prompt(
+      "Do you want to modify ParserDetails.ini?", 'Y')
+      =~ /^y/i) {
+      $script =~ s/install :: (.*)$/install :: $1 install_sax_driver/m;
+      $script .= <<"INSTALL";
+  
   install_sax_driver :
   \t\@\$(PERL) -MXML::SAX -e "XML::SAX->add_parser(q(\$(NAME)))->save_parsers()"
   
   INSTALL
-  
+    }
     return $script;
   }
 
@@ -314,10 +319,12 @@ following:
     $parser->parse_string("<tag/>");
     ok($handler->{seen}{start_element});
   };
-  unlink("SAX.ini");
+  unlink("ParserDetails.ini");
 
-This will test XML::SAX loading the driver, using SAX.ini to know which driver
-to load. Again, not to change the Driver module from XML::SAX::MyDriver to
+This will test XML::SAX loading the driver, using 
+ParserDetails.ini to know which driver
+to load. Again, not to change the Driver module 
+from XML::SAX::MyDriver to
 whatever you called your SAX driver.
 
 =back
