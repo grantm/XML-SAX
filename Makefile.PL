@@ -12,7 +12,8 @@ WriteMakefile(
 sub MY::test {
     package MY;
     my $script = shift->SUPER::test(@_);
-    $script =~ s/TEST_FILES = .*$/TEST_FILES = t\/sax\/*.t t\/sax_base\/*.t t\/sax_exception\/*.t t\/sax_pureperl\/*.t t\/sax_parserfactory\/*.t/m;
+    my $files = join(' ', glob("t/sax/*.t t/sax_base/*.t t/sax_exception/*.t t/sax_pureperl/*.t t/sax_parser_factory/*.t"));
+    $script =~ s/TEST_FILES = .*$/TEST_FILES = $files/m;
     return $script;
 }
 

@@ -18,6 +18,7 @@ SAX/PurePerl/Reader/Stream.pm
 SAX/PurePerl/Reader/String.pm
 SAX/PurePerl/Reader/URI.pm
 SAX/PurePerl/XMLDecl.pm
+t/ignore.t
 t/sax/00basic.t
 t/sax/01known.t
 t/sax_base/00basic.t
