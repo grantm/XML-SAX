@@ -1,0 +1,9 @@
+
+TODO for XML::SAX
+
+    - XML::SAX::Base could use getters for the handlers (it currently only has
+      setters, which is not only weird but also a bit inconvenient when you 
+      need to know what handler may be there). We should add getters that 
+      follow the event spec hash, ie if you call get_content_handler and there
+      is no ContentHandler, it'll return the Handler.
+
