@@ -7,7 +7,7 @@ use vars qw/$VERSION/;
 
 $VERSION = '0.90';
 
-use XML::SAX::PurePerl::Productions qw($S $Letter $NameChar $Any $CharMinusDash $SingleChar);
+use XML::SAX::PurePerl::Productions qw($Any $CharMinusDash $SingleChar);
 use XML::SAX::PurePerl::Reader;
 use XML::SAX::PurePerl::EncodingDetect ();
 use XML::SAX::Exception;
@@ -675,23 +675,6 @@ sub Name {
     my ($self, $reader) = @_;
     
     return $reader->consume_name();
-    
-#     my $name = '';
-#     if ($reader->match_char('_')) {
-#         $name .= '_';
-#     }
-#     elsif ($reader->match_char(':')) {
-#         $name .= ':';
-#     }
-#     else {
-#         $reader->consume($Letter) ||
-#             $self->parser_error("Name contains invalid start character '" . $reader->current . "'", $reader);
-#         $name .= $reader->consumed;
-#     }
-#     
-#     $reader->consume($NameChar);
-#     $name .= $reader->consumed;
-#     return $name;
 }
 
 sub quote {
