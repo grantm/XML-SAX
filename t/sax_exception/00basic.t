@@ -1,6 +1,6 @@
 use Test;
 BEGIN { plan tests => 1 }
 END { ok($loaded) }
-use XML::SAX;
+use XML::SAX::Exception;
 $loaded++;
 

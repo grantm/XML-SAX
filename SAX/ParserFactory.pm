@@ -14,7 +14,7 @@ sub new {
     my $class = shift;
     my %params = @_; # TODO : Fix this in spec.
     my $self = bless \%params, $class;
-    $self->{KnownParsers} = XML::SAX->load_parsers()->parsers();
+    $self->{KnownParsers} = XML::SAX->parsers();
     return $self;
 }
 
@@ -44,6 +44,7 @@ sub require_feature {
     my $self = shift;
     my ($feature) = @_;
     $self->{RequiredFeatures}{$feature}++;
+    return $self;
 }
 
 sub _parser_class {
@@ -70,7 +71,10 @@ sub _parser_class {
             # got here - all features must exist!
             return $parser->{Name};
         }
-        throw XML::SAX::Exception ("Unable to provide required features");
+        # TODO : should this be NotSupported() ?
+        throw XML::SAX::Exception (
+                Message => "Unable to provide required features",
+            );
     }
 
     # Next try SAX.ini

@@ -3,15 +3,24 @@
 package XML::SAX;
 
 use strict;
-use vars qw($VERSION);
+use vars qw($VERSION @ISA @EXPORT_OK);
 
 $VERSION = '0.01';
+
+require Exporter;
+@ISA = ('Exporter');
+
+@EXPORT_OK = qw(Namespaces Validation);
 
 use File::Basename qw(dirname);
 use File::Spec ();
 use Symbol qw(gensym);
+use XML::SAX::ParserFactory (); # loaded for simplicity
 
 use constant PARSER_DETAILS => "ParserDetails.ini";
+
+use constant Namespaces => "http://xml.org/sax/features/namespaces";
+use constant Validation => "http://xml.org/sax/features/validation";
 
 my $known_parsers = undef;
 
@@ -46,6 +55,7 @@ sub load_parsers {
     my $fh = gensym();
     if (!open($fh, File::Spec->catfile($dir, "SAX", PARSER_DETAILS))) {
         warn("could not find " . PARSER_DETAILS . " in $dir/SAX\n");
+        return $class;
     }
 
     $known_parsers = $class->_parse_ini_file($fh);
@@ -123,14 +133,19 @@ sub add_parser {
         $new->{Features}{$feature} = 1;
     }
 
-    # If exists in list already, replace.
+    # If exists in list already, move to end.
     my $done = 0;
+    my $pos = undef;
     for (my $i = 0; $i < @$known_parsers; $i++) {
         my $p = $known_parsers->[$i];
         if ($p->{Name} eq $parser_module) {
-            $known_parsers->[$i] = $new;
-            $done++;
+            $pos = $i;
         }
+    }
+    if (defined $pos) {
+        splice(@$known_parsers, $pos, 1);
+        push @$known_parsers, $new;
+        $done++;
     }
 
     # Otherwise (not in list), add at end of list.
@@ -289,6 +304,19 @@ to load. Again, not to change the Driver module from XML::SAX::MyDriver to
 whatever you called your SAX driver.
 
 =back
+
+=head1 EXPORTS
+
+By default, XML::SAX exports nothing into the caller's namespace. However you
+can request the symbols C<Namespaces> and C<Validation> which are the
+URIs for those features, allowing an easier way to request those features
+via ParserFactory:
+
+  use XML::SAX qw(Namespaces Validation);
+  my $factory = XML::SAX::ParserFactory->new();
+  $factory->require_feature(Namespaces);
+  $factory->require_feature(Validation);
+  my $parser = $factory->parser();
 
 =head1 AUTHOR
 

@@ -4,7 +4,8 @@ package XML::SAX::Exception;
 
 use strict;
 
-use overload '""' => "stringify";
+use overload '""' => "stringify",
+    'fallback' => 1;
 
 use vars qw/$StackTrace/;
 use Carp;
@@ -38,9 +39,19 @@ sub new {
 sub stringify {
     my $self = shift;
     local $^W;
-    return $self->{Message} . " [Ln: " . $self->{LineNumber} . 
-                ", Col: " . $self->{ColumnNumber} . "]" .
-                ($StackTrace ? stackstring($self->{StackTrace}) : "") . "\n";
+    my $error;
+    if (exists $self->{LineNumber}) {
+        $error = $self->{Message} . " [Ln: " . $self->{LineNumber} . 
+                ", Col: " . $self->{ColumnNumber} . "]";
+    }
+    else {
+        $error = $self->{Message};
+    }
+    if ($StackTrace) {
+        $error .= stackstring($self->{StackTrace});
+    }
+    $error .= "\n";
+    return $error;
 }
 
 sub stacktrace {

@@ -19,9 +19,12 @@ SAX/PurePerl/Reader/String.pm
 SAX/PurePerl/Reader/URI.pm
 SAX/PurePerl/XMLDecl.pm
 t/sax/00basic.t
+t/sax/01known.t
 t/sax_base/00basic.t
 t/sax_exception/00basic.t
+t/sax_exception/01throw.t
 t/sax_parserfactory/00basic.t
+t/sax_parserfactory/01factory.t
 t/sax_pureperl/00basic.t
 t/sax_pureperl/01xmldecl1.t
 t/sax_pureperl/02xmldecl2.t
@@ -30,7 +33,6 @@ t/sax_pureperl/04int_ent.t
 t/sax_pureperl/05encoding.t
 t/sax_pureperl/06element.t
 t/sax_pureperl/07large.t
-t/sax_pureperl/08jclark.t
 testfiles/01.xml
 testfiles/02a.xml
 testfiles/02b.xml
