@@ -10,6 +10,11 @@ my $parser = XML::SAX::PurePerl->new(Handler => $handler);
 $parser->set_feature(Namespaces, 0);
 
 for my $id (1..119) {
+    if ($] < 5.007002) {
+        skip(1, "no Encode on this platform"), next if $id == 49;
+        skip(1, "no Encode on this platform"), next if $id == 50;
+        skip(1, "no Encode on this platform"), next if $id == 51;
+    }
     my $file = sprintf("testfiles/jclark/%03d.xml", $id);
     eval {
         $parser->parse_uri($file);
