@@ -4,5 +4,4 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'	=> 'XML::SAX',
     'VERSION_FROM' => 'SAX.pm', # finds $VERSION
-    'PREREQ_PM' => { XML::SAX::PurePerl => 0.81 },
 );

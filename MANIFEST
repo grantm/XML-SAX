@@ -1,8 +1,11 @@
 Changes
 Makefile.PL
 MANIFEST
-SAX.pm
 README
 LICENSE
 t/00basic.t
+SAX.pm
+SAX/Base.pm
+SAX/Exception.pm
+SAX/PurePerl.pm
 
