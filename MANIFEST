@@ -24,6 +24,7 @@ XML-SAX-Base/t/12sax2multiclass.t
 XML-SAX-Base/t/events.pl
 SAX.pm
 SAX/ParserFactory.pm
+SAX/DocumentLocator.pm
 SAX/PurePerl.pm
 SAX/PurePerl/DTDDecls.pm
 SAX/PurePerl/DebugHandler.pm
