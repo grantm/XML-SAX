@@ -296,7 +296,7 @@ following:
   eval {
     my $handler = XML::SAX::PurePerl::DebugHandler->new();
     ok($handler);
-    my $parser = XML::SAX->parser(Handler => $handler);
+    my $parser = XML::SAX::ParserFactory->parser(Handler => $handler);
     ok($parser);
     $parser->parse_string("<tag/>");
     ok($handler->{seen}{start_element});
