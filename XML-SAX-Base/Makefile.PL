@@ -30,6 +30,7 @@ package XML::SAX::Base;
 # version 0.25 - Kip Hampton <khampton@totalcinema.com>
 # version 1.00 - Kip Hampton <khampton@totalcinema.com>
 # version 1.01 - Kip Hampton <khampton@totalcinema.com>
+# version 1.02 - Robin Berjon <robin@knowscape.com>
 
 #-----------------------------------------------------#
 # STOP!!!!!
@@ -514,6 +515,22 @@ for features not defined by your class. An example would be:
 
 Currently this part is unimplemented.
 
+
+=item * set_handler
+
+This method takes a handler type (Handler, ContentHandler, etc.) and a
+handler object as arguments, and changes the current handler for that
+handler type, while taking care of resetting the internal state that 
+needs to be reset. This allows one to change a handler during parse
+without running into problems (changing it on the parser object 
+directly will most likely cause trouble).
+
+=item * set_document_handler, set_content_handler, set_dtd_handler, set_lexical_handler, set_decl_handler, set_error_handler, set_entity_resolver
+
+These are just simple wrappers around the former method, and take a
+handler object as their argument. Internally they simply call
+set_handler with the correct arguments.
+
 =back
 
 It would be rather useless to describe all the methods that this
@@ -722,15 +739,38 @@ XML::SAX::Exception - Exception classes for XML::SAX
 
 =head1 DESCRIPTION
 
-blah blah blah
+This module is the base class for all SAX Exceptions, those defined in
+the spec as well as those that one may create for one's own SAX errors.
 
-There are three subclasses included:
+There are three subclasses included, corresponding to those of the SAX
+spec:
 
   XML::SAX::Exception::NotSupported
   XML::SAX::Exception::NotRecognized
   XML::SAX::Exception::Parse
 
-Use them.
+Use them wherever you want, and as much as possible when you encounter
+such errors. SAX is meant to use exceptions as much as possible to 
+flag problems.
+
+=head1 CREATING NEW EXCEPTION CLASSES
+
+All you need to do to create a new exception class is:
+
+  @XML::SAX::Exception::MyException::ISA = ('XML::SAX::Exception')
+
+The given package doesn't need to exist, it'll behave correctly this 
+way. If your exception refines an existing exception class, then you
+may also inherit from that instead of from the base class.
+
+=head1 THROWING EXCEPTIONS
+
+This is as simple as exemplified in the SYNOPSIS. In fact, there's 
+nothing more to know. All you have to do is:
+
+  throw XML::SAX::Exception::MyException( Message => 'Something went wrong' );
+
+and voila, you've thrown an exception which can be caught in an eval block.
 
 =cut
 
