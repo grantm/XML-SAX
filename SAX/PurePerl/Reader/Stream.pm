@@ -6,6 +6,7 @@ use strict;
 use vars qw(@ISA);
 
 use XML::SAX::PurePerl::Reader;
+use XML::SAX::Exception;
 
 @ISA = ('XML::SAX::PurePerl::Reader');
 
@@ -58,9 +59,16 @@ sub set_encoding {
     # warn("set encoding to: $encoding\n");
     if ($] >= 5.007002) {
         eval q{ binmode($self->{fh}, ":encoding($encoding)") };
+        if ($@) {
+            throw XML::SAX::Exception::Parse (
+                    Message => "Error switching encodings: $@",
+                );
+        }
     }
     else {
-        die "Only ASCII encoding allowed without perl 5.7.2 or higher. You tried: $encoding" if $encoding !~ /(ASCII|UTF\-?8)/i;
+        throw XML::SAX::Exception::Parse (
+                Message => "Only ASCII encoding allowed without perl 5.7.2 or higher. You tried: $encoding",
+            ) if $encoding !~ /(ASCII|UTF\-?8)/i;
     }
     $self->{encoding} = $encoding;
 }
