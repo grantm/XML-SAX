@@ -28,6 +28,7 @@ sub parser {
     my $parser_class = $self->_parser_class();
 
     {
+        no strict 'refs';
         if (!keys %{"${parser_class}::"}) {
             eval "use $parser_class;";
         }
