@@ -12,7 +12,7 @@ WriteMakefile(
 sub MY::test {
     package MY;
     my $script = shift->SUPER::test(@_);
-    $script =~ s/TEST_FILES = .*$/TEST_FILES = t\/*.t t\/sax\/*.t/m;
+    $script =~ s/TEST_FILES = .*$/TEST_FILES = t\/sax\/*.t t\/sax_base\/*.t t\/sax_exception\/*.t t\/sax_pureperl\/*.t t\/sax_parserfactory\/*.t/m;
     return $script;
 }
 
