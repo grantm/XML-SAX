@@ -2,12 +2,13 @@ use Test;
 BEGIN { plan tests => 12 }
 use XML::SAX::Base;
 use vars qw/%events/;
-require "t/sax_base/events.pl";
+require "t/events.pl";
 
-# Tests for ContentHandler classes
+# Tests for ContentHandler classes using a filter
 
 my $sax_it = SAXAutoload->new();
-my $driver = Driver->new(ContentHandler => $sax_it);
+my $filter = Filter->new(ContentHandler => $sax_it);
+my $driver = Driver->new(ContentHandler => $filter);
 my %ret  = $driver->parse();
 
 ok (scalar(keys(%ret)) == 11);
@@ -23,6 +24,12 @@ foreach my $meth (keys(%ret)){
       ) || warn "failed for $meth\n";
 }
 # end main
+
+package Filter;
+use base qw(XML::SAX::Base);
+# this space intentionally blank
+
+1;
 
 package Driver;
 use base qw(XML::SAX::Base);

@@ -1,18 +1,18 @@
 use Test;
-BEGIN { plan tests => 10 }
+BEGIN { plan tests => 5 }
 use XML::SAX::Base;
 use strict;
 use vars qw/%events $meth_count/;
-require "t/sax_base/events.pl";
+require "t/events.pl";
 
-# Tests for DocumentHandler classes using a filter
+# Tests for ContentHandler classes using a filter
 
 my $sax_it = SAXAutoload->new();
-my $filter = Filter->new(DocumentHandler => $sax_it);
-my $driver = Driver->new(DocumentHandler => $filter);
+my $filter = Filter->new(DeclHandler => $sax_it);
+my $driver = Driver->new(DeclHandler => $filter);
 $driver->parse();
 
-ok($meth_count == 9);
+ok($meth_count == 4);
 
 # end main
 
@@ -29,16 +29,12 @@ sub parse {
     my $self = shift;
     my %events = %main::events;
  
-    $self->SUPER::start_document($events{start_document});
-    $self->SUPER::processing_instruction($events{processing_instruction});
-    $self->SUPER::start_element($events{start_element});
-    $self->SUPER::characters($events{characters});
-    $self->SUPER::ignorable_whitespace($events{ignorable_whitespace});
-    $self->SUPER::set_document_locator($events{set_document_locator});
-    $self->SUPER::end_element($events{end_element});
-    $self->SUPER::entity_reference($events{entity_reference});
-    $self->SUPER::end_document($events{end_document});
+    $self->SUPER::element_decl($events{element_decl});
+    $self->SUPER::attribute_decl($events{attribute_decl});
+    $self->SUPER::internal_entity_decl($events{internal_entity_decl});
+    $self->SUPER::external_entity_decl($events{external_entity_decl});
 
+#    return $self->SUPER::result(1);
 }
 1;
 

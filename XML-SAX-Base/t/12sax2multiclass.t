@@ -3,7 +3,7 @@ BEGIN { plan tests => 33 }
 use XML::SAX::Base;
 use strict;
 use vars qw/%events $meth_count/;
-require "t/sax_base/events.pl";
+require "t/events.pl";
 
 # Multiclass SAX1 filter
 

@@ -1,18 +1,18 @@
 use Test;
-BEGIN { plan tests => 5 }
+BEGIN { plan tests => 4 }
 use XML::SAX::Base;
 use strict;
 use vars qw/%events $meth_count/;
-require "t/sax_base/events.pl";
+require "t/events.pl";
 
-# Tests for ContentHandler classes using a filter
+# Tests for ErrorHandler classes using a filter
 
 my $sax_it = SAXAutoload->new();
-my $filter = Filter->new(DeclHandler => $sax_it);
-my $driver = Driver->new(DeclHandler => $filter);
+my $filter = Filter->new(ErrorHandler => $sax_it);
+my $driver = Driver->new(ErrorHandler => $filter);
 $driver->parse();
 
-ok($meth_count == 4);
+ok($meth_count == 3);
 
 # end main
 
@@ -29,12 +29,10 @@ sub parse {
     my $self = shift;
     my %events = %main::events;
  
-    $self->SUPER::element_decl($events{element_decl});
-    $self->SUPER::attribute_decl($events{attribute_decl});
-    $self->SUPER::internal_entity_decl($events{internal_entity_decl});
-    $self->SUPER::external_entity_decl($events{external_entity_decl});
+    $self->SUPER::warning($events{warning});
+    $self->SUPER::error($events{error});
+    $self->SUPER::fatal_error($events{fatal_error});
 
-#    return $self->SUPER::result(1);
 }
 1;
 
