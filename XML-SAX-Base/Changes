@@ -1,5 +1,10 @@
 Revision history for Perl extension XML::SAX::Base.
 
+1.04 Mon Apr 28 23:56:33 2001
+        - plugged major memory leak (thanks to Richard Titmuss for the catch and Matt Sergeant for the patch).
+	- added get_handler method (and friends).
+	- added to test suite
+
 1.03 Mon Jan 21 2002
     - set namespaces feature on by default as per SAX spec
 
