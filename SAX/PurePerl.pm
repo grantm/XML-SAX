@@ -545,7 +545,7 @@ sub Attribute {
 
 sub cdata_attrib {
     # TODO implement this!
-    return 0;
+    return 1;
 }
 
 sub AttValue {
