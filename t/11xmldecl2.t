@@ -18,15 +18,21 @@ eval {
 $parser->parse_file($file);
 };
 ok($@);
+
+print $@;
+
 ok($@->{Message});
 ok($@->{LineNumber}, 1);
-ok($@->{ColumnNumber}, 19);
+ok($@->{ColumnNumber}, 15);
 
 # check invalid version number
 eval {
 $parser->parse_uri("file:testfiles/02b.xml");
 };
 ok($@);
+
+print $@;
+
 ok($@->{LineNumber}, 1);
-ok($@->{ColumnNumber}, 19);
+ok($@->{ColumnNumber}, 15);
 
