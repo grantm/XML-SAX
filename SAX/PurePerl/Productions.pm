@@ -150,7 +150,6 @@ else {
     $NameChar = qr/ $Letter | $Digit | [._:-] | $CombiningChar | $Extender /x;
     PERL
 
-    eval $rest;
     die $@ if $@;
 }
 
