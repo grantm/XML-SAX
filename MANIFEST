@@ -68,4 +68,5 @@ t/14encoding.t
 t/15element.t
 t/16large.t
 t/20factory.t
+t/99cleanup.t
 
