@@ -109,8 +109,9 @@ sub $ev {
        for my $h (@{$EVENT_SPEC{$ev}}) {
             $can_string .= <<"            EOCANBLOCK";
         elsif (defined \$callbacks->{'$h'} and \$method = \$callbacks->{'$h'}->can('$ev') ) {
-            \$self->{Methods}->{'$ev'} = sub { \$method->(\$callbacks->{'$h'}, \@_) };
-            \$method->(\$callbacks->{$h}, \@_);
+            my \$handler = \$callbacks->{'$h'};
+            \$self->{Methods}->{'$ev'} = sub { \$method->(\$handler, \@_) };
+            \$method->(\$handler, \@_);
         }
             EOCANBLOCK
             $aload_string .= <<"            EOALOADBLOCK";
@@ -123,7 +124,8 @@ sub $ev {
                 # I think there's a buggette here...
                 # if the first call throws an exception, we don't set it up right.
                 # Not fatal, but we might want to address it.
-                \$self->{Methods}->{'$ev'} = sub { \$callbacks->{'$h'}->$ev(\@_) };
+                my \$handler = \$callbacks->{'$h'};
+                \$self->{Methods}->{'$ev'} = sub { \$handler->$ev(\@_) };
             }
             return \$res;
         }
@@ -134,7 +136,7 @@ sub $ev {
 
             $code .= <<"            EOFALLTHROUGH";
         else {
-            \$self->{Methods}->{'$ev'} = sub { \$self->no_op };
+            \$self->{Methods}->{'$ev'} = sub { };
         }
     }
             EOFALLTHROUGH
