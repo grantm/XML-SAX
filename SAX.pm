@@ -44,8 +44,8 @@ sub load_parsers {
     $dir = dirname($dir);
     
     my $fh = gensym();
-    if (!open($fh, File::Spec->catfile($dir, PARSER_DETAILS))) {
-        warn("could not find " . PARSER_DETAILS . " in $dir\n");
+    if (!open($fh, File::Spec->catfile($dir, "SAX", PARSER_DETAILS))) {
+        warn("could not find " . PARSER_DETAILS . " in $dir/SAX\n");
     }
 
     $known_parsers = $class->_parse_ini_file($fh);
@@ -147,7 +147,7 @@ sub save_parsers {
     $dir = dirname($dir);
     
     my $fh = gensym();
-    open($fh, ">" . File::Spec->catfile($dir, PARSER_DETAILS)) ||
+    open($fh, ">" . File::Spec->catfile($dir, "SAX", PARSER_DETAILS)) ||
         die "Cannot write to " . PARSER_DETAILS . " file: $!";
 
     foreach my $p (@$known_parsers) {
