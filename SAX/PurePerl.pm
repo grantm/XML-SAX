@@ -239,7 +239,8 @@ sub element {
         }
         
         delete $el->{Attributes};
-        $self->end_element($el);
+        my %end_el = %$el;
+        $self->end_element(\%end_el);
 
         for my $ns (@new_ns) {
             $self->end_prefix_mapping($ns);
