@@ -1,5 +1,9 @@
 Revision history for Perl extension XML::SAX.
 
+0.02  Wed Nov 14 2001
+    - Removed windows line endings so perldocs look ok.
+    - Fixed some docs
+
 0.01  Mon Nov  5 22:24:06 2001
     - original version; created by elves and penguins v1.32
 
