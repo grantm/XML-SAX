@@ -6,11 +6,6 @@ use strict;
 use vars qw(@ISA);
 
 use XML::SAX::PurePerl::Reader;
-BEGIN {
-    if ($] >= 5.007002) {
-        require Encode;
-    }
-}
 
 @ISA = ('XML::SAX::PurePerl::Reader');
 
@@ -42,13 +37,8 @@ sub next {
 sub set_encoding {
     my $self = shift;
     my ($encoding) = @_;
-    
-    if ($] >= 5.007002) {
-        Encode::from_to($self->{string}, $encoding, "utf-8");
-    }
-    else {
-        die "Only ASCII encoding allowed without perl 5.7.2 or higher" if $encoding !~ /(ASCII|UTF\-?8)/i;
-    }
+
+    XML::SAX::PurePerl::Reader::switch_encoding_string($self->{string}, $encoding, "utf-8");
     $self->{encoding} = $encoding;
 }
 

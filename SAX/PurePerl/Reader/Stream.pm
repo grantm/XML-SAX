@@ -13,9 +13,7 @@ use XML::SAX::Exception;
 sub new {
     my $class = shift;
     my $ioref = shift;
-    if ($] >= 5.007002) {
-        eval q(binmode($ioref, ':raw');); # start in raw mode
-    }
+    XML::SAX::PurePerl::Reader::set_raw_stream($ioref);
     return bless { fh => $ioref, line => 1, col => 0, buffer => '', eof => 0 }, $class;
 }
 
@@ -57,19 +55,7 @@ sub set_encoding {
     my $self = shift;
     my ($encoding) = @_;
     # warn("set encoding to: $encoding\n");
-    if ($] >= 5.007002) {
-        eval q{ binmode($self->{fh}, ":encoding($encoding)") };
-        if ($@) {
-            throw XML::SAX::Exception::Parse (
-                    Message => "Error switching encodings: $@",
-                );
-        }
-    }
-    else {
-        throw XML::SAX::Exception::Parse (
-                Message => "Only ASCII encoding allowed without perl 5.7.2 or higher. You tried: $encoding",
-            ) if $encoding !~ /(ASCII|UTF\-?8)/i;
-    }
+    XML::SAX::PurePerl::Reader::switch_encoding_stream($self->{fh}, $encoding); 
     $self->{encoding} = $encoding;
 }
 

@@ -8,6 +8,13 @@ use XML::SAX::PurePerl::Reader::String;
 use XML::SAX::PurePerl::Reader::URI;
 use XML::SAX::PurePerl::Productions qw( $SingleChar );
 
+if ($] >= 5.007002) {
+    require XML::SAX::PurePerl::Reader::UnicodeExt;
+}
+else {
+    require XML::SAX::PurePerl::Reader::NoUnicodeExt;
+}
+
 sub new {
     my $class = shift;
     my $thing = shift;
@@ -49,64 +56,6 @@ sub init {
     return $self;
 }
 
-sub nextchar {
-    my $self = shift;
-    $self->next;
-    return unless $self->{encoding};
-    my $n = ord($self->{current});
-    # warn(sprintf("ch: 0x%x ($self->{current})\n", $n));
-    if (($] < 5.007002) && ($n > 0x7F)) {
-        # utf8 surrogate
-        my $current = $self->{current};
-        if    ($n >= 0xFC) {
-            # read 5 chars
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-        }
-        elsif ($n >= 0xF8) {
-            # read 4 chars
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-        }
-        elsif ($n >= 0xF0) {
-            # read 3 chars
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-        }
-        elsif ($n >= 0xE0) {
-            # read 2 chars
-            $self->next; $current .= $self->{current};
-            $self->next; $current .= $self->{current};
-        }
-        elsif ($n >= 0xC0) {
-            # read 1 char
-            $self->next; $current .= $self->{current};
-        }
-        else {
-            throw XML::SAX::Exception::Parse(
-                Message => sprintf("Invalid character 0x%x", $n),
-                ColumnNumber => $self->column,
-                LineNumber => $self->line,
-                PublicId => $self->public_id,
-                SystemId => $self->system_id,
-            );
-        }
-        if ($] >= 5.006001) {
-            $self->{current} = pack("U0A*", $current);
-        }
-        else {
-            $self->{current} = $current;
-        }
-        # warn("read extra. current now: $current\n");
-    }
-}
-
 sub match {
     my $self = shift;
     if ($self->match_nocheck(@_)) {
@@ -121,15 +70,12 @@ sub match {
 sub match_nonext {
     my $self = shift;
     
-    my @char = @_;
     return 0 unless defined $self->{current};
     
-    $self->{matched} = '';
-    
-    foreach my $m (@char) {
+    foreach my $m (@_) {
         local $^W;
         if (ref($m) eq 'Regexp') {
-            if ($self->{current} =~ m/$m/) {
+            if ($self->{current} =~ $m) {
                 $self->{matched} = $self->{current};
                 return 1;
             }
@@ -139,6 +85,7 @@ sub match_nonext {
             return 1;
         }
     }
+    $self->{matched} = '';
     return 0;    
 }
 

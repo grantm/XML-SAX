@@ -20,6 +20,13 @@ use XML::SAX qw(Namespaces);
 use XML::NamespaceSupport ();
 use IO::File;
 
+if ($] < 5.006) {
+    require XML::SAX::PurePerl::NoUnicodeExt;
+}
+else {
+    require XML::SAX::PurePerl::UnicodeExt;
+}
+
 use vars qw(@ISA);
 @ISA = ('XML::SAX::Base');
 
@@ -345,32 +352,6 @@ sub Misc {
     }
     
     return 0;
-}
-
-sub chr_ref {
-    my $n = shift;
-    if ($] >= 5.006) { # unicode available
-        # return pack("U", $n);
-        return chr($n);
-    }
-    if ($n < 0x80) {
-        return chr ($n);
-    }
-    elsif ($n < 0x800) {
-        return pack ("CC", (($n >> 6) | 0xc0), (($n & 0x3f) | 0x80));
-    }
-    elsif ($n < 0x10000) {
-        return pack ("CCC", (($n >> 12) | 0xe0), ((($n >> 6) & 0x3f) | 0x80),
-                                    (($n & 0x3f) | 0x80));
-    }
-    elsif ($n < 0x110000)
-    {
-        return pack ("CCCC", (($n >> 18) | 0xf0), ((($n >> 12) & 0x3f) | 0x80),
-        ((($n >> 6) & 0x3f) | 0x80), (($n & 0x3f) | 0x80));
-    }
-    else {
-        return undef;
-    }
 }
 
 sub Reference {

@@ -86,10 +86,7 @@ sub encoding_detect {
                 my $byte1 = $reader->current;
                 my $byte2 = $reader->next;
                 my $bytes = $byte1.$byte2;
-                my $char;
-                if ($] >= 5.007002) {
-                    $char = Encode::decode("UTF-16LE", $bytes);
-                }
+                my $char = chr unpack("v", $bytes);
                 $reader->set_encoding("UTF-16LE");
                 $reader->next;
                 $reader->buffer($char);
@@ -185,17 +182,6 @@ sub encoding_detect {
     return;
     
     # $parser->parser_error($error, $reader);
-}
-
-if ($] >= 5.007002) {
-    eval <<'PERL';
-use Encode;
-
-Encode::define_alias( "UTF-16" => "UCS-2" );
-Encode::define_alias( "UTF-16BE" => "UCS-2" );
-Encode::define_alias( "UTF-16LE" => "ucs-2le" );
-Encode::define_alias( "UTF16LE" => "ucs-2le" );
-PERL
 }
 
 1;
