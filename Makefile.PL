@@ -51,6 +51,7 @@ $VERSION = 0.24;
 # version 0.22 - Robin Berjon <robin@knowscape.com>
 # version 0.23 - Matt Sergeant <matt@sergeant.org>
 # version 0.24 - Robin Berjon <robin@knowscape.com>
+# version 0.25 - Kip Hampton <khampton@totalcinema.com>
 
 #-----------------------------------------------------#
 # STOP!!!!!
@@ -66,7 +67,7 @@ package XML::SAX::Base;
 use strict;
 use vars qw($VERSION);
 use XML::SAX::Exception qw();
-$VERSION = '0.24';
+$VERSION = '0.25';
 
 EOHEADER
 
@@ -91,7 +92,7 @@ EOHEADER
                         element_decl            => [qw(DeclHandler Handler)],
                         attlist_decl            => [qw(DTDHandler Handler)],
                         doctype_decl            => [qw(DTDHandler Handler)],
-                        xml_decl                => [qw(LexicalHandler Handler)],
+                        xml_decl                => [qw(DTDHandler Handler)],
                         entity_decl             => [qw(DTDHandler Handler)],
                         attribute_decl          => [qw(DeclHandler Handler)],
                         internal_entity_decl    => [qw(DeclHandler Handler)],
