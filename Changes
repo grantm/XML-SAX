@@ -1,10 +1,11 @@
 Revision history for Perl extension XML::SAX.
 
 0.11
-    - Merged in XML::SAX::Base 1.04 (including memory leak fixes)
-    - Made ParserFactory do what the docs say when you specify
+    - Base: Merged in XML::SAX::Base 1.04 (including memory leak fixes)
+    - ParserFactory: Made it do what the docs say when you specify
       a module version number.
-    - Fixed XML::SAX::Intro typo.
+    - SAX: Fixed XML::SAX::Intro typo.
+    - ParserFactory: Fixed (and test) broken version in parser pkg
 
 0.10
     - PurePerl: Fixed PubidChar missing '-'
