@@ -21,6 +21,9 @@ XML-SAX-Base/t/09resoldriver.t
 XML-SAX-Base/t/10dochdriver.t
 XML-SAX-Base/t/11sax1multiclass.t
 XML-SAX-Base/t/12sax2multiclass.t
+XML-SAX-Base/t/13handlerswitch.t
+XML-SAX-Base/t/14downstreamswitch.t
+XML-SAX-Base/t/15parentswitch.t
 XML-SAX-Base/t/events.pl
 SAX.pm
 SAX/ParserFactory.pm
