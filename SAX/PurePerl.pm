@@ -31,42 +31,41 @@ my %int_ents = (
 my $xmlns_ns = "http://www.w3.org/2000/xmlns/";
 my $xml_ns = "http://www.w3.org/XML/1998/namespace";
 
+use Carp;
 sub _parse_characterstream {
     my $self = shift;
-    my ($fh, $options) = @_;
-    warn("CharacterStream is not yet correctly implemented");
+    my ($fh) = @_;
+    confess("CharacterStream is not yet correctly implemented");
     my $reader = XML::SAX::PurePerl::Reader::Stream->new($fh);
-    return $self->_parse($options, $reader);
+    return $self->_parse($reader);
 }
 
 sub _parse_bytestream {
     my $self = shift;
-    my ($fh, $options) = @_;
+    my ($fh) = @_;
     my $reader = XML::SAX::PurePerl::Reader::Stream->new($fh);
-    return $self->_parse($options, $reader);
+    return $self->_parse($reader);
 }
 
 sub _parse_string {
     my $self = shift;
-    my ($str, $options) = @_;
+    my ($str) = @_;
     my $reader = XML::SAX::PurePerl::Reader::String->new($str);
-    return $self->_parse($options, $reader);
+    return $self->_parse($reader);
 }
 
 sub _parse_systemid {
     my $self = shift;
-    my ($uri, $options) = @_;
+    my ($uri) = @_;
     my $reader = XML::SAX::PurePerl::Reader::URI->new($uri);
-    return $self->_parse($options, $reader);
+    return $self->_parse($reader);
 }
 
 sub _parse {
-    my ($self, $options, $reader) = @_;
+    my ($self, $reader) = @_;
     
-# hack - fix other uses of ParseOptions
-    delete $self->{ParseOptions};
-    $reader->public_id($options->{Source}{PublicId});
-    $reader->system_id($options->{Source}{SystemId});
+    $reader->public_id($self->{ParseOptions}{Source}{PublicId});
+    $reader->system_id($self->{ParseOptions}{Source}{SystemId});
     $reader->next;
     
     $self->{InScopeNamespaceStack} = [ { 
@@ -79,8 +78,8 @@ sub _parse {
     
     $self->start_document({});
 
-    if (defined $options->{Source}{Encoding}) {
-        $reader->set_encoding($options->{Source}{Encoding});
+    if (defined $self->{ParseOptions}{Source}{Encoding}) {
+        $reader->set_encoding($self->{ParseOptions}{Source}{Encoding});
     }
     else {
         $self->encoding_detect($reader);
@@ -90,16 +89,6 @@ sub _parse {
     $self->document($reader);
     
     return $self->end_document({});
-}
-
-sub parse_any {
-    my $self = shift;
-    my $source = shift;
-    
-    my $options = $self->get_options(@_);
-    my $reader = XML::SAX::PurePerl::Reader->new($source);
-    
-    return $self->_parse($options, $reader);
 }
 
 sub parser_error {
