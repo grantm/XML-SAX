@@ -213,8 +213,8 @@ sub get_options {
 }
 #-------------------------------------------------------------------#
 
-
-my %FEATURES = (
+sub FEATURES {
+   return (
     'http://xml.org/sax/features/external-general-entities'     => undef,
     'http://xml.org/sax/features/external-parameter-entities'   => undef,
     'http://xml.org/sax/features/is-standalone'                 => undef,
@@ -227,14 +227,16 @@ my %FEATURES = (
     'http://xml.org/sax/features/use-locator2'                  => undef,
     'http://xml.org/sax/features/validation'                    => undef,
                );
+}
 
-my %PROPERTIES = (
+sub PROPERTIES {
+    return (
     'http://xml.org/sax/properties/declaration-handler' => undef,
     'http://xml.org/sax/properties/dom-node'            => undef,
     'http://xml.org/sax/properties/lexical-handler'     => undef,
     'http://xml.org/sax/properties/xml-string'          => undef,
                  );
-
+}
 
 #-------------------------------------------------------------------#
 # get_feature
@@ -262,6 +264,21 @@ sub set_feature {
     # don't support it
 }
 #-------------------------------------------------------------------#
+
+#-------------------------------------------------------------------#
+# features
+#-------------------------------------------------------------------#
+sub features {
+    my $self = shift;
+    my %f = $self->FEATURES; # must call in OO fashion!
+    my @results;
+    foreach my $feature (keys %f) {
+        if ($f{$feature}) {
+            push @results, $feature;
+        }
+    }
+    return @results;
+}
 
 #-------------------------------------------------------------------#
 # get_property

@@ -31,6 +31,7 @@ sub parser {
         my $parser_file = $parser_class;
         $parser_file =~ s/::/\//g;
         $parser_file .= ".pm";
+        no strict 'refs';
         if (!keys %{"${parser_class}::"}) {
             require $parser_file;
         }
@@ -48,7 +49,8 @@ sub _parser_class {
     }
 
     # Now check if required/preferred is there
-    if (my %required = %{$self->{RequiredFeatures}}) {
+    if ($self->{RequiredFeatures}) {
+        my %required = %{$self->{RequiredFeatures}};
         # note - we never go onto the next try (SAX.ini),
         # because if we can't provide the requested feature
         # we need to throw an exception.
@@ -74,10 +76,12 @@ sub _parser_class {
                 return $params->{ParserPackage};
             }
             else {
-                
+            } 
             last;
         }
     }
+
+    return "XML::SAX::PurePerl";
 }
 
 1;
