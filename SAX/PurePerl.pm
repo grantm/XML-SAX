@@ -710,10 +710,10 @@ XML::SAX::PurePerl - Pure Perl XML Parser with SAX2 interface
 
 =head1 DESCRIPTION
 
-This module implements an XML parser in pure perl. It is written around the upcoming
-perl 5.8's unicode support and support for multiple document encodings (using the
-PerlIO layer), however it has been ported to work with ASCII documents under lesser
-perl versions.
+This module implements an XML parser in pure perl. It is written around the
+upcoming perl 5.8's unicode support and support for multiple document 
+encodings (using the PerlIO layer), however it has been ported to work with
+ASCII/UTF8 documents under lower perl versions.
 
 The SAX2 API is described in detail at http://sourceforge.net/projects/perl-xml/, in
 the CVS archive, under libxml-perl/docs. Hopefully those documents will be in a
@@ -724,6 +724,10 @@ front end to SAX2, and implements nothing that is not in that spec (or at least 
 not to - please email me if you find errors in this implementation).
 
 =head1 BUGS
+
+XML::SAX::PurePerl is B<slow>. Very slow. I suggest you use something else
+in fact. However it is great as a fallback parser for XML::SAX, where the
+user might not be able to install an XS based parser or C library.
 
 Currently lots, probably. At the moment the weakest area is parsing DOCTYPE declarations,
 though the code is in place to start doing this. Also parsing parameter entity
