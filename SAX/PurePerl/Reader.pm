@@ -3,10 +3,36 @@
 package XML::SAX::PurePerl::Reader;
 
 use strict;
-use XML::SAX::PurePerl::Reader::Stream;
-use XML::SAX::PurePerl::Reader::String;
 use XML::SAX::PurePerl::Reader::URI;
-use XML::SAX::PurePerl::Productions qw( $SingleChar );
+use XML::SAX::PurePerl::Productions qw( $SingleChar $Letter $NameChar );
+use Exporter ();
+
+use vars qw(@ISA @EXPORT_OK);
+@ISA = qw(Exporter);
+@EXPORT_OK = qw(
+    EOF
+    BUFFER
+    INTERNAL_BUFFER
+    LINE
+    COLUMN
+    CURRENT
+    ENCODING
+);
+
+use constant EOF => 0;
+use constant BUFFER => 1;
+use constant INTERNAL_BUFFER => 2;
+use constant LINE => 3;
+use constant COLUMN => 4;
+use constant MATCHED => 5;
+use constant CURRENT => 6;
+use constant CONSUMED => 7;
+use constant ENCODING => 8;
+use constant SYSTEM_ID => 9;
+use constant PUBLIC_ID => 10;
+
+require XML::SAX::PurePerl::Reader::Stream;
+require XML::SAX::PurePerl::Reader::String;
 
 if ($] >= 5.007002) {
     require XML::SAX::PurePerl::Reader::UnicodeExt;
@@ -50,8 +76,8 @@ sub new {
 
 sub init {
     my $self = shift;
-    $self->{line} = 1;
-    $self->{column} = 1;
+    $self->[LINE] = 1;
+    $self->[COLUMN] = 1;
     $self->nextchar;
     return $self;
 }
@@ -59,33 +85,88 @@ sub init {
 sub match {
     my $self = shift;
     if ($self->match_nocheck(@_)) {
-        if ($self->{matched} =~ $SingleChar) {
+        if ($self->[MATCHED] =~ $SingleChar) {
             return 1;
         }
-        throw XML::SAX::Exception ( Message => "Not a valid XML character: '&#x".sprintf("%X", ord($self->{matched})).";'", reader => $self );
+        throw XML::SAX::Exception::Parse (
+            Message => "Not a valid XML character: '&#x".
+                        sprintf("%X", ord($self->[MATCHED])).
+                        ";'"
+        );
     }
     return 0;
+}
+
+sub match_char {
+    my $self = shift;
+    
+    if (defined($self->[CURRENT]) && $self->[CURRENT] eq $_[0]) {
+        $self->[MATCHED] = $_[0];
+        $self->nextchar;
+        return 1;
+    }
+    $self->[MATCHED] = '';
+    return 0;
+}
+
+sub match_re {
+    my $self = shift;
+    
+    if ($self->[CURRENT] =~ $_[0]) {
+        $self->[MATCHED] = $self->[CURRENT];
+        $self->nextchar;
+        return 1;
+    }
+    $self->[MATCHED] = '';
+    return 0;
+}
+
+sub match_not {
+    my $self = shift;
+    
+    my $current = $self->[CURRENT];
+    return 0 unless defined $current;
+    
+    for my $m (@_) {
+        if ($current eq $m) {
+            $self->[MATCHED] = '';
+            return 0;
+        }
+    }
+    $self->[MATCHED] = $current;
+    $self->nextchar;
+    return 1;
+}
+
+my %hist;
+END {
+    foreach my $k (sort { $hist{$a} <=> $hist{$b} } keys %hist ) {
+        my $x = $k;
+        $k =~ s/^(.{80})(.{3}).*/$1\.\.\./s;
+        # warn("$k called $hist{$x} times\n");
+    }
 }
 
 sub match_nonext {
     my $self = shift;
     
-    return 0 unless defined $self->{current};
+    my $current = $self->[CURRENT];
+    return 0 unless defined $current;
     
     foreach my $m (@_) {
-        local $^W;
-        if (ref($m) eq 'Regexp') {
-            if ($self->{current} =~ $m) {
-                $self->{matched} = $self->{current};
+        # $hist{$m}++;
+        if (my $ref = ref($m)) {
+            if ($ref eq 'Regexp' && $current =~ $m) {
+                $self->[MATCHED] = $current;
                 return 1;
             }
         }
-        elsif ($self->{current} eq $m) {
-            $self->{matched} = $self->{current};
+        elsif ($current eq $m) {
+            $self->[MATCHED] = $current;
             return 1;
         }
     }
-    $self->{matched} = '';
+    $self->[MATCHED] = '';
     return 0;    
 }
 
@@ -102,7 +183,7 @@ sub match_nocheck {
 
 sub matched {
     my $self = shift;
-    return $self->{matched};
+    return $self->[MATCHED];
 }
 
 my $unpack_type = ($] >= 5.007002) ? 'U*' : 'C*';
@@ -111,9 +192,10 @@ sub match_string {
     my $self = shift;
     my ($str) = @_;
     my $matched = '';
-    for my $char (map { chr } unpack($unpack_type, $str)) {
-        if ($self->match($char)) {
-            $matched .= $self->{matched};
+#    for my $char (map { chr } unpack($unpack_type, $str)) {
+    for my $char (split //, $str) {
+        if ($self->match_char($char)) {
+            $matched .= $self->[MATCHED];
         }
         else {
             $self->buffer($matched);
@@ -123,72 +205,127 @@ sub match_string {
     return 1;
 }
 
+# avoids split
+sub match_sequence {
+    my $self = shift;
+    my $matched = '';
+    for my $char (@_) {
+        if ($self->match_char($char)) {
+            $matched .= $self->[MATCHED];
+        }
+        else {
+            $self->buffer($matched);
+            return 0;
+        }
+    }
+    return 1;
+}
+
+sub consume_name {
+    my $self = shift;
+    
+    my $current = $self->[CURRENT];
+    return unless defined $current; # perhaps die here instead?
+    
+    my $name;
+    if ($current eq '_') {
+        $name = '_';
+    }
+    elsif ($current eq ':') {
+        $name = ':';
+    }
+    else {
+        $self->consume($Letter) ||
+                throw XML::SAX::Exception::Parse ( 
+                    Message => "Name contains invalid start character: '&#x".
+                                sprintf("%X", ord($self->[CURRENT])).
+                                ";'", reader => $self );
+        $name = $self->[CONSUMED];
+    }
+    
+    $self->consume($NameChar);
+    $name .= $self->[CONSUMED];
+    return $name;
+}
+
 sub consume {
     my $self = shift;
     
-    $self->{consumed} = '';
+    my $consumed = '';
     
-    while(!$self->eof && $self->match(@_)) {
-        $self->{consumed} .= $self->{matched};
+    while(!$self->eof && $self->match_re(@_)) {
+        $consumed .= $self->[MATCHED];
     }
-    return length($self->{consumed});
+    return length($self->[CONSUMED] = $consumed);
+}
+
+
+
+sub consume_not {
+    my $self = shift;
+    
+    my $consumed = '';
+    
+    while(!$self->[EOF] && $self->match_not(@_)) {
+        $consumed .= $self->[MATCHED];
+    }
+    return length($self->[CONSUMED] = $consumed);
 }
 
 sub consumed {
     my $self = shift;
-    return $self->{consumed};
+    return $self->[CONSUMED];
 }
 
 sub current {
     my $self = shift;
-    return $self->{current};
+    return $self->[CURRENT];
 }
 
 sub buffer {
     my $self = shift;
-    # warn("buffering: '$_[0]' + '$self->{current}' + '$self->{buffer}'\n");
+    # warn("buffering: '$_[0]' + '$self->[CURRENT]' + '$self->[BUFFER]'\n");
     local $^W;
-    my $current = $self->{current};
+    my $current = $self->[CURRENT];
     if ($] >= 5.006 && $] < 5.007) {
         $current = pack("C0A*", $current);
     }
-    $self->{buffer} = $_[0] . $current . $self->{buffer};
+    $self->[BUFFER] = $_[0] . $current . $self->[BUFFER];
+    $self->[COLUMN] -= length($_[0]);
     $self->nextchar;
-}
-
-sub eof {
-    my $self = shift;
-    return 1 unless defined $self->{current};
-    return 0;
 }
 
 sub public_id {
     my ($self, $value) = @_;
     if (defined $value) {
-        return $self->{public_id} = $value;
+        return $self->[PUBLIC_ID] = $value;
     }
-    return $self->{public_id};
+    return $self->[PUBLIC_ID];
 }
 
 sub system_id {
     my ($self, $value) = @_;
     if (defined $value) {
-        return $self->{system_id} = $value;
+        return $self->[SYSTEM_ID] = $value;
     }
-    return $self->{system_id};
+    return $self->[SYSTEM_ID];
 }
 
 sub line {
-    shift->{line};
+    shift->[LINE];
 }
 
 sub column {
-    shift->{column};
+    shift->[COLUMN];
 }
 
 sub get_encoding {
     my $self = shift;
-    return $self->{encoding};
+    return $self->[ENCODING];
+}
+
+sub eof {
+    return shift->[EOF];
 }
 
 1;

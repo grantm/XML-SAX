@@ -84,9 +84,8 @@ sub encoding_detect {
             }
             else {
                 my $byte1 = $reader->current;
-                my $byte2 = $reader->next;
-                my $bytes = $byte1.$byte2;
-                my $char = chr unpack("v", $bytes);
+                $reader->next;
+                my $char = chr unpack("v", $byte1 . $reader->current);
                 $reader->set_encoding("UTF-16LE");
                 $reader->next;
                 $reader->buffer($char);

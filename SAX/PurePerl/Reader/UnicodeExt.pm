@@ -3,6 +3,7 @@
 package XML::SAX::PurePerl::Reader;
 use strict;
 
+use XML::SAX::PurePerl::Reader qw(CURRENT);
 use Encode;
 
 sub set_raw_stream {
@@ -20,7 +21,18 @@ sub switch_encoding_string {
 }
 
 sub nextchar {
-    shift->next;
+    my $self = shift;
+    $self->next;
+
+    return unless defined($self->[CURRENT]);
+
+    if ($self->[CURRENT] eq "\x0D") {
+        $self->next;
+        return unless defined($self->[CURRENT]);
+        if ($self->[CURRENT] ne "\x0A") {
+            $self->buffer("\x0A");
+        }
+    }
 }
 
 
