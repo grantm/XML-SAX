@@ -77,6 +77,7 @@ sub _parser_class {
                 return $params->{ParserPackage};
             }
             else {
+                # we have required features (or nothing?)
                 PARSER:
                 foreach my $parser (reverse @{$self->{KnownParsers}}) {
                     foreach my $feature (keys %$params) {
@@ -86,6 +87,7 @@ sub _parser_class {
                     }
                     return $parser->{Name};
                 }
+                throw XML::SAX::Exception ("Unable to provide SAX.ini required features");
             } 
             last; # stop after first INI found
         }

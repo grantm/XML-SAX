@@ -80,7 +80,7 @@ sub _parse_ini_file {
         # instruction
         elsif ($line =~ /^(.*?)\s*?=\s*(.*)$/) {
             die "No heading at line $lineno\n>>> $original\n" unless @config;
-            $config[-1]{$1} = $2;
+            $config[-1]{Features}{$1} = $2;
         }
 
         # not whitespace, comment, or instruction
@@ -120,9 +120,10 @@ sub add_parser {
     
     my $new = { Name => $parser_module };
     foreach my $feature (@features) {
-        $new->{$feature} = 1;
+        $new->{Features}{$feature} = 1;
     }
 
+    # If exists in list already, replace.
     my $done = 0;
     for (my $i = 0; $i < @$known_parsers; $i++) {
         my $p = $known_parsers->[$i];
@@ -132,6 +133,7 @@ sub add_parser {
         }
     }
 
+    # Otherwise (not in list), add at end of list.
     if (!$done) {
         push @$known_parsers, $new;
     }
@@ -152,10 +154,8 @@ sub save_parsers {
 
     foreach my $p (@$known_parsers) {
         print $fh "[$p->{Name}]\n";
-        foreach my $key (keys %$p) {
-            if ($key ne "Name") {
-                print $fh "$key = $p->{$key}\n";
-            }
+        foreach my $key (keys %{$p->{Features}}) {
+            print $fh "$key = $p->{Features}{$key}\n";
         }
     }
 
@@ -192,10 +192,103 @@ XML::SAX is a SAX parser access API for Perl. It includes classes
 and APIs required for implementing SAX drivers, along with a factory
 class for returning any SAX parser installed on the user's system.
 
+=head1 USING A SAX2 PARSER
+
 The factory class is XML::SAX::ParserFactory. Please see the
-documentation of that module for how to instantiate a SAX parser. In
-order to learn how to use SAX to parse XML, you will need to read
+documentation of that module for how to instantiate a SAX parser:
+L<XML::SAX::ParserFactory>. However if you don't want to load up
+another manual page, here's a short synopsis:
+
+  use XML::SAX::ParserFactory;
+  use XML::SAX::XYZHandler;
+  my $handler = XML::SAX::XYZHandler->new();
+  my $p = XML::SAX::ParserFactory->parser(Handler => $handler);
+  $p->parse_uri("foo.xml");
+  # or $p->parse_string("<foo/>") or $p->parse_file($fh);
+
+This will automatically load a SAX2 parser (defaulting to
+XML::SAX::PurePerl if no others are found) and return it to you.
+
+In order to learn how to use SAX to parse XML, you will need to read
 L<XML::SAX::Intro> and for reference, L<XML::SAX::Specification>.
+
+=head1 WRITING A SAX2 PARSER
+
+The first thing to remember in writing a SAX2 parser is to subclass
+XML::SAX::Base. This will make your life infinitely easier, by providing
+a number of methods automagically for you. See L<XML::SAX::Base> for more
+details.
+
+When writing a SAX2 parser that is compatible with XML::SAX, you need
+to inform XML::SAX of the presence of that driver when you install it.
+In order to do that, XML::SAX contains methods for saving the fact that
+the parser exists on your system to a "INI" file, which is then loaded
+to determine which parsers are installed.
+
+The best way to do this is to follow these rules:
+
+=over 4
+
+=item * Add XML::SAX as a prerequisite in Makefile.PL:
+
+  WriteMakefile(
+      ...
+      PREREQ_PM => { 'XML::SAX' => 0 },
+      ...
+  );
+
+Alternatively you may wish to check for it in other ways that will
+cause more than just a warning.
+
+=item * Add the following code snippet to your Makefile.PL:
+
+  sub MY::install {
+    package MY;
+    my $script = shift->SUPER::install(@_);
+    $script =~ s/install :: (.*)$/install :: $1 install_sax_driver/m;
+    $script .= <<"INSTALL";
+
+  install_sax_driver :
+  \t\@\$(PERL) -MXML::SAX -e "XML::SAX->add_parser(q(\$(NAME)))->save_parsers()"
+  
+  INSTALL
+  
+    return $script;
+  }
+
+Note that you should check the output of this - \$(NAME) will use the name of
+your distribution, which may not be exactly what you want. For example XML::LibXML
+has a driver called XML::LibXML::SAX::Generator, which is used in place of
+\$(NAME) in the above.
+
+=item * Add an XML::SAX test:
+
+A test file should be added to your t/ directory containing something like the
+following:
+
+  use Test;
+  BEGIN { plan tests => 3 }
+  use XML::SAX;
+  use XML::SAX::PurePerl::DebugHandler;
+  XML::SAX->add_parser(q(XML::SAX::MyDriver));
+  open(INI, ">SAX.ini") || die "Cannot write SAX.ini";
+  print INI "ParserPackage = XML::SAX::MyDriver\n";
+  close INI;
+  eval {
+    my $handler = XML::SAX::PurePerl::DebugHandler->new();
+    ok($handler);
+    my $parser = XML::SAX->parser(Handler => $handler);
+    ok($parser);
+    $parser->parse_string("<tag/>");
+    ok($handler->{seen}{start_element});
+  };
+  unlink("SAX.ini");
+
+This will test XML::SAX loading the driver, using SAX.ini to know which driver
+to load. Again, not to change the Driver module from XML::SAX::MyDriver to
+whatever you called your SAX driver.
+
+=back
 
 =head1 AUTHOR
 
@@ -204,8 +297,6 @@ Matt Sergeant, matt@sergeant.org
 Kip Hampton, khampton@totalcinema.com
 
 Robin Berjon, robin@knowscape.com
-
-Ken MacLeod, kenm@bitsko.slc.ut.us
 
 =head1 LICENSE
 
