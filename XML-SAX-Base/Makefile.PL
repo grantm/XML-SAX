@@ -92,39 +92,53 @@ EOHEADER
         $code .= <<"        EOTOPCODE";
 sub $ev {
     my \$self = shift;
-    my \$method;
     if (defined \$self->{Methods}->{'$ev'}) {
         \$self->{Methods}->{'$ev'}->(\@_);
     }
+    else {
+        my \$method;
+        my \$callbacks;
+        if (exists \$self->{ParseOptions}) {
+            \$callbacks = \$self->{ParseOptions};
+        }
+        else {
+            \$callbacks = \$self;
+        }
+        if (0) { # dummy to make elsif's below compile
+        }
         EOTOPCODE
 
        my ($can_string, $aload_string);
        for my $h (@{$EVENT_SPEC{$ev}}) {
             $can_string .= <<"            EOCANBLOCK";
-    elsif (defined \$self->{'$h'} and \$method = \$self->{'$h'}->can('$ev') ) {
-        \$self->{Methods}->{'$ev'} = sub { \$self->{$h}->$ev(\@_) };
-        \$method->(\$self->{$h}, \@_);
-    }
+        elsif (defined \$callbacks->{'$h'} and \$method = \$callbacks->{'$h'}->can('$ev') ) {
+            \$self->{Methods}->{'$ev'} = sub { \$method->(\$callbacks->{'$h'}, \@_) };
+            \$method->(\$callbacks->{$h}, \@_);
+        }
             EOCANBLOCK
             $aload_string .= <<"            EOALOADBLOCK";
-    elsif (defined \$self->{'$h'} and \$self->{'$h'}->can('AUTOLOAD') ) {
-        eval { \$self->{'$h'}->$ev(\@_) };
-        if (\$@) {
-            die \$@;
+        elsif (defined \$callbacks->{'$h'} and \$callbacks->{'$h'}->can('AUTOLOAD') ) {
+            eval { \$callbacks->{'$h'}->$ev(\@_) };
+            if (\$@) {
+                die \$@;
+            }
+            else {
+                # I think there's a buggette here...
+                # if the first call throws an exception, we don't set it up right.
+                # Not fatal, but we might want to address it.
+                \$self->{Methods}->{'$ev'} = sub { \$callbacks->{'$h'}->$ev(\@_) };
+            }
         }
-        else {
-            \$self->{Methods}->{'$ev'} = sub { \$self->{'$h'}->$ev(\@_) };
-        }
-    }
             EOALOADBLOCK
         }
 
         $code .= $can_string . $aload_string;
 
             $code .= <<"            EOFALLTHROUGH";
-   else {
-       \$self->{Methods}->{'$ev'} = sub { \$self->no_op };
-   }
+        else {
+            \$self->{Methods}->{'$ev'} = sub { \$self->no_op };
+        }
+    }
             EOFALLTHROUGH
 
         $code .= "\n}\n\n";
@@ -150,25 +164,24 @@ sub new {
 sub parse {
     my $self = shift;
     my $parse_options = $self->get_options(@_);
+    local $self->{ParseOptions} = $parse_options;
     if ($self->{Parent}) { # calling parse on a filter for some reason
         return $self->{Parent}->parse($parse_options);
     }
     else {
-        if (defined $parse_options->{Source}{CharacterStream} && $self->can('_parse_characterstream')) {
-            return $self->_parse_characterstream(
-                    $parse_options->{Source}{CharacterStream}, $parse_options);
+        my $method;
+        if (defined $parse_options->{Source}{CharacterStream} and $method = $self->can('_parse_characterstream')) {
+            warn("parse charstream???\n");
+            return $method->($self, $parse_options->{Source}{CharacterStream});
         }
-        elsif (defined $parse_options->{Source}{ByteStream} && $self->can('_parse_characterstream')) {
-            return $self->_parse_bytestream(
-                    $parse_options->{Source}{ByteStream}, $parse_options);
+        elsif (defined $parse_options->{Source}{ByteStream} and $method = $self->can('_parse_bytestream')) {
+            return $method->($self, $parse_options->{Source}{ByteStream});
         }
-        elsif (defined $parse_options->{Source}{String} && $self->can('_parse_string')) {
-            return $self->_parse_string(
-                    $parse_options->{Source}{String}, $parse_options);
+        elsif (defined $parse_options->{Source}{String} and $method = $self->can('_parse_string')) {
+            return $method->($self, $parse_options->{Source}{String});
         }
-        elsif (defined $parse_options->{Source}{SystemId} && $self->can('_parse_systemid')) {
-            return $self->_parse_systemid(
-                    $parse_options->{Source}{SystemId}, $parse_options);
+        elsif (defined $parse_options->{Source}{SystemId} and $method = $self->can('_parse_systemid')) {
+            return $method->($self, $parse_options->{Source}{SystemId});
         }
         else {
             die "No _parse_* routine defined on this driver (if it a filter, remember to set the Parent property) [$self]";
