@@ -89,7 +89,12 @@ sub nextchar {
         else {
             throw XML::SAX::Exception( Message => "Invalid character $n" );
         }
-        $self->{current} = $current;
+        if ($] >= 5.006001) {
+            $self->{current} = pack("U0A*", $current);
+        }
+        else {
+            $self->{current} = $current;
+        }
     }
 }
 
