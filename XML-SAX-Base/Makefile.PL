@@ -33,6 +33,8 @@ $VERSION = 0.25;
 # version 0.23 - Matt Sergeant <matt@sergeant.org>
 # version 0.24 - Robin Berjon <robin@knowscape.com>
 # version 0.25 - Kip Hampton <khampton@totalcinema.com>
+# version 1.00 - Kip Hampton <khampton@totalcinema.com>
+# version 1.01 - Kip Hampton <khampton@totalcinema.com>
 
 #-----------------------------------------------------#
 # STOP!!!!!
@@ -48,7 +50,7 @@ package XML::SAX::Base;
 use strict;
 use vars qw($VERSION);
 use XML::SAX::Exception qw();
-$VERSION = '0.25';
+$VERSION = '1.01';
 
 EOHEADER
 
@@ -288,6 +290,50 @@ sub set_feature {
     # throw XML::SAX::Exception::NotSupported if it's there but we
     # don't support it
 }
+#-------------------------------------------------------------------#
+
+#-------------------------------------------------------------------#
+# set_handler and friends
+#-------------------------------------------------------------------#
+sub set_handler {
+    my $self = shift;
+    my ($new_handler, $handler_type) = reverse @_;
+    $handler_type ||= 'Handler';
+    $self->{Methods} = {} if $self->{Methods};
+    $self->{$handler_type} = $new_handler;
+    return 1;
+}
+
+sub set_document_handler {
+    my $self = shift;
+    return $self->set_handler('DocumentHandler', @_);
+}
+
+sub set_content_handler {
+    my $self = shift;
+    return $self->set_handler('ContentHandler', @_);
+}
+sub set_dtd_handler {
+    my $self = shift;
+    return $self->set_handler('DTDHandler', @_);
+}
+sub set_lexical_handler {
+    my $self = shift;
+    return $self->set_handler('LexicalHandler', @_);
+}
+sub set_decl_handler {
+    my $self = shift;
+    return $self->set_handler('DeclHandler', @_);
+}
+sub set_error_handler {
+    my $self = shift;
+    return $self->set_handler('ErrorHandler', @_);
+}
+sub set_entity_resolver {
+    my $self = shift;
+    return $self->set_handler('EntityResolver', @_);
+}
+
 #-------------------------------------------------------------------#
 
 #-------------------------------------------------------------------#
