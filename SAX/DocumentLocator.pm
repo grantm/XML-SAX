@@ -8,7 +8,7 @@ sub new {
     my %object;
     tie %object, $class, @_;
 
-    return \%object;
+    return bless \%object, $class;
 }
 
 sub TIEHASH {
@@ -66,10 +66,19 @@ sub CLEAR {
 
 sub FIRSTKEY {
     my ($self) = @_;
+    # assignment resets.
+    $self->{keys} = {
+        PublicId => 1,
+        SystemId => 1,
+        LineNumber => 1,
+        ColumnNumber => 1,
+    };
+    return each %{$self->{keys}};
 }
 
 sub NEXTKEY {
     my ($self, $lastkey) = @_;
+    return each %{$self->{keys}};
 }
 
 1;
