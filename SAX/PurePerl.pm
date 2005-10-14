@@ -85,6 +85,8 @@ sub _parse {
             sub { $reader->system_id },
             sub { $reader->line },
             sub { $reader->column },
+            sub { $reader->get_encoding },
+            sub { $reader->get_xml_version },
         ),
     );
     

@@ -11,14 +11,14 @@ use XML::SAX::PurePerl::Reader qw(
     LINE
     COLUMN
     ENCODING
+    XML_VERSION
 );
 use XML::SAX::Exception;
 
 @ISA = ('XML::SAX::PurePerl::Reader');
 
 # subclassed by adding 1 to last element
-use constant FH => 7;
-
+use constant FH => 8;
 use constant BUFFER_SIZE => 4096;
 
 sub new {
@@ -26,8 +26,8 @@ sub new {
     my $ioref = shift;
     XML::SAX::PurePerl::Reader::set_raw_stream($ioref);
     my @parts;
-    @parts[FH, LINE, COLUMN, BUFFER, EOF] =
-        ($ioref, 1,   0,      '',     0);
+    @parts[FH, LINE, COLUMN, BUFFER, EOF, XML_VERSION] =
+        ($ioref, 1,   0,      '',     0,   '1.0');
     return bless \@parts, $class;
 }
 

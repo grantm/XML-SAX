@@ -176,9 +176,13 @@ sub Cp {
     my ($self, $reader) = @_;
 
     my $model;
-    if (my $name = $self->Name($reader)) {
-        return $name . $self->Cardinality($reader);
-    }
+    my $name = eval
+    {
+	if (my $name = $self->Name($reader)) {
+	    return $name . $self->Cardinality($reader);
+	}
+    };
+    return $name if defined $name;
     return $self->ChoiceOrSeq($reader) . $self->Cardinality($reader);
 }
 
@@ -259,14 +263,14 @@ sub AttDef {
 
     $self->skip_whitespace($reader) ||
         $self->parser_error("No whitespace after AttType in attribute definition", $reader);
-    my ($default, $value) = $self->DefaultDecl($reader);
+    my ($mode, $value) = $self->DefaultDecl($reader);
     
     # fire SAX event here!
     $self->attribute_decl({
             eName => $el_name, 
             aName => $att_name, 
             Type => $att_type, 
-            ValueDefault => $default, 
+            Mode => $mode, 
             Value => $value,
             });
     return 1;

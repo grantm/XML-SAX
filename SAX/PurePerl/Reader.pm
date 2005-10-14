@@ -15,6 +15,7 @@ use vars qw(@ISA @EXPORT_OK);
     LINE
     COLUMN
     ENCODING
+    XML_VERSION
 );
 
 use constant EOF => 0;
@@ -24,6 +25,7 @@ use constant COLUMN => 3;
 use constant ENCODING => 4;
 use constant SYSTEM_ID => 5;
 use constant PUBLIC_ID => 6;
+use constant XML_VERSION => 7;
 
 require XML::SAX::PurePerl::Reader::Stream;
 require XML::SAX::PurePerl::Reader::String;
@@ -117,6 +119,11 @@ sub column {
 sub get_encoding {
     my $self = shift;
     return $self->[ENCODING];
+}
+
+sub get_xml_version {
+    my $self = shift;
+    return $self->[XML_VERSION];
 }
 
 1;
