@@ -1,5 +1,10 @@
 Revision history for Perl extension XML::SAX.
 
+0.13
+    - Complete re-write of XML::SAX::PurePerl for performance
+    - Support Encoding & XMLVersion in DocumentLocator interface
+    - A few conformance tweaks to match perl SAX 2.1.
+
 0.12
     - Made sure SAX.ini works as documented
     - Fixed when you specify Module (version)
