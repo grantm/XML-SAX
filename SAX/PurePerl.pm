@@ -212,6 +212,9 @@ sub element {
     if ($self->get_feature(Namespaces)) {
         ($ns, $prefix, $lname) = $self->{NSHelper}->process_element_name($name);
     }
+    else {
+        $lname = $name;
+    }
     $ns ||= ''; $prefix ||= ''; $lname ||= '';
 
     # Process remainder of start_element
