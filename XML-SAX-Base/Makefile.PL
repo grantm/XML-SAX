@@ -199,7 +199,7 @@ sub parse {
             return $method->($self, $parse_options->{Source}{SystemId});
         }
         else {
-            die "No _parse_* routine defined on this driver (if it a filter, remember to set the Parent property) [$self]";
+            die "No _parse_* routine defined on this driver (If it is a filter, remember to set the Parent property. If you call the parse() method, make sure to set a Source. You may want to call parse_uri, parse_string or parse_file instead.) [$self]";
         }
     }
 }
@@ -211,6 +211,7 @@ sub parse {
 sub parse_file {
     my $self = shift;
     my $file = shift;
+    return $self->parse_uri($file, @_) if ref(\$file) eq 'SCALAR';
     my $parse_options = $self->get_options(@_);
     $parse_options->{Source}{ByteStream} = $file;
     return $self->parse($parse_options);
