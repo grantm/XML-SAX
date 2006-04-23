@@ -1,5 +1,8 @@
 Revision history for Perl extension XML::SAX.
 
+0.14
+	- Fixed CDATA section parsing (Uwe Voelker)
+
 0.13
     - Complete re-write of XML::SAX::PurePerl for performance
     - Support Encoding & XMLVersion in DocumentLocator interface
