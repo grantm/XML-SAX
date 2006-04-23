@@ -77,3 +77,4 @@ t/20factory.t
 t/21saxini.t
 t/99cleanup.t
 
+META.yml                                 Module meta-data (added by MakeMaker)

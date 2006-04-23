@@ -1,5 +1,5 @@
 use Test;
-BEGIN { plan tests => 31 }
+BEGIN { plan tests => 32 }
 use XML::SAX::PurePerl;
 use XML::SAX::PurePerl::DebugHandler;
 
@@ -63,6 +63,10 @@ $parser->parse_uri("testfiles/06f.xml");
 };
 ok($@);
 
+$handler->reset;
+$handler->{test_chr}{Data} = "bar";
+$parser->parse_uri("testfiles/06g.xml");
+
 ## HELPER PACKAGE ##
 
 package TestElementHandler;
@@ -96,3 +100,14 @@ sub start_element {
     }
 }
 
+sub characters {
+    my ($self, @text) = @_;
+    if ($self->{test_chr}) {
+        foreach my $text (@text) {
+            foreach my $key (keys %{ $self->{test_chr} }) {
+                #warn $key, "\n";
+                ok("$key: $text->{$key}", "$key: $self->{test_chr}{$key}");
+            }
+        }
+    }    
+}

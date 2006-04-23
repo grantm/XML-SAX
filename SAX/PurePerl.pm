@@ -315,7 +315,7 @@ sub CDSect {
         
         if ($data =~ /^(.*?)\]\]>/s) {
             my $chars = $1;
-            $reader->move_along(length($chars) + 2);
+            $reader->move_along(length($chars) + 3);
             $self->characters({Data => $chars});
             last;
         }
