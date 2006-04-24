@@ -1,4 +1,7 @@
 use ExtUtils::MakeMaker;
+use File::Basename ();
+use File::Spec ();
+
 
 WriteMakefile(
     'NAME'	=> 'XML::SAX',
@@ -12,7 +15,29 @@ WriteMakefile(
 sub MY::install {
     package MY;
     my $script = shift->SUPER::install(@_);
-    if (ExtUtils::MakeMaker::prompt("Do you want XML::SAX to alter ParserDetails.ini?", "Y") =~ /^y/i) {
+
+    # Only modify existing ParserDetails.ini if user agrees
+
+    my $write_ini_ok = 0;
+
+    eval { require XML::SAX };
+    if ($@) {
+        $write_ini_ok = 1;
+    }
+    else {
+        my $dir = File::Basename::dirname($INC{'XML/SAX.pm'});
+        if (-e File::Spec->catfile($dir, 'SAX', 'ParserDetails.ini')) {
+            $write_ini_ok =
+                ExtUtils::MakeMaker::prompt(
+                    "Do you want XML::SAX to alter ParserDetails.ini?", "Y"
+                ) =~ /^y/i;
+        }
+        else {
+            $write_ini_ok = 1;
+        }
+    }
+    
+    if ($write_ini_ok) {
         $script =~ s/install :: (.*)$/install :: $1 install_sax_pureperl/m;
         $script .= <<"INSTALL";
 
