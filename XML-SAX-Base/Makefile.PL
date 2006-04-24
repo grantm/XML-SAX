@@ -394,6 +394,7 @@ sub set_handler {
     $handler_type ||= 'Handler';
     $self->{Methods} = {} if $self->{Methods};
     $self->{$handler_type} = $new_handler;
+    $self->{ParseOptions}->{$handler_type} = $new_handler;
     return 1;
 }
 
