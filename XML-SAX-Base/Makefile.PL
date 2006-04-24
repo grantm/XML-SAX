@@ -753,7 +753,7 @@ L<XML::SAX>
 
 FOOTER
 
-    open(BASE, ">" . File::Spec->catdir("lib", "XML", "SAX", "Base.pm")) || die "Cannot write Base.pm: $!";
+    open(BASE, ">" . File::Spec->catfile("lib", "XML", "SAX", "Base.pm")) || die "Cannot write Base.pm: $!";
     print BASE $code;
     close BASE;
 }
