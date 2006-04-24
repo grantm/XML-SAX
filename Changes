@@ -2,6 +2,11 @@ Revision history for Perl extension XML::SAX.
 
 0.14
 	- Fixed CDATA section parsing (Uwe Voelker)
+	- Fix Makefile.PL for VMS
+	- Support calling set_handler() mid-parse
+	- Fix for when random modules overload UNIVERSAL::AUTOLOAD()
+	- Fix case when ParserDetails.ini isn't being updated but we are doing an
+	  upgrade.
 
 0.13
     - Complete re-write of XML::SAX::PurePerl for performance
