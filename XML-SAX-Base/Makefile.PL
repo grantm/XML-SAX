@@ -119,7 +119,7 @@ sub $ev {
             $aload_string .= <<"            EOALOADBLOCK";
         elsif (defined \$callbacks->{'$h'} 
         	and \$callbacks->{'$h'}->can('AUTOLOAD')
-        	and \$callbacks->{'$h'}->can('AUTOLOAD') ne UNIVERSAL->can('AUTOLOAD')
+        	and \$callbacks->{'$h'}->can('AUTOLOAD') ne (UNIVERSAL->can('AUTOLOAD') || '')
         	)
         {
             my \$res = eval { \$callbacks->{'$h'}->$ev(\@_) };
