@@ -566,7 +566,8 @@ sub AttValue {
             unless length($data);
         if ($data =~ /^([^$quote]*)$quote/) {
             $reader->move_along(length($1) + 1);
-            return $value . $1;
+            $value .= $1;
+            last;
         }
         else {
             $value .= $data;
