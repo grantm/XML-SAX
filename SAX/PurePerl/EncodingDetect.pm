@@ -88,6 +88,10 @@ sub encoding_detect {
         # $reader->set_encoding('UTF-8');
         return;
     }
+    elsif ($data =~ /^[\x20\x09\x0A\x0D]+\x3C[^\x3F]/) {
+        # $reader->set_encoding('UTF-8');
+        return;
+    }
     elsif ($data =~ /^\x4C\x6F\xA7\x94/) {
         $reader->set_encoding('EBCDIC');
         return;
