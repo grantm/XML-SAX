@@ -17,10 +17,6 @@ ok(1); # parser didn't die
 
 my $expected = "amp=& x3E=> ";
 ok($handler->attributes, $expected);
-if($handler->attributes ne $expected) {
-    print "# expected: '$expected'\n";
-    print "# got:      '" . $handler->attributes . "'\n";
-}
 
 exit;
 
