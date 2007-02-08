@@ -351,6 +351,10 @@ via ParserFactory:
 
 =head1 AUTHOR
 
+Current maintainer: Grant McLean, grantm@cpan.org
+
+Originally written by:
+
 Matt Sergeant, matt@sergeant.org
 
 Kip Hampton, khampton@totalcinema.com
