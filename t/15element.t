@@ -65,7 +65,7 @@ ok($@);
 
 $handler->reset;
 $handler->{test_chr}{Data} = "bar";
-ok(1);# $parser->parse_uri("testfiles/06g.xml");
+$parser->parse_uri("testfiles/06g.xml");
 
 ## HELPER PACKAGE ##
 
