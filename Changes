@@ -1,5 +1,8 @@
 Revision history for Perl extension XML::SAX.
 
+0.16  27 Jun 2007  Grant McLean
+    - Applied patch for PI handling from RT#19173
+
 0.15  08 Feb 2007  Grant McLean
     - Fixed handling of entities in attribute values
     - Cleaned up some benign warnings

@@ -5,7 +5,7 @@ package XML::SAX;
 use strict;
 use vars qw($VERSION @ISA @EXPORT_OK);
 
-$VERSION = '0.15';
+$VERSION = '0.16';
 
 use Exporter ();
 @ISA = ('Exporter');
