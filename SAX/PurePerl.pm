@@ -5,7 +5,7 @@ package XML::SAX::PurePerl;
 use strict;
 use vars qw/$VERSION/;
 
-$VERSION = '0.91';
+$VERSION = '0.92';
 
 use XML::SAX::PurePerl::Productions qw($Any $CharMinusDash $SingleChar);
 use XML::SAX::PurePerl::Reader;
@@ -622,22 +622,23 @@ sub PI {
     
     if ($data =~ /^<\?/) {
         $reader->move_along(2);
-        my ($target, $data);
+        my ($target);
         $target = $self->Name($reader) ||
             $self->parser_error("PI has no target", $reader);
+	    
+        my $pi_data = '';
         if ($self->skip_whitespace($reader)) {
-            $target = '';
             while (1) {
                 my $data = $reader->data;
                 $self->parser_error("End of data seen while looking for close PI marker", $reader)
                     unless length($data);
                 if ($data =~ /^(.*?)\?>/s) {
-                    $target .= $1;
+                    $pi_data .= $1;
                     $reader->move_along(length($1) + 2);
                     last;
                 }
                 else {
-                    $target .= $data;
+                    $pi_data .= $data;
                     $reader->move_along(length($data));
                 }
             }
@@ -647,7 +648,8 @@ sub PI {
             $data =~ /^\?>/ or $self->parser_error("PI closing sequence not found", $reader);
             $reader->move_along(2);
         }
-        $self->processing_instruction({ Target => $target, Data => $data });
+	
+        $self->processing_instruction({ Target => $target, Data => $pi_data });
         
         return 1;
     }
