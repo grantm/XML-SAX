@@ -580,7 +580,7 @@ sub AttValue {
     }
     
     $value =~ s/[\x09\x0A\x0D]/\x20/g;
-    $value =~ s/&(#(x[0-9a-fA-F]+)|([0-9]+)|\w+);/$self->AttReference($1, $reader)/geo;
+    $value =~ s/&(#(x[0-9a-fA-F]+)|#([0-9]+)|\w+);/$self->AttReference($1, $reader)/geo;
     
     return $value;
 }
