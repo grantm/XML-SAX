@@ -374,6 +374,11 @@ sub Reference {
     return 0 unless $reader->match('&');
     
     my $data = $reader->data;
+
+    # Fetch more data if we have an incomplete numeric reference
+    if ($data =~ /^(#\d*|#x[0-9a-fA-F]*)$/) {
+        $data = $reader->data(length($data) + 6);
+    }
     
     if ($data =~ /^#x([0-9a-fA-F]+);/) {
         my $ref = $1;
