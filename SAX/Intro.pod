@@ -348,7 +348,7 @@ Kip Hampton, the author of XML::SAX::Base has covered this nicely in
 his article on XML.com here <URI>.
 
 To construct SAX pipelines, Barrie Slaymaker, a long time Perl hacker
-who's modules you will probably have heard of or used, wrote a very
+whose modules you will probably have heard of or used, wrote a very
 clever module called XML::SAX::Machines. This combines some really
 clever SAX filter-type modules, with a construction toolkit for filters
 that makes building pipelines easy. But before we see how it makes
