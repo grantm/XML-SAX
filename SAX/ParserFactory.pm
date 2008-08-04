@@ -33,11 +33,9 @@ sub parser {
         $version = " $1";
     }
 
-    {
-        no strict 'refs';
-        if (!keys %{"${parser_class}::"}) {
-            eval "use $parser_class $version;";
-        }
+    if (!$parser_class->can('new')) {
+        eval "require $parser_class $version;";
+        die $@ if $@;
     }
 
     return $parser_class->new(@parser_params);

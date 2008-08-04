@@ -4,6 +4,8 @@ Revision history for Perl extension XML::SAX.
     - Fixed handling of numeric character entities in attribute values
     - Fix for numeric character entities spanning end of buffer
     - Performance fix for parsing from large strings (patch from Gordon Lack)
+    - Fix test in ParserFactory.pm for parser module loaded (report from 
+      Douglas Wilson)
 
 0.16  27 Jun 2007  Grant McLean
     - Applied patch for PI handling from RT#19173
