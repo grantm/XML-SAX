@@ -12,10 +12,10 @@ ok($handler);
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
 ok($parser);
 
-$parser->parse_string('<code amp="&amp;" x3E="&#x3E;" />');
+$parser->parse_string('<code amp="&amp;" x3E="&#x3E;" num="&#65;" />');
 ok(1); # parser didn't die
 
-my $expected = "amp=& x3E=> ";
+my $expected = "amp=& num=A x3E=> ";
 ok($handler->attributes, $expected);
 
 exit;
