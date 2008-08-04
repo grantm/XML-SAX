@@ -469,7 +469,7 @@ sub EntityValue {
     my $data = $reader->data;
     my $quote = '"';
     my $re = $quotre;
-    if (!$data =~ /^"/) {
+    if ($data !~ /^"/) {
         $data =~ /^'/ or $self->parser_error("Not a quote character", $reader);
         $quote = "'";
         $re = $aposre;
