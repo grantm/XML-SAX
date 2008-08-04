@@ -2,13 +2,19 @@ Revision history for Perl extension XML::SAX.
 
 0.17  ?? ??? 2008  Grant McLean
     - XML::SAX::PurePerl fixes:
-      - Fix handling of numeric character entities in attribute values
-      - Fix for numeric character entities spanning end of buffer
-      - Performance fix for parsing from large strings (patch from Gordon Lack)
-      - Fix for UTF8 bytes in first 4096 bytes of document not being decoded
-        to Perl-UTF8-characters (patch from Niko Tyni of the Debian project)
-    - Fix test in ParserFactory.pm for parser module loaded (report from 
-      Douglas Wilson)
+      - RT#37147: Fix handling of numeric character entities in attribute 
+                  values (report from Jools Smyth)
+      - RT#19442: Fix for numeric character entities spanning end of buffer
+                  (report from Eivind Eklund)
+      - RT#29316: Performance fix for parsing from large strings (patch from
+                  Gordon Lack)
+      - RT#26588: Fix for UTF8 bytes in first 4096 bytes of document not being
+                  decoded to Perl-UTF8-characters (patch from Niko Tyni of the
+                  Debian project)
+      - RT#37545: incorrect operator precedence breaks single quotes around
+                  DTD entity declarations (report from Kevin Ryde)
+    - RT#28477: Fix test in ParserFactory.pm for parser module loaded (report
+                from Douglas Wilson)
 
 0.16  27 Jun 2007  Grant McLean
     - Applied patch for PI handling from RT#19173
