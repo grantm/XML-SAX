@@ -4,7 +4,7 @@ package XML::SAX::PurePerl::Productions;
 
 use Exporter;
 @ISA = ('Exporter');
-@EXPORT_OK = qw($S $Char $VersionNum $BaseChar $Letter $Ideographic
+@EXPORT_OK = qw($S $Char $VersionNum $BaseChar $Ideographic
     $Extender $Digit $CombiningChar $EncNameStart $EncNameEnd $NameChar $CharMinusDash
     $PubidChar $Any $SingleChar);
 
@@ -36,12 +36,10 @@ if ($] < 5.006) {
     
     $Digit = qr/ [\x30-\x39] /x;
     
-    $Letter = qr/^ $BaseChar $/x;
-    
     # can't do this one without unicode
     # $CombiningChar = qr/^$/msx;
     
-    $NameChar = qr/^ $BaseChar | $Digit | [._:-] | $Extender $/x;
+    $NameChar = qr/(?: $BaseChar | $Digit | [._:-] | $Extender )/x;
     PERL
     die $@ if $@;
 }
@@ -138,9 +136,7 @@ else {
 [\x{4E00}-\x{9FA5}\x{3007}\x{3021}-\x{3029}]
 /x;
 
-    $Letter = qr/^ $BaseChar | $Ideographic $/x;
-
-    $NameChar = qr/^ $Letter | $Digit | [._:-] | $CombiningChar | $Extender $/x;
+    $NameChar = qr/(?: $BaseChar | $Ideographic | $Digit | [._:-] | $CombiningChar | $Extender )/x;
     PERL
 
     die $@ if $@;

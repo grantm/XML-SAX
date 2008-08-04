@@ -4,7 +4,7 @@ package XML::SAX::PurePerl::Reader;
 
 use strict;
 use XML::SAX::PurePerl::Reader::URI;
-use XML::SAX::PurePerl::Productions qw( $SingleChar $Letter $NameChar );
+use XML::SAX::PurePerl::Productions qw( $SingleChar $NameChar );
 use Exporter ();
 
 use vars qw(@ISA @EXPORT_OK);

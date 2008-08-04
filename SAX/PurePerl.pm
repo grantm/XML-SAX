@@ -7,7 +7,7 @@ use vars qw/$VERSION/;
 
 $VERSION = '0.92';
 
-use XML::SAX::PurePerl::Productions qw($Any $CharMinusDash $SingleChar);
+use XML::SAX::PurePerl::Productions qw($NameChar $SingleChar);
 use XML::SAX::PurePerl::Reader;
 use XML::SAX::PurePerl::EncodingDetect ();
 use XML::SAX::Exception;
@@ -668,7 +668,7 @@ sub Name {
     while(1) {
         my $data = $reader->data;
         return unless length($data);
-        $data =~ /^([^\s>\/&\?;=<\)\(\[\],\%\#\!\*]*)/ or return;
+        $data =~ /^([^\s>\/&\?;=<\)\(\[\],\%\#\!\*\|]*)/ or return;
         $name .= $1;
         my $len = length($1);
         $reader->move_along($len);
@@ -677,7 +677,7 @@ sub Name {
     
     return unless length($name);
     
-    $name =~ /$NameChar/o or $self->parser_error("Name <$name> does not match NameChar production", $reader);
+    $name =~ /^$NameChar+$/o or $self->parser_error("Name <$name> does not match NameChar production", $reader);
 
     return $name;
 }
