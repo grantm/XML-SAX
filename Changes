@@ -1,5 +1,10 @@
 Revision history for Perl extension XML::SAX.
 
+0.17  ?? ??? 2008  Grant McLean
+    - Fixed handling of numeric character entities in attribute values
+    - Fix for numeric character entities spanning end of buffer
+    - Performance fix for parsing from large strings (patch from Gordon Lack)
+
 0.16  27 Jun 2007  Grant McLean
     - Applied patch for PI handling from RT#19173
 
