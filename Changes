@@ -1,6 +1,6 @@
 Revision history for Perl extension XML::SAX.
 
-0.17  ?? ??? 2008  Grant McLean
+0.17  05 Aug 2008  Grant McLean
     - XML::SAX::PurePerl fixes:
       - RT#37147: Fix handling of numeric character entities in attribute 
                   values (report from Jools Smyth)
@@ -15,6 +15,7 @@ Revision history for Perl extension XML::SAX.
                   DTD entity declarations (report from Kevin Ryde)
     - RT#28477: Fix test in ParserFactory.pm for parser module loaded (report
                 from Douglas Wilson)
+    - RT#28564: Fix XML::SAX::PurePerl versioning (report from Chapman Flack)
 
 0.16  27 Jun 2007  Grant McLean
     - Applied patch for PI handling from RT#19173
