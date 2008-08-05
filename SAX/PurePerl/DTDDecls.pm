@@ -3,7 +3,7 @@
 package XML::SAX::PurePerl;
 
 use strict;
-use XML::SAX::PurePerl::Productions qw($NameChar $SingleChar);
+use XML::SAX::PurePerl::Productions qw($SingleChar);
 
 sub elementdecl {
     my ($self, $reader) = @_;

@@ -5,7 +5,7 @@ package XML::SAX::PurePerl;
 use strict;
 use vars qw/$VERSION/;
 
-$VERSION = '0.95';
+$VERSION = '0.96';
 
 use XML::SAX::PurePerl::Productions qw($NameChar $SingleChar);
 use XML::SAX::PurePerl::Reader;
@@ -677,7 +677,7 @@ sub Name {
     
     return unless length($name);
     
-    $name =~ /^$NameChar+$/o or $self->parser_error("Name <$name> does not match NameChar production", $reader);
+    $name =~ /$NameChar/o or $self->parser_error("Name <$name> does not match NameChar production", $reader);
 
     return $name;
 }

@@ -39,7 +39,7 @@ if ($] < 5.006) {
     # can't do this one without unicode
     # $CombiningChar = qr/^$/msx;
     
-    $NameChar = qr/(?: $BaseChar | $Digit | [._:-] | $Extender )/x;
+    $NameChar = qr/^ (?: $BaseChar | $Digit | [._:-] | $Extender )+ $/x;
     PERL
     die $@ if $@;
 }
@@ -136,7 +136,7 @@ else {
 [\x{4E00}-\x{9FA5}\x{3007}\x{3021}-\x{3029}]
 /x;
 
-    $NameChar = qr/(?: $BaseChar | $Ideographic | $Digit | [._:-] | $CombiningChar | $Extender )/x;
+    $NameChar = qr/^ (?: $BaseChar | $Ideographic | $Digit | [._:-] | $CombiningChar | $Extender )+ $/x;
     PERL
 
     die $@ if $@;
