@@ -1,11 +1,9 @@
-use Test;
-BEGIN { plan tests => 2 }
-END { ok($loaded == 2) }
-use XML::SAX;
-$loaded++;
+#!/usr/bin/perl -w
 
-use XML::SAX::PurePerl;
-$loaded++;
+use Test::More tests => 3;
+
+use_ok( 'XML::SAX' ); 
+
+use_ok('XML::SAX::PurePerl');
 
 ok(XML::SAX->VERSION eq XML::SAX::PurePerl->VERSION);
-
