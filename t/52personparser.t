@@ -37,7 +37,6 @@ is(Dumper(($parser->{Handler})->{_allPeople}),q[$VAR1 = [
 package MySAXHandler;
 
 use Data::Dumper;
-use Data::Dump qw(dump);
 use strict;
 use warnings;
 
@@ -72,9 +71,9 @@ sub new {
 #$data->{favourite_numbers}[0]
 #pop @{$data->{favouri...}};
 
-sub dumpthem {
-	print dump(@_), "\n";
-}
+#sub dumpthem {
+#	print dump(@_), "\n";
+#}
 sub start_document {
 	my ($self, @rest) = @_;
 	#dumpthem('start_document: ', @rest);
