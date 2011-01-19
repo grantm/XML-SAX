@@ -10,7 +10,7 @@ BEGIN{
 	use_ok('XML::SAX::PurePerl::DebugHandler');
 	use_ok('XML::SAX::ParserFactory');}
 
-my @files = ("parse","50");
+my @files = ("54parse","50");
 
 foreach $file(@files) {
 	my $parser = XML::SAX::ParserFactory->parser(
@@ -22,9 +22,11 @@ foreach $file(@files) {
 
 	my $parsed = Dumper(($parser->{Handler}));
 
-	#open (MYFILE, ">$file.txt") or die $!;
-	#print MYFILE $parsed;
-	#close (MYFILE);
+	if (1) { # 0 to test, 1 to re-write
+		open (MYFILE, ">$file.txt") or die $!;
+		print MYFILE $parsed;
+		close (MYFILE);
+	}
 
 	isa_ok($handler, 'XML::SAX::PurePerl::DebugHandler');
 	is($handler->{seen}{start_document}, 1, 'Started doucment only once');
@@ -41,7 +43,7 @@ foreach $file(@files) {
 
 	for (my $count = 0; $count < @lines; $count++) {
 		if ($split[$count] ne $lines[$count]) {
-			print "OH NOES! $count:  |$split[$count]| ne |$lines[$count]|\n";
+			print "ERROR! $count:  |$split[$count]| ne |$lines[$count]|\n";
 		}
 	}
 }

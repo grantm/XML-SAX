@@ -14,7 +14,11 @@ sub new {
 
 sub dumpthem {
 	my $self = shift;
-	$self->{seen}{_all} = $self->{seen}{_all}.dump(@_)."\n";
+	if (defined($self->{seen}{_all})) {
+		$self->{seen}{_all} = $self->{seen}{_all}.dump(@_)."\n";
+	} else {
+		$self->{seen}{_all} = dump(@_)."\n";
+	}
 }
 
 # DocumentHandler

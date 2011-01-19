@@ -9,7 +9,7 @@ $VAR1 = bless( {
     Encoding     => undef,
     LineNumber   => 1,
     PublicId     => undef,
-    SystemId     => "testfiles/parse.xml",
+    SystemId     => "testfiles/54parse.xml",
     XMLVersion   => "1.0",
   }, "XML::SAX::DocumentLocator"),
 )

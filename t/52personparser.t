@@ -12,7 +12,7 @@ my $parser = XML::SAX::ParserFactory->parser(
 	Handler => MySAXHandler->new
 );
 
-$parser->parse_uri("testfiles/parse.xml");
+$parser->parse_uri("testfiles/52parse.xml");
 is(Dumper(($parser->{Handler})->{_allPeople}),q[$VAR1 = [
           bless( {
                    '_lastName' => 'Smith',
