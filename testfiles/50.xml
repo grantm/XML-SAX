@@ -1,0 +1,664 @@
+<?xml version="1.0" standalone="yes"?>
+
+<!-- revision 15 -->
+<SubscriberInformation>
+    <Profiles>
+        <Profile 
+            ID="10"
+            Name="SUBEquip"
+            Priority="4"
+            UnitCallEnabled="1"
+            EmerCallEnabled="1"
+            EmerAlarmEnabled="1"
+            CallAlertEnabled="1"
+            EncryptCallCapable="1"
+            IsConsole="0"
+            ConsoleOverridesEmer="0"
+            TimedDeregistration="1"
+            AgencyID="2">
+            <!-- Signaling Type: -->
+            <!-- 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID -->
+            <Signaling
+                NAC="204"
+                Type="3" />
+            <!-- Services: 0 => unchecked, 1 => checked -->
+            <Services
+                Group="1"
+                Ind="1"
+                FullDuplex="0"
+                Data="1"
+                ReqFullLink="1"
+                PSTN2Ind="0"
+                Ind2PSTN="0" />
+            <Home
+                NSSID="401"
+                Channel="0"
+                Frequency="0"
+                TXRepeater="0" />
+            <Encryption
+                AlgID="255"
+                ManId="0"
+                KeyID="0" />
+        </Profile>
+        <Profile 
+            ID="11"
+            Name="SU-Serv-Pr"
+            Priority="4"
+            UnitCallEnabled="1"
+            EmerCallEnabled="1"
+            EmerAlarmEnabled="1"
+            CallAlertEnabled="1"
+            EncryptCallCapable="1"
+            IsConsole="0"
+            ConsoleOverridesEmer="0"
+            TimedDeregistration="1"
+            AgencyID="2">
+            <!-- Signaling Type: -->
+            <!-- 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID -->
+            <Signaling
+                NAC="204"
+                Type="3" />
+            <!-- Services: 0 => unchecked, 1 => checked -->
+            <Services
+                Group="1"
+                Ind="1"
+                FullDuplex="0"
+                Data="1"
+                ReqFullLink="1"
+                PSTN2Ind="0"
+                Ind2PSTN="0" />
+            <Home
+                NSSID="401"
+                Channel="0"
+                Frequency="0"
+                TXRepeater="0" />
+            <Encryption
+                AlgID="255"
+                ManId="0"
+                KeyID="0" />
+        </Profile>
+        <Profile 
+            ID="12"
+            Name="SU-Safe-Pr"
+            Priority="4"
+            UnitCallEnabled="1"
+            EmerCallEnabled="1"
+            EmerAlarmEnabled="1"
+            CallAlertEnabled="1"
+            EncryptCallCapable="1"
+            IsConsole="0"
+            ConsoleOverridesEmer="0"
+            TimedDeregistration="1"
+            AgencyID="3">
+            <!-- Signaling Type: -->
+            <!-- 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID -->
+            <Signaling
+                NAC="204"
+                Type="3" />
+            <!-- Services: 0 => unchecked, 1 => checked -->
+            <Services
+                Group="1"
+                Ind="1"
+                FullDuplex="0"
+                Data="1"
+                ReqFullLink="1"
+                PSTN2Ind="0"
+                Ind2PSTN="0" />
+            <Home
+                NSSID="401"
+                Channel="0"
+                Frequency="0"
+                TXRepeater="0" />
+            <Encryption
+                AlgID="255"
+                ManId="0"
+                KeyID="0" />
+        </Profile>
+        <Profile 
+            ID="13"
+            Name="SG-CON-TB4-1"
+            Priority="4"
+            UnitCallEnabled="1"
+            EmerCallEnabled="1"
+            EmerAlarmEnabled="1"
+            CallAlertEnabled="1"
+            EncryptCallCapable="1"
+            IsConsole="1"
+            ConsoleOverridesEmer="0"
+            TimedDeregistration="1"
+            AgencyID="3">
+            <!-- Signaling Type: -->
+            <!-- 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID -->
+            <Signaling
+                NAC="204"
+                Type="3" />
+            <!-- Services: 0 => unchecked, 1 => checked -->
+            <Services
+                Group="1"
+                Ind="1"
+                FullDuplex="0"
+                Data="1"
+                ReqFullLink="1"
+                PSTN2Ind="0"
+                Ind2PSTN="0" />
+            <Home
+                NSSID="401"
+                Channel="0"
+                Frequency="0"
+                TXRepeater="0" />
+            <Encryption
+                AlgID="255"
+                ManId="0"
+                KeyID="0" />
+        </Profile>
+        <Profile 
+            ID="14"
+            Name="SG-CON-TB4-2"
+            Priority="4"
+            UnitCallEnabled="1"
+            EmerCallEnabled="1"
+            EmerAlarmEnabled="1"
+            CallAlertEnabled="1"
+            EncryptCallCapable="1"
+            IsConsole="1"
+            ConsoleOverridesEmer="0"
+            TimedDeregistration="1"
+            AgencyID="2">
+            <!-- Signaling Type: -->
+            <!-- 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID -->
+            <Signaling
+                NAC="204"
+                Type="3" />
+            <!-- Services: 0 => unchecked, 1 => checked -->
+            <Services
+                Group="1"
+                Ind="1"
+                FullDuplex="0"
+                Data="1"
+                ReqFullLink="1"
+                PSTN2Ind="0"
+                Ind2PSTN="0" />
+            <Home
+                NSSID="401"
+                Channel="0"
+                Frequency="0"
+                TXRepeater="0" />
+            <Encryption
+                AlgID="255"
+                ManId="0"
+                KeyID="0" />
+        </Profile>
+        <Profile 
+            ID="15"
+            Name="SG-CON-TB4-3"
+            Priority="4"
+            UnitCallEnabled="1"
+            EmerCallEnabled="1"
+            EmerAlarmEnabled="1"
+            CallAlertEnabled="1"
+            EncryptCallCapable="1"
+            IsConsole="1"
+            ConsoleOverridesEmer="0"
+            TimedDeregistration="1"
+            AgencyID="2">
+            <!-- Signaling Type: -->
+            <!-- 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID -->
+            <Signaling
+                NAC="204"
+                Type="3" />
+            <!-- Services: 0 => unchecked, 1 => checked -->
+            <Services
+                Group="1"
+                Ind="1"
+                FullDuplex="0"
+                Data="1"
+                ReqFullLink="1"
+                PSTN2Ind="0"
+                Ind2PSTN="0" />
+            <Home
+                NSSID="401"
+                Channel="0"
+                Frequency="0"
+                TXRepeater="0" />
+            <Encryption
+                AlgID="255"
+                ManId="0"
+                KeyID="0" />
+        </Profile>
+        <Profile 
+            ID="16"
+            Name="TCG-Sub"
+            Priority="4"
+            UnitCallEnabled="0"
+            EmerCallEnabled="1"
+            EmerAlarmEnabled="1"
+            CallAlertEnabled="1"
+            EncryptCallCapable="1"
+            IsConsole="0"
+            ConsoleOverridesEmer="0"
+            TimedDeregistration="1"
+            AgencyID="3">
+            <!-- Signaling Type: -->
+            <!-- 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID -->
+            <Signaling
+                NAC="204"
+                Type="3" />
+            <!-- Services: 0 => unchecked, 1 => checked -->
+            <Services
+                Group="1"
+                Ind="0"
+                FullDuplex="0"
+                Data="1"
+                ReqFullLink="1"
+                PSTN2Ind="0"
+                Ind2PSTN="0" />
+            <Home
+                NSSID="401"
+                Channel="0"
+                Frequency="0"
+                TXRepeater="0" />
+            <Encryption
+                AlgID="255"
+                ManId="0"
+                KeyID="0" />
+        </Profile>
+        <Profile 
+            ID="17"
+            Name="TCG-Sub2"
+            Priority="4"
+            UnitCallEnabled="0"
+            EmerCallEnabled="1"
+            EmerAlarmEnabled="1"
+            CallAlertEnabled="1"
+            EncryptCallCapable="1"
+            IsConsole="0"
+            ConsoleOverridesEmer="0"
+            TimedDeregistration="1"
+            AgencyID="2">
+            <!-- Signaling Type: -->
+            <!-- 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID -->
+            <Signaling
+                NAC="204"
+                Type="3" />
+            <!-- Services: 0 => unchecked, 1 => checked -->
+            <Services
+                Group="1"
+                Ind="0"
+                FullDuplex="0"
+                Data="1"
+                ReqFullLink="1"
+                PSTN2Ind="0"
+                Ind2PSTN="0" />
+            <Home
+                NSSID="401"
+                Channel="0"
+                Frequency="0"
+                TXRepeater="0" />
+            <Encryption
+                AlgID="255"
+                ManId="0"
+                KeyID="0" />
+        </Profile>
+        <Profile 
+            ID="18"
+            Name="backup"
+            Priority="4"
+            UnitCallEnabled="1"
+            EmerCallEnabled="1"
+            EmerAlarmEnabled="1"
+            CallAlertEnabled="1"
+            EncryptCallCapable="1"
+            IsConsole="0"
+            ConsoleOverridesEmer="0"
+            TimedDeregistration="1"
+            AgencyID="1">
+            <!-- Signaling Type: -->
+            <!-- 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID -->
+            <Signaling
+                NAC="204"
+                Type="3" />
+            <!-- Services: 0 => unchecked, 1 => checked -->
+            <Services
+                Group="1"
+                Ind="1"
+                FullDuplex="0"
+                Data="1"
+                ReqFullLink="1"
+                PSTN2Ind="0"
+                Ind2PSTN="0" />
+            <Home
+                NSSID="401"
+                Channel="0"
+                Frequency="0"
+                TXRepeater="0" />
+            <Encryption
+                AlgID="255"
+                ManId="0"
+                KeyID="0" />
+        </Profile>
+    </Profiles>
+    <Subscribers>
+        <Subscriber
+            ID="1000409"
+            WACN="1"
+            SYS="204"
+            Alias="TCG SS 409"
+            ProfileID="17"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="685">
+            <Signaling
+                UnitID="1000409"
+                LLID="1000409" />
+        </Subscriber>
+        <Subscriber
+            ID="1000410"
+            WACN="1"
+            SYS="204"
+            Alias="TCG SS 410"
+            ProfileID="17"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="686">
+            <Signaling
+                UnitID="1000410"
+                LLID="1000410" />
+        </Subscriber>
+        <Subscriber
+            ID="1000411"
+            WACN="1"
+            SYS="204"
+            Alias="TCG SS 411"
+            ProfileID="17"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="687">
+            <Signaling
+                UnitID="1000411"
+                LLID="1000411" />
+        </Subscriber>
+        <Subscriber
+            ID="1000412"
+            WACN="1"
+            SYS="204"
+            Alias="TCG SS 412"
+            ProfileID="17"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="688">
+            <Signaling
+                UnitID="1000412"
+                LLID="1000412" />
+        </Subscriber>
+        <Subscriber
+            ID="4100"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 4100"
+            ProfileID="12"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="669">
+            <Signaling
+                UnitID="4100"
+                LLID="4100" />
+        </Subscriber>
+        <Subscriber
+            ID="4101"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 4101"
+            ProfileID="12"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="670">
+            <Signaling
+                UnitID="4101"
+                LLID="4101" />
+        </Subscriber>
+        <Subscriber
+            ID="4102"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 4102"
+            ProfileID="12"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="671">
+            <Signaling
+                UnitID="4102"
+                LLID="4102" />
+        </Subscriber>
+        <Subscriber
+            ID="4103"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 4103"
+            ProfileID="12"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="672">
+            <Signaling
+                UnitID="4103"
+                LLID="4103" />
+        </Subscriber>
+        <Subscriber
+            ID="4104"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 4104"
+            ProfileID="12"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="673">
+            <Signaling
+                UnitID="4104"
+                LLID="4104" />
+        </Subscriber>
+        <Subscriber
+            ID="4105"
+            WACN="1"
+            SYS="204"
+            Alias="SafetyOp 4105"
+            ProfileID="12"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="674">
+            <Signaling
+                UnitID="4105"
+                LLID="4105" />
+        </Subscriber>
+        <Subscriber
+            ID="4106"
+            WACN="1"
+            SYS="204"
+            Alias="SafetySup4106"
+            ProfileID="12"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="675">
+            <Signaling
+                UnitID="4106"
+                LLID="4106" />
+        </Subscriber>
+        <Subscriber
+            ID="4151"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 4151"
+            ProfileID="11"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="676">
+            <Signaling
+                UnitID="4151"
+                LLID="4151" />
+        </Subscriber>
+        <Subscriber
+            ID="4152"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 4152"
+            ProfileID="11"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="677">
+            <Signaling
+                UnitID="4152"
+                LLID="4152" />
+        </Subscriber>
+        <Subscriber
+            ID="4153"
+            WACN="1"
+            SYS="204"
+            Alias="ServiceOp 4153"
+            ProfileID="14"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="678">
+            <Signaling
+                UnitID="4153"
+                LLID="4153" />
+        </Subscriber>
+        <Subscriber
+            ID="4154"
+            WACN="1"
+            SYS="204"
+            Alias="ServiceSup 4154"
+            ProfileID="14"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="679">
+            <Signaling
+                UnitID="4154"
+                LLID="4154" />
+        </Subscriber>
+        <Subscriber
+            ID="4201"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 4201"
+            ProfileID="10"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="680">
+            <Signaling
+                UnitID="4201"
+                LLID="4201" />
+        </Subscriber>
+        <Subscriber
+            ID="4202"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 4202"
+            ProfileID="10"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="681">
+            <Signaling
+                UnitID="4202"
+                LLID="4202" />
+        </Subscriber>
+        <Subscriber
+            ID="4203"
+            WACN="1"
+            SYS="204"
+            Alias="EquipOp 4203"
+            ProfileID="15"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="682">
+            <Signaling
+                UnitID="4203"
+                LLID="4203" />
+        </Subscriber>
+        <Subscriber
+            ID="4204"
+            WACN="1"
+            SYS="204"
+            Alias="EquipSup 4204"
+            ProfileID="15"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="683">
+            <Signaling
+                UnitID="4204"
+                LLID="4204" />
+        </Subscriber>
+        <Subscriber
+            ID="5000"
+            WACN="1"
+            SYS="204"
+            Alias="Unit 5000"
+            ProfileID="15"
+            Enable="1"
+            ReqInhibit="0"
+            DynRgpReq="0"
+            DynRgpID="0"
+            SelLockReq="0"
+            InvFk="684">
+            <Signaling
+                UnitID="5000"
+                LLID="5000" />
+        </Subscriber>
+    </Subscribers>
+</SubscriberInformation>
+
+
