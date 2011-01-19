@@ -1,6 +1,6 @@
 $VAR1 = bless( {
                  'seen' => {
-                             'end_element' => 11,
+                             'end_element' => 13,
                              '_all' => '$VAR1 = \'set_document_locator: \';
 $VAR2 = bless( {
                  \'ColumnNumber\' => 0,
@@ -170,6 +170,44 @@ $VAR2 = {
 $VAR1 = \'characters: \';
 $VAR2 = {
           \'Data\' => \'
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'signature\',
+          \'Attributes\' => {},
+          \'Name\' => \'signature\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'I\\\'m also a snowman \'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => "\\x{2603}"
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \' =)\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'signature\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'signature\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
 	\'
         };
 
@@ -330,6 +368,39 @@ $VAR2 = {
 $VAR1 = \'characters: \';
 $VAR2 = {
           \'Data\' => \'
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'signature\',
+          \'Attributes\' => {},
+          \'Name\' => \'signature\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'I\\\'m a snowman \'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => "\\x{2603}"
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'signature\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'signature\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
 	\'
         };
 
@@ -362,7 +433,7 @@ $VAR2 = {};
                              'set_document_locator' => 1,
                              'start_document' => 1,
                              'end_document' => 1,
-                             'characters' => 21,
-                             'start_element' => 11
+                             'characters' => 28,
+                             'start_element' => 13
                            }
                }, 'XML::SAX::PurePerl::DebugHandler' );

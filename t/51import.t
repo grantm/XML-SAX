@@ -12,7 +12,9 @@ ok($handler);
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
 ok($parser);
 
-my $file1 = IO::File->new("testfiles/parse.xml");
+my $file = 'testfiles/51import.xml';
+
+my $file1 = IO::File->new($file);
 ok($file1);
 
 eval {
@@ -21,7 +23,7 @@ $parser->parse_file($file1);
 print $@;
 ok(!$@);
 
-my $file2 = "testfiles/parse.xml";
+my $file2 = $file;
 
 eval {
 $parser->parse_file($file2);
