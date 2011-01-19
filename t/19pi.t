@@ -1,5 +1,6 @@
-use Test;
-BEGIN { plan tests => 2 }
+#!/usr/bin/perl -w
+
+use Test::More tests => 2;
 use XML::SAX::PurePerl;
 use XML::SAX::PurePerl::DebugHandler;
 
@@ -16,8 +17,8 @@ sub processing_instruction {
     my $this = shift;
     my $data = shift;
 
-    main::ok($data->{Target},"xml-stylesheet");
-    main::ok($data->{Data},"type=\"text/xsl\" href=\"processorinxml/base.xsl\"");
+    main::is($data->{Target}, "xml-stylesheet");
+    main::is($data->{Data}, "type=\"text/xsl\" href=\"processorinxml/base.xsl\"");
 }
 
 __END__

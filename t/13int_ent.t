@@ -1,14 +1,14 @@
-use Test;
-BEGIN { plan tests => 3 }
+#!/usr/bin/perl -w
+
+use Test::More tests => 3;
 use XML::SAX::PurePerl;
 use XML::SAX::PurePerl::DebugHandler;
 
 my $handler = XML::SAX::PurePerl::DebugHandler->new();
-ok($handler);
+isa_ok($handler, 'XML::SAX::PurePerl::DebugHandler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+isa_ok($parser, 'XML::SAX::PurePerl');
 
-$parser->parse_uri("testfiles/04a.xml");
-ok(1);
-
+eval{$parser->parse_uri("testfiles/04a.xml");};
+is($@, '');

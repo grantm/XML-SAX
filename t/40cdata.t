@@ -1,22 +1,22 @@
+#!/usr/bin/perl -w
+
 use strict;
 use warnings;
 
-use Test;
-BEGIN { plan tests => 4 }
+use Test::More tests => 4;
 
 use XML::SAX::PurePerl;
 
 my $handler = CDataHandler->new();
-ok($handler);
+isa_ok($handler, 'CDataHandler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+isa_ok($parser, 'XML::SAX::PurePerl');
 
-$parser->parse_string('<code><![CDATA[<crackers & cheese>]]></code>');
-ok(1); # parser didn't die
+eval{$parser->parse_string('<code><![CDATA[<crackers & cheese>]]></code>');};
+is($@, '', 'Parsed String');
 
-my $expected = '<crackers & cheese>';
-ok($handler->cbuffer, $expected);
+is($handler->cbuffer, '<crackers & cheese>', "Handler's cbuffer returns correct string");
 
 exit;
 

@@ -1,42 +1,42 @@
-use Test;
-BEGIN { plan tests => 16 }
+#!/usr/bin/perl -w
+
+use Test::More tests => 14;
 use XML::SAX::ParserFactory;
 
 # load SAX parsers (no ParserDetails.ini available at first in blib)
 use XML::SAX qw(Namespaces Validation);
-ok(@{XML::SAX->parsers}, 0);
-ok(XML::SAX->add_parser(q(XML::SAX::PurePerl)));
-ok(@{XML::SAX->parsers}, 1);
+is(@{XML::SAX->parsers}, 0, 'No parsers loaded');
+ok(XML::SAX->add_parser(q(XML::SAX::PurePerl)), 'Can load PuerPerl parser');
+is(@{XML::SAX->parsers}, 1, 'One parser loaded');
 
-ok(XML::SAX::ParserFactory->parser); # test class method
+isa_ok(XML::SAX::ParserFactory->parser, 'XML::SAX::PurePerl'); # test class method
 my $factory = XML::SAX::ParserFactory->new();
-ok($factory);
-ok($factory->parser);
+isa_ok($factory, 'XML::SAX::ParserFactory');
+isa_ok($factory->parser, 'XML::SAX::PurePerl');
 
-ok($factory->require_feature(Namespaces));
-ok($factory->parser);
+eval {$factory->require_feature(Namespaces)};
+is($@, '', 'Successfully required feature: Namespaces');
+isa_ok($factory->parser, 'XML::SAX::PurePerl');
+eval{$factory->require_feature(Validation)};
+is($@, '', 'Successfully required feature: Validation');
 
-ok($factory->require_feature(Validation));
 eval {
     my $parser = $factory->parser;
     # should never get here unless PurePerl starts providing validation
     ok(!$parser);
 };
-ok($@);
-ok($@->isa('XML::SAX::Exception'));
+isa_ok($@, 'XML::SAX::Exception');
 
 $factory = XML::SAX::ParserFactory->new();
 my $parser = $factory->parser;
-ok($parser);
+isa_ok($parser, 'XML::SAX::PurePerl');
+
 eval {
     $parser->parse_string('<widget/>');
-    ok(1);
 };
-ok(!$@);
+is($@, '', 'Parsed string "<widget/>"');
 
 local $XML::SAX::ParserPackage = 'XML::SAX::PurePerl';
-ok(XML::SAX::ParserFactory->parser);
-
+isa_ok(XML::SAX::ParserFactory->parser, 'XML::SAX::PurePerl');
 local $XML::SAX::ParserPackage = 'XML::SAX::PurePerl (0.01)';
-ok(XML::SAX::ParserFactory->parser);
-
+isa_ok(XML::SAX::ParserFactory->parser, 'XML::SAX::PurePerl');

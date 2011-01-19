@@ -1,13 +1,14 @@
-use Test;
-BEGIN { plan tests => 32 }
+#!/usr/bin/perl -w
+
+use Test::More tests => 32;
 use XML::SAX::PurePerl;
 use XML::SAX::PurePerl::DebugHandler;
 
 my $handler = TestElementHandler->new();
-ok($handler);
+isa_ok($handler, 'TestElementHandler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+isa_ok($parser, 'XML::SAX::PurePerl');
 
 $handler->{test_el}{Name} = "foo";
 $handler->{test_el}{LocalName} = "foo";
@@ -58,11 +59,8 @@ $parser->parse_uri("testfiles/06e.xml");
 
 $handler->reset;
 # prefix with no ns binding. Error.
-eval {
-$parser->parse_uri("testfiles/06f.xml");
-};
-ok($@);
-
+eval {$parser->parse_uri("testfiles/06f.xml");};
+is($@, "Undeclared prefix: b at /usr/share/perl5/XML/NamespaceSupport.pm line 298.\n");
 $handler->reset;
 $handler->{test_chr}{Data} = "bar";
 $parser->parse_uri("testfiles/06g.xml");
@@ -71,7 +69,7 @@ $parser->parse_uri("testfiles/06g.xml");
 
 package TestElementHandler;
 
-use Test;
+use Test::More;
 
 sub new {
     my $class = shift;
@@ -89,13 +87,13 @@ sub start_element {
     if ($self->{test_el}) {
         foreach my $key (keys %{ $self->{test_el} }) {
             #warn $key, "\n";
-            ok("$key: $el->{$key}", "$key: $self->{test_el}{$key}");
+            is("$key: $el->{$key}", "$key: $self->{test_el}{$key}");
         }
     }
     if ($self->{test_attr}) {
         foreach my $key (keys %{ $self->{test_attr} }) {
             #warn $key, "\n";
-            ok("$key: $el->{Attributes}{ $self->{attr_name} }{$key}", "$key: $self->{test_attr}{$key}");
+            ok("$key: $el->{Attributes}{ $self->{attr_name} }{$key}" eq "$key: $self->{test_attr}{$key}");
         }
     }
 }
@@ -106,7 +104,7 @@ sub characters {
         foreach my $text (@text) {
             foreach my $key (keys %{ $self->{test_chr} }) {
                 #warn $key, "\n";
-                ok("$key: $text->{$key}", "$key: $self->{test_chr}{$key}");
+                ok("$key: $text->{$key}" eq "$key: $self->{test_chr}{$key}");
             }
         }
     }    

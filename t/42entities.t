@@ -1,22 +1,22 @@
+#!/usr/bin/perl -w
+
 use strict;
 use warnings;
 
-use Test;
-BEGIN { plan tests => 4 }
+use Test::More tests => 4;
 
 use XML::SAX::PurePerl;
 
 my $handler = AttrHandler->new();
-ok($handler);
+isa_ok($handler, 'AttrHandler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+isa_ok($parser, 'XML::SAX::PurePerl');
 
-$parser->parse_string('<code amp="&amp;" x3E="&#x3E;" num="&#65;" />');
-ok(1); # parser didn't die
+eval{$parser->parse_string('<code amp="&amp;" x3E="&#x3E;" num="&#65;" />');};
+is($@, '', 'Parsed string');
 
-my $expected = "amp=& num=A x3E=> ";
-ok($handler->attributes, $expected);
+is($handler->attributes, 'amp=& num=A x3E=> ', 'handler->attributes returned correct string');
 
 exit;
 
