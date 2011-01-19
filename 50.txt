@@ -1,0 +1,5170 @@
+$VAR1 = bless( {
+                 'seen' => {
+                             'set_document_locator' => 1,
+                             'characters' => 140,
+                             'start_element' => 84,
+                             'end_element' => 84,
+                             'comment' => 27,
+                             '_all' => '(
+  "set_document_locator: ",
+  bless({
+    # tied XML::SAX::DocumentLocator
+    ColumnNumber => 0,
+    Encoding     => undef,
+    LineNumber   => 1,
+    PublicId     => undef,
+    SystemId     => "testfiles/50.xml",
+    XMLVersion   => "1.0",
+  }, "XML::SAX::DocumentLocator"),
+)
+("start_document: ", {})
+("comment: ", { Data => " revision 15 " })
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "SubscriberInformation",
+    Name => "SubscriberInformation",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n    " })
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "Profiles",
+    Name => "Profiles",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AgencyID" => {
+                LocalName => "AgencyID",
+                Name => "AgencyID",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 2,
+              },
+          "{}CallAlertEnabled" => {
+                LocalName => "CallAlertEnabled",
+                Name => "CallAlertEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ConsoleOverridesEmer" => {
+                LocalName => "ConsoleOverridesEmer",
+                Name => "ConsoleOverridesEmer",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}EmerAlarmEnabled" => {
+                LocalName => "EmerAlarmEnabled",
+                Name => "EmerAlarmEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EmerCallEnabled" => {
+                LocalName => "EmerCallEnabled",
+                Name => "EmerCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EncryptCallCapable" => {
+                LocalName => "EncryptCallCapable",
+                Name => "EncryptCallCapable",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ID" => { LocalName => "ID", Name => "ID", NamespaceURI => "", Prefix => "", Value => 10 },
+          "{}IsConsole" => {
+                LocalName => "IsConsole",
+                Name => "IsConsole",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}Name" => {
+                LocalName => "Name",
+                Name => "Name",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "SUBEquip",
+              },
+          "{}Priority" => {
+                LocalName => "Priority",
+                Name => "Priority",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 4,
+              },
+          "{}TimedDeregistration" => {
+                LocalName => "TimedDeregistration",
+                Name => "TimedDeregistration",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}UnitCallEnabled" => {
+                LocalName => "UnitCallEnabled",
+                Name => "UnitCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+        },
+    LocalName => "Profile",
+    Name => "Profile",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+("comment: ", { Data => " Signaling Type: " })
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}NAC"  => {
+                        LocalName => "NAC",
+                        Name => "NAC",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 204,
+                      },
+          "{}Type" => {
+                        LocalName => "Type",
+                        Name => "Type",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 3,
+                      },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  { Data => " Services: 0 => unchecked, 1 => checked " },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Data"        => {
+                               LocalName => "Data",
+                               Name => "Data",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}FullDuplex"  => {
+                               LocalName => "FullDuplex",
+                               Name => "FullDuplex",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}Group"       => {
+                               LocalName => "Group",
+                               Name => "Group",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}Ind"         => { LocalName => "Ind", Name => "Ind", NamespaceURI => "", Prefix => "", Value => 1 },
+          "{}Ind2PSTN"    => {
+                               LocalName => "Ind2PSTN",
+                               Name => "Ind2PSTN",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}PSTN2Ind"    => {
+                               LocalName => "PSTN2Ind",
+                               Name => "PSTN2Ind",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}ReqFullLink" => {
+                               LocalName => "ReqFullLink",
+                               Name => "ReqFullLink",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+        },
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Channel"    => {
+                              LocalName => "Channel",
+                              Name => "Channel",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Frequency"  => {
+                              LocalName => "Frequency",
+                              Name => "Frequency",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}NSSID"      => {
+                              LocalName => "NSSID",
+                              Name => "NSSID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 401,
+                            },
+          "{}TXRepeater" => {
+                              LocalName => "TXRepeater",
+                              Name => "TXRepeater",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+        },
+    LocalName => "Home",
+    Name => "Home",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  { LocalName => "Home", Name => "Home", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AlgID" => {
+                         LocalName => "AlgID",
+                         Name => "AlgID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 255,
+                       },
+          "{}KeyID" => {
+                         LocalName => "KeyID",
+                         Name => "KeyID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+          "{}ManId" => {
+                         LocalName => "ManId",
+                         Name => "ManId",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+        },
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  { LocalName => "Profile", Name => "Profile", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AgencyID" => {
+                LocalName => "AgencyID",
+                Name => "AgencyID",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 2,
+              },
+          "{}CallAlertEnabled" => {
+                LocalName => "CallAlertEnabled",
+                Name => "CallAlertEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ConsoleOverridesEmer" => {
+                LocalName => "ConsoleOverridesEmer",
+                Name => "ConsoleOverridesEmer",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}EmerAlarmEnabled" => {
+                LocalName => "EmerAlarmEnabled",
+                Name => "EmerAlarmEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EmerCallEnabled" => {
+                LocalName => "EmerCallEnabled",
+                Name => "EmerCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EncryptCallCapable" => {
+                LocalName => "EncryptCallCapable",
+                Name => "EncryptCallCapable",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ID" => { LocalName => "ID", Name => "ID", NamespaceURI => "", Prefix => "", Value => 11 },
+          "{}IsConsole" => {
+                LocalName => "IsConsole",
+                Name => "IsConsole",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}Name" => {
+                LocalName => "Name",
+                Name => "Name",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "SU-Serv-Pr",
+              },
+          "{}Priority" => {
+                LocalName => "Priority",
+                Name => "Priority",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 4,
+              },
+          "{}TimedDeregistration" => {
+                LocalName => "TimedDeregistration",
+                Name => "TimedDeregistration",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}UnitCallEnabled" => {
+                LocalName => "UnitCallEnabled",
+                Name => "UnitCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+        },
+    LocalName => "Profile",
+    Name => "Profile",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+("comment: ", { Data => " Signaling Type: " })
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}NAC"  => {
+                        LocalName => "NAC",
+                        Name => "NAC",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 204,
+                      },
+          "{}Type" => {
+                        LocalName => "Type",
+                        Name => "Type",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 3,
+                      },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  { Data => " Services: 0 => unchecked, 1 => checked " },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Data"        => {
+                               LocalName => "Data",
+                               Name => "Data",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}FullDuplex"  => {
+                               LocalName => "FullDuplex",
+                               Name => "FullDuplex",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}Group"       => {
+                               LocalName => "Group",
+                               Name => "Group",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}Ind"         => { LocalName => "Ind", Name => "Ind", NamespaceURI => "", Prefix => "", Value => 1 },
+          "{}Ind2PSTN"    => {
+                               LocalName => "Ind2PSTN",
+                               Name => "Ind2PSTN",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}PSTN2Ind"    => {
+                               LocalName => "PSTN2Ind",
+                               Name => "PSTN2Ind",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}ReqFullLink" => {
+                               LocalName => "ReqFullLink",
+                               Name => "ReqFullLink",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+        },
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Channel"    => {
+                              LocalName => "Channel",
+                              Name => "Channel",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Frequency"  => {
+                              LocalName => "Frequency",
+                              Name => "Frequency",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}NSSID"      => {
+                              LocalName => "NSSID",
+                              Name => "NSSID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 401,
+                            },
+          "{}TXRepeater" => {
+                              LocalName => "TXRepeater",
+                              Name => "TXRepeater",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+        },
+    LocalName => "Home",
+    Name => "Home",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  { LocalName => "Home", Name => "Home", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AlgID" => {
+                         LocalName => "AlgID",
+                         Name => "AlgID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 255,
+                       },
+          "{}KeyID" => {
+                         LocalName => "KeyID",
+                         Name => "KeyID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+          "{}ManId" => {
+                         LocalName => "ManId",
+                         Name => "ManId",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+        },
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  { LocalName => "Profile", Name => "Profile", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AgencyID" => {
+                LocalName => "AgencyID",
+                Name => "AgencyID",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 3,
+              },
+          "{}CallAlertEnabled" => {
+                LocalName => "CallAlertEnabled",
+                Name => "CallAlertEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ConsoleOverridesEmer" => {
+                LocalName => "ConsoleOverridesEmer",
+                Name => "ConsoleOverridesEmer",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}EmerAlarmEnabled" => {
+                LocalName => "EmerAlarmEnabled",
+                Name => "EmerAlarmEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EmerCallEnabled" => {
+                LocalName => "EmerCallEnabled",
+                Name => "EmerCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EncryptCallCapable" => {
+                LocalName => "EncryptCallCapable",
+                Name => "EncryptCallCapable",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ID" => { LocalName => "ID", Name => "ID", NamespaceURI => "", Prefix => "", Value => 12 },
+          "{}IsConsole" => {
+                LocalName => "IsConsole",
+                Name => "IsConsole",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}Name" => {
+                LocalName => "Name",
+                Name => "Name",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "SU-Safe-Pr",
+              },
+          "{}Priority" => {
+                LocalName => "Priority",
+                Name => "Priority",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 4,
+              },
+          "{}TimedDeregistration" => {
+                LocalName => "TimedDeregistration",
+                Name => "TimedDeregistration",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}UnitCallEnabled" => {
+                LocalName => "UnitCallEnabled",
+                Name => "UnitCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+        },
+    LocalName => "Profile",
+    Name => "Profile",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+("comment: ", { Data => " Signaling Type: " })
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}NAC"  => {
+                        LocalName => "NAC",
+                        Name => "NAC",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 204,
+                      },
+          "{}Type" => {
+                        LocalName => "Type",
+                        Name => "Type",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 3,
+                      },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  { Data => " Services: 0 => unchecked, 1 => checked " },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Data"        => {
+                               LocalName => "Data",
+                               Name => "Data",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}FullDuplex"  => {
+                               LocalName => "FullDuplex",
+                               Name => "FullDuplex",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}Group"       => {
+                               LocalName => "Group",
+                               Name => "Group",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}Ind"         => { LocalName => "Ind", Name => "Ind", NamespaceURI => "", Prefix => "", Value => 1 },
+          "{}Ind2PSTN"    => {
+                               LocalName => "Ind2PSTN",
+                               Name => "Ind2PSTN",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}PSTN2Ind"    => {
+                               LocalName => "PSTN2Ind",
+                               Name => "PSTN2Ind",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}ReqFullLink" => {
+                               LocalName => "ReqFullLink",
+                               Name => "ReqFullLink",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+        },
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Channel"    => {
+                              LocalName => "Channel",
+                              Name => "Channel",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Frequency"  => {
+                              LocalName => "Frequency",
+                              Name => "Frequency",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}NSSID"      => {
+                              LocalName => "NSSID",
+                              Name => "NSSID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 401,
+                            },
+          "{}TXRepeater" => {
+                              LocalName => "TXRepeater",
+                              Name => "TXRepeater",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+        },
+    LocalName => "Home",
+    Name => "Home",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  { LocalName => "Home", Name => "Home", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AlgID" => {
+                         LocalName => "AlgID",
+                         Name => "AlgID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 255,
+                       },
+          "{}KeyID" => {
+                         LocalName => "KeyID",
+                         Name => "KeyID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+          "{}ManId" => {
+                         LocalName => "ManId",
+                         Name => "ManId",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+        },
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  { LocalName => "Profile", Name => "Profile", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AgencyID" => {
+                LocalName => "AgencyID",
+                Name => "AgencyID",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 3,
+              },
+          "{}CallAlertEnabled" => {
+                LocalName => "CallAlertEnabled",
+                Name => "CallAlertEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ConsoleOverridesEmer" => {
+                LocalName => "ConsoleOverridesEmer",
+                Name => "ConsoleOverridesEmer",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}EmerAlarmEnabled" => {
+                LocalName => "EmerAlarmEnabled",
+                Name => "EmerAlarmEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EmerCallEnabled" => {
+                LocalName => "EmerCallEnabled",
+                Name => "EmerCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EncryptCallCapable" => {
+                LocalName => "EncryptCallCapable",
+                Name => "EncryptCallCapable",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ID" => { LocalName => "ID", Name => "ID", NamespaceURI => "", Prefix => "", Value => 13 },
+          "{}IsConsole" => {
+                LocalName => "IsConsole",
+                Name => "IsConsole",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}Name" => {
+                LocalName => "Name",
+                Name => "Name",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "SG-CON-TB4-1",
+              },
+          "{}Priority" => {
+                LocalName => "Priority",
+                Name => "Priority",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 4,
+              },
+          "{}TimedDeregistration" => {
+                LocalName => "TimedDeregistration",
+                Name => "TimedDeregistration",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}UnitCallEnabled" => {
+                LocalName => "UnitCallEnabled",
+                Name => "UnitCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+        },
+    LocalName => "Profile",
+    Name => "Profile",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+("comment: ", { Data => " Signaling Type: " })
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}NAC"  => {
+                        LocalName => "NAC",
+                        Name => "NAC",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 204,
+                      },
+          "{}Type" => {
+                        LocalName => "Type",
+                        Name => "Type",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 3,
+                      },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " Services: 0 => unchecked, 1 => checked -->\\n            <Services\\n                Group=\\"1\\"\\n                Ind=\\"1\\"\\n                FullDuplex=\\"0\\"\\n                Data=\\"1\\"\\n                ReqFullLink=\\"1\\"\\n                PSTN2Ind=\\"0\\"\\n                Ind2PSTN=\\"0\\" />\\n            <Home\\n                NSSID=\\"401\\"\\n                Channel=\\"0\\"\\n                Frequency=\\"0\\"\\n                TXRepeater=\\"0\\" />\\n            <Encryption\\n                AlgID=\\"255\\"\\n                ManId=\\"0\\"\\n                KeyID=\\"0\\" />\\n        </Profile>\\n        <Profile \\n            ID=\\"14\\"\\n            Name=\\"SG-CON-TB4-2\\"\\n            Priority=\\"4\\"\\n            UnitCallEnabled=\\"1\\"\\n            EmerCallEnabled=\\"1\\"\\n            EmerAlarmEnabled=\\"1\\"\\n            CallAlertEnabled=\\"1\\"\\n            EncryptCallCapable=\\"1\\"\\n            IsConsole=\\"1\\"\\n            ConsoleOverridesEmer=\\"0\\"\\n            TimedDeregistration=\\"1\\"\\n            AgencyID=\\"2\\">\\n            <!-- Signaling Type: ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}NAC"  => {
+                        LocalName => "NAC",
+                        Name => "NAC",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 204,
+                      },
+          "{}Type" => {
+                        LocalName => "Type",
+                        Name => "Type",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 3,
+                      },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  { Data => " Services: 0 => unchecked, 1 => checked " },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Data"        => {
+                               LocalName => "Data",
+                               Name => "Data",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}FullDuplex"  => {
+                               LocalName => "FullDuplex",
+                               Name => "FullDuplex",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}Group"       => {
+                               LocalName => "Group",
+                               Name => "Group",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}Ind"         => { LocalName => "Ind", Name => "Ind", NamespaceURI => "", Prefix => "", Value => 1 },
+          "{}Ind2PSTN"    => {
+                               LocalName => "Ind2PSTN",
+                               Name => "Ind2PSTN",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}PSTN2Ind"    => {
+                               LocalName => "PSTN2Ind",
+                               Name => "PSTN2Ind",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}ReqFullLink" => {
+                               LocalName => "ReqFullLink",
+                               Name => "ReqFullLink",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+        },
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Channel"    => {
+                              LocalName => "Channel",
+                              Name => "Channel",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Frequency"  => {
+                              LocalName => "Frequency",
+                              Name => "Frequency",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}NSSID"      => {
+                              LocalName => "NSSID",
+                              Name => "NSSID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 401,
+                            },
+          "{}TXRepeater" => {
+                              LocalName => "TXRepeater",
+                              Name => "TXRepeater",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+        },
+    LocalName => "Home",
+    Name => "Home",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  { LocalName => "Home", Name => "Home", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AlgID" => {
+                         LocalName => "AlgID",
+                         Name => "AlgID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 255,
+                       },
+          "{}KeyID" => {
+                         LocalName => "KeyID",
+                         Name => "KeyID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+          "{}ManId" => {
+                         LocalName => "ManId",
+                         Name => "ManId",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+        },
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  { LocalName => "Profile", Name => "Profile", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AgencyID" => {
+                LocalName => "AgencyID",
+                Name => "AgencyID",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 2,
+              },
+          "{}CallAlertEnabled" => {
+                LocalName => "CallAlertEnabled",
+                Name => "CallAlertEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ConsoleOverridesEmer" => {
+                LocalName => "ConsoleOverridesEmer",
+                Name => "ConsoleOverridesEmer",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}EmerAlarmEnabled" => {
+                LocalName => "EmerAlarmEnabled",
+                Name => "EmerAlarmEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EmerCallEnabled" => {
+                LocalName => "EmerCallEnabled",
+                Name => "EmerCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EncryptCallCapable" => {
+                LocalName => "EncryptCallCapable",
+                Name => "EncryptCallCapable",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ID" => { LocalName => "ID", Name => "ID", NamespaceURI => "", Prefix => "", Value => 15 },
+          "{}IsConsole" => {
+                LocalName => "IsConsole",
+                Name => "IsConsole",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}Name" => {
+                LocalName => "Name",
+                Name => "Name",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "SG-CON-TB4-3",
+              },
+          "{}Priority" => {
+                LocalName => "Priority",
+                Name => "Priority",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 4,
+              },
+          "{}TimedDeregistration" => {
+                LocalName => "TimedDeregistration",
+                Name => "TimedDeregistration",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}UnitCallEnabled" => {
+                LocalName => "UnitCallEnabled",
+                Name => "UnitCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+        },
+    LocalName => "Profile",
+    Name => "Profile",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+("comment: ", { Data => " Signaling Type: " })
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}NAC"  => {
+                        LocalName => "NAC",
+                        Name => "NAC",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 204,
+                      },
+          "{}Type" => {
+                        LocalName => "Type",
+                        Name => "Type",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 3,
+                      },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  { Data => " Services: 0 => unchecked, 1 => checked " },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Data"        => {
+                               LocalName => "Data",
+                               Name => "Data",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}FullDuplex"  => {
+                               LocalName => "FullDuplex",
+                               Name => "FullDuplex",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}Group"       => {
+                               LocalName => "Group",
+                               Name => "Group",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}Ind"         => { LocalName => "Ind", Name => "Ind", NamespaceURI => "", Prefix => "", Value => 1 },
+          "{}Ind2PSTN"    => {
+                               LocalName => "Ind2PSTN",
+                               Name => "Ind2PSTN",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}PSTN2Ind"    => {
+                               LocalName => "PSTN2Ind",
+                               Name => "PSTN2Ind",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}ReqFullLink" => {
+                               LocalName => "ReqFullLink",
+                               Name => "ReqFullLink",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+        },
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Channel"    => {
+                              LocalName => "Channel",
+                              Name => "Channel",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Frequency"  => {
+                              LocalName => "Frequency",
+                              Name => "Frequency",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}NSSID"      => {
+                              LocalName => "NSSID",
+                              Name => "NSSID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 401,
+                            },
+          "{}TXRepeater" => {
+                              LocalName => "TXRepeater",
+                              Name => "TXRepeater",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+        },
+    LocalName => "Home",
+    Name => "Home",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  { LocalName => "Home", Name => "Home", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AlgID" => {
+                         LocalName => "AlgID",
+                         Name => "AlgID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 255,
+                       },
+          "{}KeyID" => {
+                         LocalName => "KeyID",
+                         Name => "KeyID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+          "{}ManId" => {
+                         LocalName => "ManId",
+                         Name => "ManId",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+        },
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  { LocalName => "Profile", Name => "Profile", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AgencyID" => {
+                LocalName => "AgencyID",
+                Name => "AgencyID",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 3,
+              },
+          "{}CallAlertEnabled" => {
+                LocalName => "CallAlertEnabled",
+                Name => "CallAlertEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ConsoleOverridesEmer" => {
+                LocalName => "ConsoleOverridesEmer",
+                Name => "ConsoleOverridesEmer",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}EmerAlarmEnabled" => {
+                LocalName => "EmerAlarmEnabled",
+                Name => "EmerAlarmEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EmerCallEnabled" => {
+                LocalName => "EmerCallEnabled",
+                Name => "EmerCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EncryptCallCapable" => {
+                LocalName => "EncryptCallCapable",
+                Name => "EncryptCallCapable",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ID" => { LocalName => "ID", Name => "ID", NamespaceURI => "", Prefix => "", Value => 16 },
+          "{}IsConsole" => {
+                LocalName => "IsConsole",
+                Name => "IsConsole",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}Name" => {
+                LocalName => "Name",
+                Name => "Name",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "TCG-Sub",
+              },
+          "{}Priority" => {
+                LocalName => "Priority",
+                Name => "Priority",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 4,
+              },
+          "{}TimedDeregistration" => {
+                LocalName => "TimedDeregistration",
+                Name => "TimedDeregistration",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}UnitCallEnabled" => {
+                LocalName => "UnitCallEnabled",
+                Name => "UnitCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+        },
+    LocalName => "Profile",
+    Name => "Profile",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+("comment: ", { Data => " Signaling Type: " })
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}NAC"  => {
+                        LocalName => "NAC",
+                        Name => "NAC",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 204,
+                      },
+          "{}Type" => {
+                        LocalName => "Type",
+                        Name => "Type",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 3,
+                      },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  { Data => " Services: 0 => unchecked, 1 => checked " },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Data"        => {
+                               LocalName => "Data",
+                               Name => "Data",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}FullDuplex"  => {
+                               LocalName => "FullDuplex",
+                               Name => "FullDuplex",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}Group"       => {
+                               LocalName => "Group",
+                               Name => "Group",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}Ind"         => { LocalName => "Ind", Name => "Ind", NamespaceURI => "", Prefix => "", Value => 0 },
+          "{}Ind2PSTN"    => {
+                               LocalName => "Ind2PSTN",
+                               Name => "Ind2PSTN",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}PSTN2Ind"    => {
+                               LocalName => "PSTN2Ind",
+                               Name => "PSTN2Ind",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}ReqFullLink" => {
+                               LocalName => "ReqFullLink",
+                               Name => "ReqFullLink",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+        },
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Channel"    => {
+                              LocalName => "Channel",
+                              Name => "Channel",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Frequency"  => {
+                              LocalName => "Frequency",
+                              Name => "Frequency",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}NSSID"      => {
+                              LocalName => "NSSID",
+                              Name => "NSSID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 401,
+                            },
+          "{}TXRepeater" => {
+                              LocalName => "TXRepeater",
+                              Name => "TXRepeater",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+        },
+    LocalName => "Home",
+    Name => "Home",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  { LocalName => "Home", Name => "Home", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AlgID" => {
+                         LocalName => "AlgID",
+                         Name => "AlgID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 255,
+                       },
+          "{}KeyID" => {
+                         LocalName => "KeyID",
+                         Name => "KeyID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+          "{}ManId" => {
+                         LocalName => "ManId",
+                         Name => "ManId",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+        },
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  { LocalName => "Profile", Name => "Profile", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AgencyID" => {
+                LocalName => "AgencyID",
+                Name => "AgencyID",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 2,
+              },
+          "{}CallAlertEnabled" => {
+                LocalName => "CallAlertEnabled",
+                Name => "CallAlertEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ConsoleOverridesEmer" => {
+                LocalName => "ConsoleOverridesEmer",
+                Name => "ConsoleOverridesEmer",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}EmerAlarmEnabled" => {
+                LocalName => "EmerAlarmEnabled",
+                Name => "EmerAlarmEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EmerCallEnabled" => {
+                LocalName => "EmerCallEnabled",
+                Name => "EmerCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EncryptCallCapable" => {
+                LocalName => "EncryptCallCapable",
+                Name => "EncryptCallCapable",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ID" => { LocalName => "ID", Name => "ID", NamespaceURI => "", Prefix => "", Value => 17 },
+          "{}IsConsole" => {
+                LocalName => "IsConsole",
+                Name => "IsConsole",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}Name" => {
+                LocalName => "Name",
+                Name => "Name",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "TCG-Sub2",
+              },
+          "{}Priority" => {
+                LocalName => "Priority",
+                Name => "Priority",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 4,
+              },
+          "{}TimedDeregistration" => {
+                LocalName => "TimedDeregistration",
+                Name => "TimedDeregistration",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}UnitCallEnabled" => {
+                LocalName => "UnitCallEnabled",
+                Name => "UnitCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+        },
+    LocalName => "Profile",
+    Name => "Profile",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+("comment: ", { Data => " Signaling Type: " })
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}NAC"  => {
+                        LocalName => "NAC",
+                        Name => "NAC",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 204,
+                      },
+          "{}Type" => {
+                        LocalName => "Type",
+                        Name => "Type",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 3,
+                      },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  { Data => " Services: 0 => unchecked, 1 => checked " },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Data"        => {
+                               LocalName => "Data",
+                               Name => "Data",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}FullDuplex"  => {
+                               LocalName => "FullDuplex",
+                               Name => "FullDuplex",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}Group"       => {
+                               LocalName => "Group",
+                               Name => "Group",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}Ind"         => { LocalName => "Ind", Name => "Ind", NamespaceURI => "", Prefix => "", Value => 0 },
+          "{}Ind2PSTN"    => {
+                               LocalName => "Ind2PSTN",
+                               Name => "Ind2PSTN",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}PSTN2Ind"    => {
+                               LocalName => "PSTN2Ind",
+                               Name => "PSTN2Ind",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}ReqFullLink" => {
+                               LocalName => "ReqFullLink",
+                               Name => "ReqFullLink",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+        },
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Channel"    => {
+                              LocalName => "Channel",
+                              Name => "Channel",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Frequency"  => {
+                              LocalName => "Frequency",
+                              Name => "Frequency",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}NSSID"      => {
+                              LocalName => "NSSID",
+                              Name => "NSSID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 401,
+                            },
+          "{}TXRepeater" => {
+                              LocalName => "TXRepeater",
+                              Name => "TXRepeater",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+        },
+    LocalName => "Home",
+    Name => "Home",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  { LocalName => "Home", Name => "Home", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AlgID" => {
+                         LocalName => "AlgID",
+                         Name => "AlgID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 255,
+                       },
+          "{}KeyID" => {
+                         LocalName => "KeyID",
+                         Name => "KeyID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+          "{}ManId" => {
+                         LocalName => "ManId",
+                         Name => "ManId",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+        },
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  { LocalName => "Profile", Name => "Profile", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AgencyID" => {
+                LocalName => "AgencyID",
+                Name => "AgencyID",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}CallAlertEnabled" => {
+                LocalName => "CallAlertEnabled",
+                Name => "CallAlertEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ConsoleOverridesEmer" => {
+                LocalName => "ConsoleOverridesEmer",
+                Name => "ConsoleOverridesEmer",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}EmerAlarmEnabled" => {
+                LocalName => "EmerAlarmEnabled",
+                Name => "EmerAlarmEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EmerCallEnabled" => {
+                LocalName => "EmerCallEnabled",
+                Name => "EmerCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}EncryptCallCapable" => {
+                LocalName => "EncryptCallCapable",
+                Name => "EncryptCallCapable",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}ID" => { LocalName => "ID", Name => "ID", NamespaceURI => "", Prefix => "", Value => 18 },
+          "{}IsConsole" => {
+                LocalName => "IsConsole",
+                Name => "IsConsole",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 0,
+              },
+          "{}Name" => {
+                LocalName => "Name",
+                Name => "Name",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "backup",
+              },
+          "{}Priority" => {
+                LocalName => "Priority",
+                Name => "Priority",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 4,
+              },
+          "{}TimedDeregistration" => {
+                LocalName => "TimedDeregistration",
+                Name => "TimedDeregistration",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+          "{}UnitCallEnabled" => {
+                LocalName => "UnitCallEnabled",
+                Name => "UnitCallEnabled",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => 1,
+              },
+        },
+    LocalName => "Profile",
+    Name => "Profile",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+("comment: ", { Data => " Signaling Type: " })
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  {
+    Data => " 0 => Open Squelch, 1 => CTCSS, 2 => CDCSS, 3 => P25 SubID ",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}NAC"  => {
+                        LocalName => "NAC",
+                        Name => "NAC",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 204,
+                      },
+          "{}Type" => {
+                        LocalName => "Type",
+                        Name => "Type",
+                        NamespaceURI => "",
+                        Prefix => "",
+                        Value => 3,
+                      },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "comment: ",
+  { Data => " Services: 0 => unchecked, 1 => checked " },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Data"        => {
+                               LocalName => "Data",
+                               Name => "Data",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}FullDuplex"  => {
+                               LocalName => "FullDuplex",
+                               Name => "FullDuplex",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}Group"       => {
+                               LocalName => "Group",
+                               Name => "Group",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+          "{}Ind"         => { LocalName => "Ind", Name => "Ind", NamespaceURI => "", Prefix => "", Value => 1 },
+          "{}Ind2PSTN"    => {
+                               LocalName => "Ind2PSTN",
+                               Name => "Ind2PSTN",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}PSTN2Ind"    => {
+                               LocalName => "PSTN2Ind",
+                               Name => "PSTN2Ind",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 0,
+                             },
+          "{}ReqFullLink" => {
+                               LocalName => "ReqFullLink",
+                               Name => "ReqFullLink",
+                               NamespaceURI => "",
+                               Prefix => "",
+                               Value => 1,
+                             },
+        },
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Services",
+    Name => "Services",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Channel"    => {
+                              LocalName => "Channel",
+                              Name => "Channel",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Frequency"  => {
+                              LocalName => "Frequency",
+                              Name => "Frequency",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}NSSID"      => {
+                              LocalName => "NSSID",
+                              Name => "NSSID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 401,
+                            },
+          "{}TXRepeater" => {
+                              LocalName => "TXRepeater",
+                              Name => "TXRepeater",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+        },
+    LocalName => "Home",
+    Name => "Home",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  { LocalName => "Home", Name => "Home", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}AlgID" => {
+                         LocalName => "AlgID",
+                         Name => "AlgID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 255,
+                       },
+          "{}KeyID" => {
+                         LocalName => "KeyID",
+                         Name => "KeyID",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+          "{}ManId" => {
+                         LocalName => "ManId",
+                         Name => "ManId",
+                         NamespaceURI => "",
+                         Prefix => "",
+                         Value => 0,
+                       },
+        },
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Encryption",
+    Name => "Encryption",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  { LocalName => "Profile", Name => "Profile", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n    " })
+(
+  "end_element: ",
+  {
+    LocalName => "Profiles",
+    Name => "Profiles",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n    " })
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "Subscribers",
+    Name => "Subscribers",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "TCG SS 409",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1000409,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 685,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 17,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 1000409,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 1000409,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "TCG SS 410",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1000410,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 686,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 17,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 1000410,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 1000410,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "TCG SS 411",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1000411,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 687,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 17,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 1000411,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 1000411,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "TCG SS 412",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1000412,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 688,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 17,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 1000412,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 1000412,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 4100",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4100,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 669,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 12,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4100,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4100,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 4101",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4101,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 670,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 12,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4101,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4101,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 4102",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4102,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 671,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 12,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4102,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4102,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 4103",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4103,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 672,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 12,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4103,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4103,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 4104",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4104,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 673,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 12,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4104,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4104,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "SafetyOp 4105",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4105,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 674,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 12,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4105,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4105,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "SafetySup4106",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4106,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 675,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 12,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4106,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4106,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 4151",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4151,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 676,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 11,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4151,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4151,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 4152",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4152,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 677,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 11,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4152,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4152,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "ServiceOp 4153",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4153,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 678,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 14,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4153,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4153,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "ServiceSup 4154",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4154,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 679,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 14,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4154,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4154,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 4201",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4201,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 680,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 10,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4201,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4201,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 4202",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4202,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 681,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 10,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4202,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4202,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "EquipOp 4203",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4203,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 682,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 15,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4203,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4203,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "EquipSup 4204",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 4204,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 683,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 15,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4204,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 4204,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}Alias"      => {
+                              LocalName => "Alias",
+                              Name => "Alias",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => "Unit 5000",
+                            },
+          "{}DynRgpID"   => {
+                              LocalName => "DynRgpID",
+                              Name => "DynRgpID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}DynRgpReq"  => {
+                              LocalName => "DynRgpReq",
+                              Name => "DynRgpReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}Enable"     => {
+                              LocalName => "Enable",
+                              Name => "Enable",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+          "{}ID"         => {
+                              LocalName => "ID",
+                              Name => "ID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 5000,
+                            },
+          "{}InvFk"      => {
+                              LocalName => "InvFk",
+                              Name => "InvFk",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 684,
+                            },
+          "{}ProfileID"  => {
+                              LocalName => "ProfileID",
+                              Name => "ProfileID",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 15,
+                            },
+          "{}ReqInhibit" => {
+                              LocalName => "ReqInhibit",
+                              Name => "ReqInhibit",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}SYS"        => {
+                              LocalName => "SYS",
+                              Name => "SYS",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 204,
+                            },
+          "{}SelLockReq" => {
+                              LocalName => "SelLockReq",
+                              Name => "SelLockReq",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 0,
+                            },
+          "{}WACN"       => {
+                              LocalName => "WACN",
+                              Name => "WACN",
+                              NamespaceURI => "",
+                              Prefix => "",
+                              Value => 1,
+                            },
+        },
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n            " })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}LLID"   => {
+                          LocalName => "LLID",
+                          Name => "LLID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 5000,
+                        },
+          "{}UnitID" => {
+                          LocalName => "UnitID",
+                          Name => "UnitID",
+                          NamespaceURI => "",
+                          Prefix => "",
+                          Value => 5000,
+                        },
+        },
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+(
+  "end_element: ",
+  {
+    LocalName => "Signaling",
+    Name => "Signaling",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n        " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscriber",
+    Name => "Subscriber",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n    " })
+(
+  "end_element: ",
+  {
+    LocalName => "Subscribers",
+    Name => "Subscribers",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n" })
+(
+  "end_element: ",
+  {
+    LocalName => "SubscriberInformation",
+    Name => "SubscriberInformation",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("end_document: ", {})
+',
+                             'start_document' => 1,
+                             'end_document' => 1
+                           }
+               }, 'XML::SAX::PurePerl::DebugHandler' );

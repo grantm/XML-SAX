@@ -1,0 +1,257 @@
+$VAR1 = bless( {
+                 'seen' => {
+                             'end_element' => 11,
+                             '_all' => '(
+  "set_document_locator: ",
+  bless({
+    # tied XML::SAX::DocumentLocator
+    ColumnNumber => 0,
+    Encoding     => undef,
+    LineNumber   => 1,
+    PublicId     => undef,
+    SystemId     => "testfiles/54parse.xml",
+    XMLVersion   => "1.0",
+  }, "XML::SAX::DocumentLocator"),
+)
+("start_document: ", {})
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "addressbook",
+    Name => "addressbook",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n\\n\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "person",
+    Name => "person",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n\\t\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "firstname",
+    Name => "firstname",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "Bob" })
+(
+  "end_element: ",
+  {
+    LocalName => "firstname",
+    Name => "firstname",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n\\t\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "lastname",
+    Name => "lastname",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "Smith" })
+(
+  "end_element: ",
+  {
+    LocalName => "lastname",
+    Name => "lastname",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n\\t\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}type" => {
+                LocalName => "type",
+                Name => "type",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "mobile",
+              },
+        },
+    LocalName => "phone",
+    Name => "phone",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "022 555 1234" })
+(
+  "end_element: ",
+  { LocalName => "phone", Name => "phone", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n\\t\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}type" => {
+                LocalName => "type",
+                Name => "type",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "home",
+              },
+        },
+    LocalName => "phone",
+    Name => "phone",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "04 555 3333" })
+(
+  "end_element: ",
+  { LocalName => "phone", Name => "phone", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n\\t" })
+(
+  "end_element: ",
+  { LocalName => "person", Name => "person", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n\\t          \\n\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "person",
+    Name => "person",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n\\t  \\n\\t\\t\\t    \\n\\t\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "firstname",
+    Name => "firstname",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "  Mary  " })
+(
+  "end_element: ",
+  {
+    LocalName => "firstname",
+    Name => "firstname",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n\\t\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {},
+    LocalName => "lastname",
+    Name => "lastname",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "Jones" })
+(
+  "end_element: ",
+  {
+    LocalName => "lastname",
+    Name => "lastname",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "\\n\\t\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}type" => {
+                LocalName => "type",
+                Name => "type",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "mobile ",
+              },
+        },
+    LocalName => "phone",
+    Name => "phone",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "022 555 9876" })
+(
+  "end_element: ",
+  { LocalName => "phone", Name => "phone", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n\\t\\t" })
+(
+  "start_element: ",
+  {
+    Attributes => {
+          "{}type" => {
+                LocalName => "type",
+                Name => "type",
+                NamespaceURI => "",
+                Prefix => "",
+                Value => "home",
+              },
+        },
+    LocalName => "phone",
+    Name => "phone",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("characters: ", { Data => "04 555 6666" })
+(
+  "end_element: ",
+  { LocalName => "phone", Name => "phone", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n\\t" })
+(
+  "end_element: ",
+  { LocalName => "person", Name => "person", NamespaceURI => "", Prefix => "" },
+)
+("characters: ", { Data => "\\n" })
+(
+  "end_element: ",
+  {
+    LocalName => "addressbook",
+    Name => "addressbook",
+    NamespaceURI => "",
+    Prefix => "",
+  },
+)
+("end_document: ", {})
+',
+                             'set_document_locator' => 1,
+                             'start_document' => 1,
+                             'end_document' => 1,
+                             'characters' => 21,
+                             'start_element' => 11
+                           }
+               }, 'XML::SAX::PurePerl::DebugHandler' );
