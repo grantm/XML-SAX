@@ -93,7 +93,6 @@ sub start_element {
 		when ('phone') {$self->{_currentPhone} = $elem->{Attributes}{'{}type'}{Value};}
 	}
 }
-our @row;
 sub end_element { 
 	my ($self, $elem) = @_;
 	#dumpthem('end_element: ', $elem);
