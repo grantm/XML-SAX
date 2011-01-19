@@ -2,7 +2,6 @@
 
 use Test::More;
 use Data::Dumper;
-use Data::Dump qw(dump);
 use feature qw(switch);
 
 BEGIN{
