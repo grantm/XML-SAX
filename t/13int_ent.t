@@ -10,5 +10,5 @@ isa_ok($handler, 'XML::SAX::PurePerl::DebugHandler');
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
 isa_ok($parser, 'XML::SAX::PurePerl');
 
-eval{$parser->parse_uri("testfiles/04a.xml");};
+eval{$parser->parse_uri("testfiles/13a.xml");};
 is($@, '');

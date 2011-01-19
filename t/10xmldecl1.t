@@ -11,7 +11,7 @@ isa_ok($handler, 'XML::SAX::PurePerl::DebugHandler');
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
 isa_ok($parser, 'XML::SAX::PurePerl');
 
-my $file = IO::File->new("testfiles/01.xml") || die $!;
+my $file = IO::File->new("testfiles/10a.xml") || die $!;
 isa_ok($file, IO::File);
 
 $parser->parse_file($file);

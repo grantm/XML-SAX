@@ -11,6 +11,6 @@ my $parser = XML::SAX::PurePerl->new(Handler => $handler);
 isa_ok($parser, 'XML::SAX::PurePerl');
 
 my $time = time;
-$parser->parse_uri("testfiles/xmltest.xml");
-warn("parsed ", -s "testfiles/xmltest.xml", " bytes in ", time - $time, " seconds\n");
+$parser->parse_uri("testfiles/16a.xml");
+warn("parsed ", -s "testfiles/16a.xml", " bytes in ", time - $time, " seconds\n");
 ok(1);

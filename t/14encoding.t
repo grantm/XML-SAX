@@ -18,27 +18,27 @@ isa_ok($parser, 'XML::SAX::PurePerl');
 # verify that the first element is correctly decoded
 eval{
 	$handler->{test_elements} = [ "\x{9031}\x{5831}" ];
-	$parser->parse_uri("testfiles/utf-16.xml");
+	$parser->parse_uri("testfiles/14a_utf-16.xml");
 };
 is($@, '');
 
 # warn("utf-16le\n");
 eval{
 	$handler->{test_elements} = [ "foo" ];
-	$parser->parse_uri("testfiles/utf-16le.xml");
+	$parser->parse_uri("testfiles/14b_utf-16le.xml");
 };
 is($@, '');
 
 # warn("koi8_r\n");
-eval{$parser->parse_uri("testfiles/koi8_r.xml");};
+eval{$parser->parse_uri("testfiles/14c_koi8_r.xml");};
 is($@, '');
 
 # warn("8859-1\n");
-eval{$parser->parse_uri("testfiles/iso8859_1.xml");};
+eval{$parser->parse_uri("testfiles/14d_iso8859.xml");};
 is($@, '');
 
 # warn("8859-2\n");
-eval{$parser->parse_uri("testfiles/iso8859_2.xml");};
+eval{$parser->parse_uri("testfiles/14e_iso8859.xml");};
 is($@, '');
 }
 

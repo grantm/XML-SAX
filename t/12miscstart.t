@@ -11,13 +11,13 @@ my $parser = XML::SAX::PurePerl->new(Handler => $handler);
 isa_ok($parser, 'XML::SAX::PurePerl');
 
 # check PIs and comments before document element parse ok
-$parser->parse_uri("testfiles/03a.xml");
+$parser->parse_uri("testfiles/12a.xml");
 is($handler->{seen}{processing_instruction}, 2, 'Seen processing instruction');
 ok($handler->{seen}{comment}, 'Seen comment');
 
 # check invalid version number
 eval {
-$parser->parse_uri("testfiles/03b.xml");
+$parser->parse_uri("testfiles/12b.xml");
 };
 
 is($@->{Message}, 'Invalid comment (dash)', 'Correctly identified invalid version number,');

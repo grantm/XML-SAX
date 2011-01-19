@@ -14,7 +14,7 @@ $handler->{test_el}{Name} = "foo";
 $handler->{test_el}{LocalName} = "foo";
 $handler->{test_el}{Prefix} = "";
 $handler->{test_el}{NamespaceURI} = "";
-$parser->parse_uri("testfiles/06a.xml");
+$parser->parse_uri("testfiles/15a.xml");
 
 $handler->reset;
 
@@ -24,7 +24,7 @@ $handler->{test_attr}{Value} = "1";
 $handler->{test_attr}{Prefix} = "";
 $handler->{test_attr}{LocalName} = "a";
 $handler->{test_attr}{NamespaceURI} = "";
-$parser->parse_uri("testfiles/06b.xml");
+$parser->parse_uri("testfiles/15b.xml");
 
 $handler->reset;
 
@@ -32,7 +32,7 @@ $handler->{test_el}{Name} = "foo";
 $handler->{test_el}{LocalName} = "foo";
 $handler->{test_el}{Prefix} = "";
 $handler->{test_el}{NamespaceURI} = "http://foo.com";
-$parser->parse_uri("testfiles/06c.xml");
+$parser->parse_uri("testfiles/15c.xml");
 
 $handler->reset;
 $handler->{test_el}{Name} = "x:foo";
@@ -45,7 +45,7 @@ $handler->{test_attr}{Value} = "2";
 $handler->{test_attr}{Prefix} = "x";
 $handler->{test_attr}{LocalName} = "a";
 $handler->{test_attr}{NamespaceURI} = "http://foo.com";
-$parser->parse_uri("testfiles/06d.xml");
+$parser->parse_uri("testfiles/15d.xml");
 
 $handler->reset;
 $handler->{test_el}{Name} = "foo";
@@ -55,15 +55,15 @@ $handler->{test_el}{NamespaceURI} = "http://foo.com";
 $handler->{attr_name} = "{}a";
 $handler->{test_attr}{Name} = "a";
 $handler->{test_attr}{NamespaceURI} = "";
-$parser->parse_uri("testfiles/06e.xml");
+$parser->parse_uri("testfiles/15e.xml");
 
 $handler->reset;
 # prefix with no ns binding. Error.
-eval {$parser->parse_uri("testfiles/06f.xml");};
+eval {$parser->parse_uri("testfiles/15f.xml");};
 is($@, "Undeclared prefix: b at /usr/share/perl5/XML/NamespaceSupport.pm line 298.\n");
 $handler->reset;
 $handler->{test_chr}{Data} = "bar";
-$parser->parse_uri("testfiles/06g.xml");
+$parser->parse_uri("testfiles/15g.xml");
 
 ## HELPER PACKAGE ##
 

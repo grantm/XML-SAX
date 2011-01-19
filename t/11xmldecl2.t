@@ -11,7 +11,7 @@ isa_ok($handler, 'XML::SAX::PurePerl::DebugHandler');
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
 isa_ok($parser, 'XML::SAX::PurePerl');
 
-my $file = IO::File->new("testfiles/02a.xml");
+my $file = IO::File->new("testfiles/11a.xml");
 isa_ok($file, 'IO::File');
 
 # check invalid characters
@@ -25,7 +25,7 @@ is($@->{ColumnNumber}, 6, 'and the right cloumn.');
 
 # check invalid version number
 eval {
-$parser->parse_uri("file:testfiles/02b.xml");
+$parser->parse_uri("file:testfiles/11b.xml");
 };
 
 is($@->{Message}, "Only XML version 1.0 supported. Saw: '2.0'", 'Correctly identified sample file error,');
