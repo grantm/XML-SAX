@@ -21,7 +21,7 @@ foreach $file(@files) {
 
 	my $parsed = Dumper(($parser->{Handler}));
 
-	if (1) { # 0 to test, 1 to re-write
+	if (0) { # 0 to test, 1 to re-write
 		open (MYFILE, ">$file.txt") or die $!;
 		print MYFILE $parsed;
 		close (MYFILE);

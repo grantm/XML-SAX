@@ -4,7 +4,7 @@ package XML::SAX::PurePerl::DebugHandler;
 
 use strict;
 use warnings;
-use Data::Dump qw(dump);
+use Data::Dumper;
 
 sub new {
     my $class = shift;
@@ -15,9 +15,9 @@ sub new {
 sub dumpthem {
 	my $self = shift;
 	if (defined($self->{seen}{_all})) {
-		$self->{seen}{_all} = $self->{seen}{_all}.dump(@_)."\n";
+		$self->{seen}{_all} = $self->{seen}{_all}.Dumper(@_)."\n";
 	} else {
-		$self->{seen}{_all} = dump(@_)."\n";
+		$self->{seen}{_all} = Dumper(@_)."\n";
 	}
 }
 

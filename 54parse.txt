@@ -1,252 +1,363 @@
 $VAR1 = bless( {
                  'seen' => {
                              'end_element' => 11,
-                             '_all' => '(
-  "set_document_locator: ",
-  bless({
-    # tied XML::SAX::DocumentLocator
-    ColumnNumber => 0,
-    Encoding     => undef,
-    LineNumber   => 1,
-    PublicId     => undef,
-    SystemId     => "testfiles/54parse.xml",
-    XMLVersion   => "1.0",
-  }, "XML::SAX::DocumentLocator"),
-)
-("start_document: ", {})
-(
-  "start_element: ",
-  {
-    Attributes => {},
-    LocalName => "addressbook",
-    Name => "addressbook",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "\\n\\n\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {},
-    LocalName => "person",
-    Name => "person",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "\\n\\t\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {},
-    LocalName => "firstname",
-    Name => "firstname",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "Bob" })
-(
-  "end_element: ",
-  {
-    LocalName => "firstname",
-    Name => "firstname",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "\\n\\t\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {},
-    LocalName => "lastname",
-    Name => "lastname",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "Smith" })
-(
-  "end_element: ",
-  {
-    LocalName => "lastname",
-    Name => "lastname",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "\\n\\t\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {
-          "{}type" => {
-                LocalName => "type",
-                Name => "type",
-                NamespaceURI => "",
-                Prefix => "",
-                Value => "mobile",
-              },
-        },
-    LocalName => "phone",
-    Name => "phone",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "022 555 1234" })
-(
-  "end_element: ",
-  { LocalName => "phone", Name => "phone", NamespaceURI => "", Prefix => "" },
-)
-("characters: ", { Data => "\\n\\t\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {
-          "{}type" => {
-                LocalName => "type",
-                Name => "type",
-                NamespaceURI => "",
-                Prefix => "",
-                Value => "home",
-              },
-        },
-    LocalName => "phone",
-    Name => "phone",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "04 555 3333" })
-(
-  "end_element: ",
-  { LocalName => "phone", Name => "phone", NamespaceURI => "", Prefix => "" },
-)
-("characters: ", { Data => "\\n\\t" })
-(
-  "end_element: ",
-  { LocalName => "person", Name => "person", NamespaceURI => "", Prefix => "" },
-)
-("characters: ", { Data => "\\n\\t          \\n\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {},
-    LocalName => "person",
-    Name => "person",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "\\n\\t  \\n\\t\\t\\t    \\n\\t\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {},
-    LocalName => "firstname",
-    Name => "firstname",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "  Mary  " })
-(
-  "end_element: ",
-  {
-    LocalName => "firstname",
-    Name => "firstname",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "\\n\\t\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {},
-    LocalName => "lastname",
-    Name => "lastname",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "Jones" })
-(
-  "end_element: ",
-  {
-    LocalName => "lastname",
-    Name => "lastname",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "\\n\\t\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {
-          "{}type" => {
-                LocalName => "type",
-                Name => "type",
-                NamespaceURI => "",
-                Prefix => "",
-                Value => "mobile ",
-              },
-        },
-    LocalName => "phone",
-    Name => "phone",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "022 555 9876" })
-(
-  "end_element: ",
-  { LocalName => "phone", Name => "phone", NamespaceURI => "", Prefix => "" },
-)
-("characters: ", { Data => "\\n\\t\\t" })
-(
-  "start_element: ",
-  {
-    Attributes => {
-          "{}type" => {
-                LocalName => "type",
-                Name => "type",
-                NamespaceURI => "",
-                Prefix => "",
-                Value => "home",
-              },
-        },
-    LocalName => "phone",
-    Name => "phone",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("characters: ", { Data => "04 555 6666" })
-(
-  "end_element: ",
-  { LocalName => "phone", Name => "phone", NamespaceURI => "", Prefix => "" },
-)
-("characters: ", { Data => "\\n\\t" })
-(
-  "end_element: ",
-  { LocalName => "person", Name => "person", NamespaceURI => "", Prefix => "" },
-)
-("characters: ", { Data => "\\n" })
-(
-  "end_element: ",
-  {
-    LocalName => "addressbook",
-    Name => "addressbook",
-    NamespaceURI => "",
-    Prefix => "",
-  },
-)
-("end_document: ", {})
+                             '_all' => '$VAR1 = \'set_document_locator: \';
+$VAR2 = bless( {
+                 \'ColumnNumber\' => 0,
+                 \'Encoding\' => undef,
+                 \'SystemId\' => \'testfiles/54parse.xml\',
+                 \'XMLVersion\' => \'1.0\',
+                 \'PublicId\' => undef,
+                 \'LineNumber\' => 1
+               }, \'XML::SAX::DocumentLocator\' );
+
+$VAR1 = \'start_document: \';
+$VAR2 = {};
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'addressbook\',
+          \'Attributes\' => {},
+          \'Name\' => \'addressbook\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+
+	\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'person\',
+          \'Attributes\' => {},
+          \'Name\' => \'person\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'firstname\',
+          \'Attributes\' => {},
+          \'Name\' => \'firstname\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'Bob\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'firstname\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'firstname\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'lastname\',
+          \'Attributes\' => {},
+          \'Name\' => \'lastname\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'Smith\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'lastname\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'lastname\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'phone\',
+          \'Attributes\' => {
+                            \'{}type\' => {
+                                        \'Prefix\' => \'\',
+                                        \'LocalName\' => \'type\',
+                                        \'Value\' => \'mobile\',
+                                        \'Name\' => \'type\',
+                                        \'NamespaceURI\' => \'\'
+                                      }
+                          },
+          \'Name\' => \'phone\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'022 555 1234\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'phone\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'phone\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'phone\',
+          \'Attributes\' => {
+                            \'{}type\' => {
+                                        \'Prefix\' => \'\',
+                                        \'LocalName\' => \'type\',
+                                        \'Value\' => \'home\',
+                                        \'Name\' => \'type\',
+                                        \'NamespaceURI\' => \'\'
+                                      }
+                          },
+          \'Name\' => \'phone\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'04 555 3333\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'phone\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'phone\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+	\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'person\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'person\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+	          
+	\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'person\',
+          \'Attributes\' => {},
+          \'Name\' => \'person\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+	  
+			    
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'firstname\',
+          \'Attributes\' => {},
+          \'Name\' => \'firstname\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'  Mary  \'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'firstname\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'firstname\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'lastname\',
+          \'Attributes\' => {},
+          \'Name\' => \'lastname\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'Jones\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'lastname\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'lastname\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'phone\',
+          \'Attributes\' => {
+                            \'{}type\' => {
+                                        \'Prefix\' => \'\',
+                                        \'LocalName\' => \'type\',
+                                        \'Value\' => \'mobile \',
+                                        \'Name\' => \'type\',
+                                        \'NamespaceURI\' => \'\'
+                                      }
+                          },
+          \'Name\' => \'phone\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'022 555 9876\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'phone\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'phone\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+		\'
+        };
+
+$VAR1 = \'start_element: \';
+$VAR2 = {
+          \'Prefix\' => \'\',
+          \'LocalName\' => \'phone\',
+          \'Attributes\' => {
+                            \'{}type\' => {
+                                        \'Prefix\' => \'\',
+                                        \'LocalName\' => \'type\',
+                                        \'Value\' => \'home\',
+                                        \'Name\' => \'type\',
+                                        \'NamespaceURI\' => \'\'
+                                      }
+                          },
+          \'Name\' => \'phone\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'04 555 6666\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'phone\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'phone\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+	\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'person\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'person\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'characters: \';
+$VAR2 = {
+          \'Data\' => \'
+\'
+        };
+
+$VAR1 = \'end_element: \';
+$VAR2 = {
+          \'LocalName\' => \'addressbook\',
+          \'Prefix\' => \'\',
+          \'Name\' => \'addressbook\',
+          \'NamespaceURI\' => \'\'
+        };
+
+$VAR1 = \'end_document: \';
+$VAR2 = {};
+
 ',
                              'set_document_locator' => 1,
                              'start_document' => 1,
