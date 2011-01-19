@@ -24,7 +24,7 @@ is($@, '');
 
 for my $id ( 10 .. 18 ) # 9 tests
 {
-    is($handler->profile_id_exists($id), 1, "pants $id");
+    is($handler->profile_id_exists($id), 1, "Profile ID $id exists");
 }
 
 for my $id (
