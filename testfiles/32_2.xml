@@ -1,0 +1,22 @@
+<addressbook>
+
+	<person>
+		<firstname>Bob</firstname>
+		<lastname>Smith</lastname>
+		<phone type="mobile">022 555 1234</phone>
+		<phone type="home">04 555 3333</phone>
+		<signature>I'm also a snowman &#9731;</signature>
+		<description></description>
+	</person>
+	          
+	<person>
+	  
+			    
+		<firstname>  Mary  </firstname>
+		<lastname>Jones</lastname>
+		<phone type="mobile "  >022 555 9876</phone>
+		<phone type="home">04 555 6666</phone>
+		<signature>I'm a snowman &#x2603</signature>
+		<description></description>
+	</person>
+</addressbook> 
