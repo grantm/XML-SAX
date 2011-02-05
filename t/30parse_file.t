@@ -17,7 +17,6 @@ isa_ok($file1, 'IO::File');
 eval {
 $parser->parse_file($file1);
 };
-if ($@){warn($@);}
 is($@, '', 'Parsed file file1');
 
 my $file2 = "testfiles/30a.xml";
@@ -25,5 +24,4 @@ my $file2 = "testfiles/30a.xml";
 eval {
 $parser->parse_file($file2);
 };
-if($@){warn($@);}
 is($@, '', 'Parsed file file2' );
