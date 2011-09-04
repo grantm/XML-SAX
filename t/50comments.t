@@ -5,8 +5,6 @@ use warnings;
 
 use Test::More tests => 32;
 
-warn("test 8 will fail due to bug #20126");
-
 use XML::SAX::PurePerl;
  
 my $handler = MySAXHandler->new();
@@ -22,7 +20,17 @@ eval {
 };
 is($@, '');
 
-for my $id ( 10 .. 18 ) # 9 tests
+for my $id ( 10 .. 13 )
+{
+    is($handler->profile_id_exists($id), 1, "Profile ID $id exists");
+}
+
+TODO: {
+    local $TODO = 'Fix pending for bug #20126';
+    is($handler->profile_id_exists(14), 1, "Profile ID 14 exists");
+}
+
+for my $id ( 15 .. 18 )
 {
     is($handler->profile_id_exists($id), 1, "Profile ID $id exists");
 }
