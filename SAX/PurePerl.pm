@@ -5,7 +5,7 @@ package XML::SAX::PurePerl;
 use strict;
 use vars qw/$VERSION/;
 
-$VERSION = '0.96';
+$VERSION = '0.99';
 
 use XML::SAX::PurePerl::Productions qw($NameChar $SingleChar);
 use XML::SAX::PurePerl::Reader;
