@@ -5,7 +5,7 @@ use File::Spec ();
 
 WriteMakefile(
     'NAME'	=> 'XML::SAX',
-    'VERSION_FROM' => 'SAX.pm', # finds $VERSION
+    'VERSION_FROM' => 'lib/XML/SAX.pm', # finds $VERSION
     'PREREQ_PM' => { 
         'File::Temp' => 0,
         'XML::SAX::Base' => 1.05,
