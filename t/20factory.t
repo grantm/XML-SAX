@@ -6,7 +6,7 @@ use XML::SAX::ParserFactory;
 # load SAX parsers (no ParserDetails.ini available at first in blib)
 use XML::SAX qw(Namespaces Validation);
 is(@{XML::SAX->parsers}, 0, 'No parsers loaded');
-ok(XML::SAX->add_parser(q(XML::SAX::PurePerl)), 'Can load PuerPerl parser');
+ok(XML::SAX->add_parser(q(XML::SAX::PurePerl)), 'Can load PurePerl parser');
 is(@{XML::SAX->parsers}, 1, 'One parser loaded');
 
 isa_ok(XML::SAX::ParserFactory->parser, 'XML::SAX::PurePerl'); # test class method
