@@ -53,12 +53,12 @@ sub load_parsers {
     # get directory from wherever XML::SAX is installed
     if (!$dir) {
         $dir = $INC{'XML/SAX.pm'};
-        $dir = dirname($dir);
+        $dir = File::Spec->catdir(dirname($dir), 'SAX');
     }
     
     my $fh = gensym();
-    if (!open($fh, File::Spec->catfile($dir, "SAX", PARSER_DETAILS))) {
-        XML::SAX->do_warn("could not find " . PARSER_DETAILS . " in $dir/SAX\n");
+    if (!open($fh, File::Spec->catfile($dir, PARSER_DETAILS))) {
+        XML::SAX->do_warn("could not find " . PARSER_DETAILS . " in $dir\n");
         return $class;
     }
 
@@ -181,10 +181,10 @@ sub save_parsers {
     
     # get directory from wherever XML::SAX is installed
     if(!$dir) {
-        $dir = dirname($INC{'XML/SAX.pm'});
+        $dir = File::Spec->catdir(dirname($INC{'XML/SAX.pm'}), 'SAX');
     }
     
-    my $file = File::Spec->catfile($dir, "SAX", PARSER_DETAILS);
+    my $file = File::Spec->catfile($dir, PARSER_DETAILS);
     chmod 0644, $file;
     unlink($file);
     
