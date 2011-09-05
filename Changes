@@ -1,5 +1,13 @@
 Revision history for Perl extension XML::SAX.
 
+1.??  ?? ??? 2011  Grant McLean
+    - Add POD & tests for methods in XML/SAX.pm
+    - Significant updates to test suite thanks to contributions from Catalyst
+      OS Academy students Oliver Ewert and Aleksa Vujicic
+    - XML::SAX::PurePerl fixes:
+      - RT#20126: comment parsing failure when comment spans multiple buffers
+                  test case from Matthew Musgrove, patch from Erik ___
+
 0.99  05 Sep 2011  Grant McLean
     - Re-release without nested XML-SAX-Base distribution, add prereq instead
       (note no other changes from 0.96 release)
