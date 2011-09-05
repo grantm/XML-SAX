@@ -1,9 +1,12 @@
 #!/usr/bin/perl -w
 
-use Test::More tests => 3;
+use Test::More;
 
-use_ok('XML::SAX'); 
+use XML::SAX;
+use XML::SAX::PurePerl;
 
-use_ok('XML::SAX::PurePerl');
+ok(1, 'successfully loaded XML::SAX and XML::SAX::PurePerl modules');
 
 is(XML::SAX->VERSION, XML::SAX::PurePerl->VERSION, 'Version check: OK');
+
+done_testing();
