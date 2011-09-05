@@ -234,17 +234,17 @@ XML::SAX - Simple API for XML
 
   use XML::SAX;
   
+  # get an instance of the default SAX parser
+  my $parser = XML::SAX::ParserFactory->parser();
+  
   # get a list of known parsers
   my $parsers = XML::SAX->parsers();
   
   # add/update a parser
-  XML::SAX->add_parser(q(XML::SAX::PurePerl));
+  XML::SAX->add_parser(q(XML::SAX::PurePerl))->save_parsers();
 
   # remove parser
-  XML::SAX->remove_parser(q(XML::SAX::Foodelberry));
-
-  # save parsers
-  XML::SAX->save_parsers();
+  XML::SAX->remove_parser(q(XML::SAX::Foodelberry))->save_parsers();
 
 =head1 DESCRIPTION
 
@@ -346,6 +346,84 @@ following:
   };
 
 =back
+
+=head1 METHODS
+
+An application would not normally directly call methods provided by the
+L<XML::SAX> package.  Instead, applications should use the module to load
+L<XML::SAX::ParserFactory> and then use that class to obtain a SAX parser
+object.
+
+The methods implemented in F<XML/SAX.pm> are used for reading, writing and
+manipulating the metadata about installed SAX parser modules.  These methods
+are intended to be used by L<XML::SAX::ParserFactory> and by the installation
+processes of the parser packages (as described above).
+
+The provided class methods are:
+
+=head2 parsers( )
+
+Lists available (installed) parser modules.  Returns a reference to an array.
+Each element in the array is a reference to a hash describing an available
+parser.  The keys in each hash are:
+
+  Name       the class name of the parser
+  Features   a reference to a hash of features supported by the parser
+
+The list of available parsers is cached and the same array ref is returned on
+subsequent calls.
+
+The last parser in the list (usually the last parser module installed) is the
+default parser returned by L<XML::SAX::ParserFactory>.
+
+=head2 load_parsers( path )
+
+This method is called by the C<parsers> method if the list of parsers has not
+previously been cached.  The role of this method is to locate and parse a
+config file called F<ParserDetails.ini> - either in the same directory as
+F<XML/SAX.pm> itself, or in the directory named by the optional C<path>)
+parameter.
+
+Calling C<load_parsers> multiple times will re-read the config file and
+overwrite the cached list of parser details.
+
+=head2 add_parser( parser_class )
+
+A parser module's install script should call this method to register the parser
+in the F<ParserDetails.ini> config file.  The config file is assumed to be
+writeable by the process calling this method.
+
+The single argument is a package name.  The named package will be loaded and
+its C<supported_features> method will be called to get a list of features
+supported by the parser module.  A section will be appended to the config file
+listing the parser name and its supported features.  If the config file already
+lists the named class, the existing definition will be removed and the
+replacement added - effectively moving it to the end and making it the new
+default parser.
+
+Note: the F<ParserDetails.ini> file will not actually be written unless you
+call the C<save_parsers( )> method.  The add parser method returns its invocant
+to allow method chaining.
+
+=head2 remove_parser( parser_class )
+
+If a parser module is uninstalled, this method should be called to remove the
+corresponding section from the config file (see also: C<save_parsers( )>
+
+=head2 save_parsers( )
+
+This method should be called to save any changes to the F<ParserDetails.ini>
+config file.  The file will be written to the same directory from which
+the C<XML/SAX.pm> file was loaded, unless the optional C<path> parameter was
+supplied.
+
+=head2 do_warn( message )
+
+A wrapper around the C<warn> builtin - for use by the test harness.
+
+=head2 last_warning
+
+Used by the test harness.
 
 =head1 EXPORTS
 
