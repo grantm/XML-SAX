@@ -104,6 +104,15 @@ is(scalar(@$parsers), 2, 'parser list still only has two entries');
 is($parsers->[0]->{Name}, 'XML::SAX::PurePerl', '1st is now XML::SAX::PurePerl');
 is($parsers->[1]->{Name}, 'MockSAXParser',      '2nd is now MockSAXParser');
 
+
+# Try removing a parser
+
+eval{XML::SAX->remove_parser('MockSAXParser')};
+is($@, '', 'parser removed successfully');
+is(scalar(@$parsers), 1, 'parser list now only has one entry');
+
+is($parsers->[0]->{Name}, 'XML::SAX::PurePerl', 'remaining XML::SAX::PurePerl');
+
 done_testing();
 exit;
 
