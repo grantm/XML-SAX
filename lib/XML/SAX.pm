@@ -177,10 +177,12 @@ sub add_parser {
 
 sub save_parsers {
     my $class = shift;
+    my $dir   = shift;
     
     # get directory from wherever XML::SAX is installed
-    my $dir = $INC{'XML/SAX.pm'};
-    $dir = dirname($dir);
+    if(!$dir) {
+        $dir = dirname($INC{'XML/SAX.pm'});
+    }
     
     my $file = File::Spec->catfile($dir, "SAX", PARSER_DETAILS);
     chmod 0644, $file;
