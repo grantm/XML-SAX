@@ -1,5 +1,3 @@
-# $Id$
-
 package XML::SAX::DocumentLocator;
 use strict;
 

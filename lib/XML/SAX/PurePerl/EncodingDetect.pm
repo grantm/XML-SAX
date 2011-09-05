@@ -1,5 +1,3 @@
-# $Id$
-
 package XML::SAX::PurePerl; # NB, not ::EncodingDetect!
 
 use strict;

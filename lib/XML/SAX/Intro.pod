@@ -402,6 +402,4 @@ issues up.
 
 Matt Sergeant, matt@sergeant.org
 
-$Id$
-
 =cut

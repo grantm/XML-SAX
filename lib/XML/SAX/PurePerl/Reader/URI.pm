@@ -1,5 +1,3 @@
-# $Id$
-
 package XML::SAX::PurePerl::Reader::URI;
 
 use strict;

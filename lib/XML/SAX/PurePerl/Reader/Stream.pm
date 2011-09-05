@@ -1,5 +1,3 @@
-# $Id$
-
 package XML::SAX::PurePerl::Reader::Stream;
 
 use strict;
