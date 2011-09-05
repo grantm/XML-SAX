@@ -21,6 +21,7 @@ use constant Namespaces => "http://xml.org/sax/features/namespaces";
 use constant Validation => "http://xml.org/sax/features/validation";
 
 my $known_parsers = undef;
+my $last_warning  = "";
 
 # load_parsers takes the ParserDetails.ini file out of the same directory
 # that XML::SAX is in, and looks at it. Format in POD below
@@ -206,8 +207,18 @@ sub save_parsers {
 
 sub do_warn {
     my $class = shift;
+
     # Don't output warnings if running under Test::Harness
-    warn(@_) unless $ENV{HARNESS_ACTIVE};
+    if($ENV{HARNESS_ACTIVE}) {
+        $last_warning = "@_";
+    }
+    else {
+        warn(@_);
+    }
+}
+
+sub last_warning {
+    return $last_warning;
 }
 
 1;
