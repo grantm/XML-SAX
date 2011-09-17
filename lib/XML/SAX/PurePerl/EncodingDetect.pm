@@ -71,23 +71,23 @@ sub encoding_detect {
         return;
     }
     elsif ($data =~ /^\x3C\x3F\x78\x6D/) {
-        # $reader->set_encoding('UTF-8');
+        # default to UTF-8 if no encoding declared in prolog
         return;
     }
     elsif ($data =~ /^\x3C\x3F\x78/) {
-        # $reader->set_encoding('UTF-8');
+        # default to UTF-8 if no encoding declared in prolog
         return;
     }
     elsif ($data =~ /^\x3C\x3F/) {
-        # $reader->set_encoding('UTF-8');
+        # default to UTF-8 if no encoding declared in prolog
         return;
     }
     elsif ($data =~ /^\x3C/) {
-        # $reader->set_encoding('UTF-8');
+        # default to UTF-8 if no encoding declared in prolog
         return;
     }
     elsif ($data =~ /^[\x20\x09\x0A\x0D]+\x3C[^\x3F]/) {
-        # $reader->set_encoding('UTF-8');
+        # default to UTF-8 if no encoding declared in prolog
         return;
     }
     elsif ($data =~ /^\x4C\x6F\xA7\x94/) {

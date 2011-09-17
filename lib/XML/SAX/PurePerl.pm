@@ -126,6 +126,7 @@ sub document {
     # document ::= prolog element Misc*
     
     $self->prolog($reader);
+    $reader->set_encoding('UTF-8') unless $reader->get_encoding();
     $self->element($reader) ||
         $self->parser_error("Document requires an element", $reader);
     

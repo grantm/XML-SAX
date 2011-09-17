@@ -134,8 +134,6 @@ SKIP: {
         expected => "UTF-8: C\x{101}f\x{e9}\x{20ac}",
     );
 
-TODO: {
-    local $TODO = "Why does this have double encoding?  Is it a bug?";
     test_parse_xml_string(
         encoding => "UTF-8 (No BOM)",
         document => [qw(
@@ -145,7 +143,18 @@ TODO: {
                     )],
         expected => "UTF-8: C\x{101}f\x{e9}\x{20ac}",
     );
-}
+
+    test_parse_xml_string(
+        encoding => "ISO8859-1",
+        document => [qw(
+                        3c 3f 78 6d 6c 20 76 65 72 73 69 6f 6e 3d 22 31
+                        2e 30 22 20 65 6e 63 6f 64 69 6e 67 3d 22 49 53
+                        4f 38 38 35 39 2d 31 22 3f 3e 0a 3c 61 3e 49 53
+                        4f 38 38 35 39 2d 31 3a 20 43 e1 66 e9 3c 2f 61
+                        3e 0a
+                    )],
+        expected => "ISO8859-1: C\x{e1}f\x{e9}",
+    );
 
 # warn("utf-16\n");
 # verify that the first element is correctly decoded
