@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use Test::More;
+use File::Spec;
 
 my $builder = Test::More->builder;
 binmode $builder->output,         ":utf8";
@@ -11,6 +12,9 @@ binmode $builder->failure_output, ":utf8";
 binmode $builder->todo_output,    ":utf8";
 
 use XML::SAX::PurePerl;
+
+my $temp_xml_file = File::Spec->catfile('t', 'enc_det.xml');
+END { unlink($temp_xml_file); }
 
 my $handler = TestHandler->new(); # see below for the TestHandler class
 isa_ok($handler, 'TestHandler');
@@ -186,28 +190,9 @@ SKIP: {
         expected => "ISO8859-1: C\x{e1}f\x{e9}",
     );
 
-# warn("utf-16\n");
-# verify that the first element is correctly decoded
-eval{
-	$handler->{test_elements} = [ "\x{9031}\x{5831}" ];
-	$parser->parse_uri("testfiles/14a_utf-16.xml");
-};
-is($@, '', 'no errors parsing: testfiles/14a_utf-16.xml');
-
-# warn("utf-16le\n");
-eval{
-	$handler->{test_elements} = [ "foo" ];
-	$parser->parse_uri("testfiles/14b_utf-16le.xml");
-};
-is($@, '', 'no errors parsing: testfiles/14b_utf-16le.xml');
-
 # warn("koi8_r\n");
 eval{$parser->parse_uri("testfiles/14c_koi8_r.xml");};
 is($@, '', 'no errors parsing: testfiles/14c_koi8_r.xml');
-
-# warn("8859-1\n");
-eval{$parser->parse_uri("testfiles/14d_iso8859.xml");};
-is($@, '', 'no errors parsing: testfiles/14d_iso8859.xml');
 
 # warn("8859-2\n");
 eval{$parser->parse_uri("testfiles/14e_iso8859.xml");};
@@ -221,12 +206,29 @@ exit;
 sub test_parse_xml_string {
     my %arg = @_;
 
+    # Get XML document as a byte string
+
     my $xml = $arg{document};
     if(ref($xml)) {
         $xml = pack 'C*', map { hex } @$xml;
     }
+
+    # Save the bytes to a temp file
+
+    open my $fh, '>', $temp_xml_file or die "open($temp_xml_file): $!";
+    print $fh $xml;
+    close($fh);
+
+    # Try parsing from the byte string
+
     my $result = eval{ $parser->parse_string($xml); };
-    is($@, '', "parsed $arg{encoding} document without error");
+    is($@, '', "parsed $arg{encoding} string without error");
+    is($result, $arg{expected}, 'got the expected data');
+
+    # And parse again from the file
+
+    $result = eval{ $parser->parse_uri($temp_xml_file); };
+    is($@, '', "parsed $arg{encoding} file without error");
     is($result, $arg{expected}, 'got the expected data');
 }
 
