@@ -145,6 +145,36 @@ SKIP: {
     );
 
     test_parse_xml_string(
+        encoding => "UTF-8 (prolog but no encoding decl)",
+        document => [qw(
+                        3c 3f 78 6d 6c 20 76 65 72 73 69 6f 6e 3d 22 31
+                        2e 30 22 3f 3e 0a 3c 61 3e 55 54 46 2d 38 3a 20
+                        43 c4 81 66 c3 a9 e2 82 ac 3c 2f 61 3e 0a
+                    )],
+        expected => "UTF-8: C\x{101}f\x{e9}\x{20ac}",
+    );
+
+    test_parse_xml_string(
+        encoding => "UTF-8 (prolog with encoding decl)",
+        document => [qw(
+                        3c 3f 78 6d 6c 20 76 65 72 73 69 6f 6e 3d 22 31
+                        2e 30 22 20 65 6e 63 6f 64 69 6e 67 3d 22 55 54
+                        46 2d 38 22 3f 3e 0a 3c 61 3e 55 54 46 2d 38 3a
+                        20 43 c4 81 66 c3 a9 e2 82 ac 3c 2f 61 3e 0a
+                    )],
+        expected => "UTF-8: C\x{101}f\x{e9}\x{20ac}",
+    );
+
+    test_parse_xml_string(
+        encoding => "UTF-8 (no prolog with leading whitespace)",
+        document => [qw(
+                        0a 20 0a 09 3c 61 3e 55 54 46 2d 38 3a 20 43 c4
+                        81 66 c3 a9 e2 82 ac 3c 2f 61 3e 0a
+                    )],
+        expected => "UTF-8: C\x{101}f\x{e9}\x{20ac}",
+    );
+
+    test_parse_xml_string(
         encoding => "ISO8859-1",
         document => [qw(
                         3c 3f 78 6d 6c 20 76 65 72 73 69 6f 6e 3d 22 31

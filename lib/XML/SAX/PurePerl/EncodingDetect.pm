@@ -4,9 +4,9 @@ use strict;
 
 sub encoding_detect {
     my ($parser, $reader) = @_;
-    
+
     my $error = "Invalid byte sequence at start of file";
-    
+
     my $data = $reader->data;
     if ($data =~ /^\x00\x00\xFE\xFF/) {
         # BO-UCS4-be
@@ -74,19 +74,11 @@ sub encoding_detect {
         # default to UTF-8 if no encoding declared in prolog
         return;
     }
-    elsif ($data =~ /^\x3C\x3F\x78/) {
-        # default to UTF-8 if no encoding declared in prolog
-        return;
-    }
-    elsif ($data =~ /^\x3C\x3F/) {
-        # default to UTF-8 if no encoding declared in prolog
-        return;
-    }
     elsif ($data =~ /^\x3C/) {
         # default to UTF-8 if no encoding declared in prolog
         return;
     }
-    elsif ($data =~ /^[\x20\x09\x0A\x0D]+\x3C[^\x3F]/) {
+    elsif ($data =~ /^[\x20\x09\x0A\x0D]+\x3C/) {
         # default to UTF-8 if no encoding declared in prolog
         return;
     }
@@ -94,7 +86,7 @@ sub encoding_detect {
         $reader->set_encoding('EBCDIC');
         return;
     }
-    
+
     warn("Unable to recognise encoding of this document");
     return;
 }
