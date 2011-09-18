@@ -40,13 +40,6 @@ sub XMLDecl {
         $data =~ /^\?>/ or $self->parser_error("Syntax error", $reader);
         $reader->move_along(2);
     }
-    else {
-        # warn("first 5 bytes: ", join(',', unpack("CCCCC", $data)), "\n");
-        # no xml decl
-        if (!$reader->get_encoding) {
-            $reader->set_encoding("UTF-8");
-        }
-    }
 }
 
 sub VersionInfo {
