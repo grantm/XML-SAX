@@ -14,7 +14,7 @@ sub switch_encoding_stream {
 }
 
 sub switch_encoding_string {
-    $_[0] = Encode::decode($_[1], $_[0]);
+    $_[0] = Encode::decode($_[1], $_[0], Encode::FB_CROAK);
 }
 
 1;
