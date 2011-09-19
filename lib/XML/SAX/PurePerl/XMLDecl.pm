@@ -50,12 +50,14 @@ sub VersionInfo {
     # warn("Looking for version in $data");
     
     $data =~ /^(version$S*=$S*(["'])($VersionNum)\2)/o or return 0;
-    $reader->move_along(length($1));
-    my $vernum = $3;
+    my $bytes = length($1);
     
+    my $vernum = $3;
     if ($vernum ne "1.0") {
         $self->parser_error("Only XML version 1.0 supported. Saw: '$vernum'", $reader);
     }
+
+    $reader->move_along($bytes);
 
     return 1;
 }

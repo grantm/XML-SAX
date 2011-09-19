@@ -30,6 +30,8 @@ like("$@", qr{version}i, 'error refers to version');
 eval { $parser->parse_string(qq{<?xml version="2.0"?>\n<a />}) };
 isa_ok($@, $parse_exception, 'bad version => parse error');
 like("$@", qr{version}i, 'error refers to version');
+is($@->{LineNumber}, 1, 'exception notes expected line number');
+is($@->{ColumnNumber}, 6, 'exception notes expected column number');
 
 eval { $parser->parse_string(qq{<?xml version="1.0"?>\n<a />}) };
 is($@, '', 'good version => no parse error');

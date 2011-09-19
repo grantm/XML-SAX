@@ -56,7 +56,7 @@ sub move_along {
         $self->[COLUMN] = length($1);
     }
     else {
-        $self->[COLUMN] += $_[0];
+        $self->[COLUMN] += $bytes;
     }
 }
 
