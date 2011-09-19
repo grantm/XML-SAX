@@ -80,6 +80,8 @@ isa_ok($@, $parse_exception, 'no space after encoding => parse error');
 eval { $parser->parse_string(qq{<?xml version="1.0">\n<a />}) };
 isa_ok($@, $parse_exception, 'broken PI close => parse error');
 
+# TODO: Use an external entity (supported?) to test TextDecl
+
 done_testing();
 exit;
 
