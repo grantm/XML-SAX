@@ -52,6 +52,9 @@ is($@, '', 'space before encoding decl + utf8 => no parse error');
 eval { $parser->parse_string(qq{<?xml version='1.0' encoding='UTF-8'?>\n<a>\xE2\x82\xAC</a>}) };
 is($@, '', 'same again with single quotes => no parse error');
 
+eval { $parser->parse_string(qq{<?xml version='1.0' encoding='UTF-8' ?>\n<a>\xE2\x82\xAC</a>}) };
+is($@, '', 'same again with trailing space => no parse error');
+
 eval { $parser->parse_string(qq{<?xml version="1.0" ?>\n<a>\xE9</a>}) };
 ok($@, 'no encoding decl + latin1 => parse error');
 like("$@", qr{\b(en|de|uni)cod}i, 'error refers to encoding');
