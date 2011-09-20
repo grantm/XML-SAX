@@ -10,11 +10,9 @@ use XML::SAX;
 use File::Basename qw(dirname);
 use File::Spec ();
 
-my $test_lib_dir;
-BEGIN {
-    $test_lib_dir = File::Spec->catdir(dirname($0), 'lib');
-}
-use lib $test_lib_dir;
+use lib 'testlib';
+
+my $test_lib_dir = 'testlib';
 
 my $config_dir  = File::Spec->catdir(dirname($INC{'XML/SAX.pm'}), 'SAX');
 my $config_file = File::Spec->catfile($config_dir, 'ParserDetails.ini');
