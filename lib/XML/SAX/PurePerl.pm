@@ -91,7 +91,7 @@ sub _parse {
     $self->start_document({});
 
     if (defined $self->{ParseOptions}{Source}{Encoding}) {
-        $reader->set_encoding($self->{ParseOptions}{Source}{Encoding});
+        $self->_set_encoding($reader, $self->{ParseOptions}{Source}{Encoding});
     }
     else {
         $self->encoding_detect($reader);
@@ -120,13 +120,23 @@ sub parser_error {
     $exception->throw;
 }
 
+sub _set_encoding {
+    my ($self, $reader, $encoding) = @_;
+
+    # Changing encoding may throw fatal error - turn it into an exception
+    eval { $reader->set_encoding($encoding); };
+    if($@) {
+        $self->parser_error("$@", $reader);
+    }
+}
+
 sub document {
     my ($self, $reader) = @_;
     
     # document ::= prolog element Misc*
     
     $self->prolog($reader);
-    $reader->set_encoding('UTF-8') unless $reader->get_encoding();
+    $self->_set_encoding($reader, 'UTF-8') unless $reader->get_encoding();
     $self->element($reader) ||
         $self->parser_error("Document requires an element", $reader);
     

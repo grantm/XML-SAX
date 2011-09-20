@@ -90,7 +90,7 @@ sub EncodingDecl {
     $reader->move_along(length($1));
     my $encoding = $3;
     
-    $reader->set_encoding($encoding);
+    $self->_set_encoding($reader, $encoding);
     
     return 1;
 }
