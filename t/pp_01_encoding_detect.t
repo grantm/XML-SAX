@@ -225,11 +225,19 @@ sub test_parse_xml_string {
     is($@, '', "parsed $arg{encoding} string without error");
     is($result, $arg{expected}, 'got the expected data');
 
-    # And parse again from the file
+    # And parse again from a named file
 
     $result = eval{ $parser->parse_uri($temp_xml_file); };
     is($@, '', "parsed $arg{encoding} file without error");
     is($result, $arg{expected}, 'got the expected data');
+
+    # And again from a file handle
+
+    open $fh, '<', $temp_xml_file or die "open($temp_xml_file): $!";
+    $result = eval{ $parser->parse_file($fh); };
+    is($@, '', "parsed $arg{encoding} file without error");
+    is($result, $arg{expected}, 'got the expected data');
+    close($fh);
 }
 
 
