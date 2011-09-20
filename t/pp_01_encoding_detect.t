@@ -1,26 +1,20 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
-
-use Test::More;
-use File::Spec;
-
-my $builder = Test::More->builder;
-binmode $builder->output,         ":utf8";
-binmode $builder->failure_output, ":utf8";
-binmode $builder->todo_output,    ":utf8";
-
-use XML::SAX::PurePerl;
+use lib 'testlib';
+use SAXTestHelper;  # imports Test::More, strict etc
 
 my $temp_xml_file = File::Spec->catfile('t', 'enc_det.xml');
 END { unlink($temp_xml_file); }
 
-my $handler = TestHandler->new(); # see below for the TestHandler class
-isa_ok($handler, 'TestHandler');
+my $handler = make_handler({
+    start_document => sub { $_[0]->{char_data} = '';             },
+    characters     => sub { $_[0]->{char_data} .= $_[1]->{Data}; },
+    end_document   => sub { $_[0]->{char_data};                  },
+});
+isa_ok($handler, 'XML::SAX::Base');
 
-my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-isa_ok($parser, 'XML::SAX::PurePerl');
+my $parser = make_parser(Handler => $handler);
+can_ok($parser, 'parse_string');
 
 test_parse_xml_string(
     encoding => "ASCII",
@@ -240,36 +234,3 @@ sub test_parse_xml_string {
     close($fh);
 }
 
-
-package TestHandler;
-use XML::SAX::PurePerl::DebugHandler;
-use base qw(XML::SAX::PurePerl::DebugHandler);
-use Test::More;
-
-sub start_document {
-    my $self = shift;
-    $self->{char_data} = '';
-}
-
-sub start_element {
-    my $self = shift;
-    if ($self->{test_elements} and
-        my $value = pop @{$self->{test_elements}}) {
-        is($_[0]->{Name}, $value);
-    }
-    $self->SUPER::start_element(@_);
-}
-
-sub characters {
-    my $self = shift;
-    my $char = shift;
-
-    $self->{char_data} .= $char->{Data};
-}
-
-sub end_document {
-    my $self = shift;
-    return $self->{char_data};
-}
-
-1;
