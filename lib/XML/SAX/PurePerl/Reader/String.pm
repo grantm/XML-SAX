@@ -23,7 +23,7 @@ sub new {
     my $string = shift;
     my @parts;
     @parts[BUFFER, EOF, LINE, COLUMN, DISCARDED, STRING, USED] =
-        ('',   0,   1,    0,       0, $string, 0);
+        ('',   0,   1,    1,       0, $string, 0);
     return bless \@parts, $class;
 }
 
@@ -53,7 +53,7 @@ sub move_along {
     $self->[LINE] += $lines;
     if ($lines) {
         $discarded =~ /\n([^\n]*)$/;
-        $self->[COLUMN] = length($1);
+        $self->[COLUMN] = length($1) + 1;
     }
     else {
         $self->[COLUMN] += $bytes;

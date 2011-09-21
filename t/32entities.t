@@ -13,8 +13,8 @@ isa_ok($parser, 'XML::SAX::PurePerl');
 
 my @errs = (
 	qr/^$/,
-	qr/^Invalid name in entity \[Ln: 8, Col: 33\]\n$/,
-	qr/^Invalid name in entity \[Ln: 19, Col: 28\]\n$/, 
+	qr/^Invalid name in entity \[Ln: 8, Col: 34\]\n$/,
+	qr/^Invalid name in entity \[Ln: 19, Col: 29\]\n$/, 
 	qr/^Malformed UTF-8 character \(fatal\) at .*\/PurePerl\.pm line \d+\.\n$/,
 	qr/^Malformed UTF-8 character \(fatal\) at .*\/PurePerl\.pm line \d+\.\n$/,
 	qr/^$/

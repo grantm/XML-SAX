@@ -29,7 +29,7 @@ try_parse(
     sub {
         like("$_[0]", qr{version}i, '  error refers to version');
         is($_[0]->{LineNumber}, 1, '  exception notes expected line number');
-        is($_[0]->{ColumnNumber}, 6, '  exception notes expected col number');
+        is($_[0]->{ColumnNumber}, 7, '  exception notes expected col number');
     }
 );
 
@@ -40,7 +40,7 @@ try_parse(
     sub {
         like("$_[0]", qr{version}i, '  error refers to version');
         is($_[0]->{LineNumber}, 1, '  exception notes expected line number');
-        is($_[0]->{ColumnNumber}, 6, '  exception notes expected col number');
+        is($_[0]->{ColumnNumber}, 7, '  exception notes expected col number');
     }
 );
 

@@ -25,7 +25,7 @@ sub new {
     XML::SAX::PurePerl::Reader::set_raw_stream($ioref);
     my @parts;
     @parts[FH, LINE, COLUMN, BUFFER, EOF, XML_VERSION] =
-        ($ioref, 1,   0,      '',     0,   '1.0');
+        ($ioref, 1,   1,      '',     0,   '1.0');
     return bless \@parts, $class;
 }
 
@@ -57,7 +57,7 @@ sub move_along {
     $self->[LINE] += $lines;
     if ($lines) {
         $discarded =~ /\n([^\n]*)$/;
-        $self->[COLUMN] = length($1);
+        $self->[COLUMN] = length($1) + 1;
     }
     else {
         $self->[COLUMN] += $_[0];
