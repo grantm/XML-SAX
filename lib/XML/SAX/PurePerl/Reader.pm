@@ -123,6 +123,11 @@ sub get_xml_version {
     return $self->[XML_VERSION];
 }
 
+sub set_xml_version {
+    my $self = shift;
+    $self->[XML_VERSION] = shift;
+}
+
 1;
 
 __END__

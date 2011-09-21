@@ -56,6 +56,7 @@ sub VersionInfo {
     if ($vernum ne "1.0") {
         $self->parser_error("Only XML version 1.0 supported. Saw: '$vernum'", $reader);
     }
+    $reader->set_xml_version($vernum);
 
     $reader->move_along($bytes);
 
