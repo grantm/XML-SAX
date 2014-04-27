@@ -349,6 +349,10 @@ via ParserFactory:
   $factory->require_feature(Validation);
   my $parser = $factory->parser();
 
+=head1 REPOSITORY
+
+The public repository of this module is L<https://github.com/grantm/XML-SAX>
+
 =head1 AUTHOR
 
 Current maintainer: Grant McLean, grantm@cpan.org
