@@ -5,3 +5,4 @@ cover_db
 pm_to_blib
 MYMETA*
 XML-SAX*tar.gz
+/t/lib
