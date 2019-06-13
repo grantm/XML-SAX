@@ -11,6 +11,16 @@ WriteMakefile(
         'XML::SAX::Base' => 1.05,
         'XML::NamespaceSupport' => 0.03,
     },    
+    META_MERGE => {
+        "meta-spec" => { version => 2 },
+        resources   => {
+            repository => {
+                type => 'git',
+                url  => 'git@github.com:grantm/XML-SAX.git',
+                web  => 'https://github.com/grantm/xml-sax',
+            },
+        },
+    },
 );
 
 sub MY::install {
