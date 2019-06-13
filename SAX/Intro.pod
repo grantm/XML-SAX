@@ -82,7 +82,7 @@ glob, or a subclass of IO::Handle. Beware.
 
 SAX works very similarly to XML::Parser's default callback method,
 except it has one major difference: rather than setting individual
-callbacks, you create a new class in which to recieve the callbacks.
+callbacks, you create a new class in which to receive the callbacks.
 Each callback is called as a method call on an instance of that handler
 class. An example will best demonstrate this:
 
