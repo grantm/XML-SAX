@@ -1,16 +1,21 @@
-use Test;
-BEGIN { plan tests => 3 }
+use Test::More;
+
+use strict;
+use warnings;
+
 use XML::SAX::PurePerl;
 use XML::SAX::PurePerl::DebugHandler;
 
 my $handler = XML::SAX::PurePerl::DebugHandler->new();
-ok($handler);
+ok($handler, 'debug handler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+ok($parser, 'PurePerl parser');
 
 my $time = time;
 $parser->parse_uri("testfiles/xmltest.xml");
-warn("parsed ", -s "testfiles/xmltest.xml", " bytes in ", time - $time, " seconds\n");
-ok(1);
+my $secs = time - $time;
+ok(1, "parsed testfiles/xmltest.xml without exceptions in $secs seconds");
+
+done_testing();
 

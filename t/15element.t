@@ -1,13 +1,16 @@
-use Test;
-BEGIN { plan tests => 32 }
+use Test::More;
+
+use strict;
+use warnings;
+
 use XML::SAX::PurePerl;
 use XML::SAX::PurePerl::DebugHandler;
 
 my $handler = TestElementHandler->new();
-ok($handler);
+ok($handler, 'debug handler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+ok($parser, 'PurePerl parser');
 
 $handler->{test_el}{Name} = "foo";
 $handler->{test_el}{LocalName} = "foo";
@@ -61,17 +64,18 @@ $handler->reset;
 eval {
 $parser->parse_uri("testfiles/06f.xml");
 };
-ok($@);
+ok($@, 'parser threw exception');
 
 $handler->reset;
 $handler->{test_chr}{Data} = "bar";
 $parser->parse_uri("testfiles/06g.xml");
 
+done_testing();
+exit;
+
 ## HELPER PACKAGE ##
 
 package TestElementHandler;
-
-use Test;
 
 sub new {
     my $class = shift;
@@ -87,15 +91,23 @@ sub reset {
 sub start_element {
     my ($self, $el) = @_;
     if ($self->{test_el}) {
+        main::ok(1, "test_el");
         foreach my $key (keys %{ $self->{test_el} }) {
-            #warn $key, "\n";
-            ok("$key: $el->{$key}", "$key: $self->{test_el}{$key}");
+            main::is(
+                "$key: $el->{$key}",
+                "$key: $self->{test_el}{$key}",
+                "  key:$key"
+            );
         }
     }
     if ($self->{test_attr}) {
+        main::ok(1, "test_attr");
         foreach my $key (keys %{ $self->{test_attr} }) {
-            #warn $key, "\n";
-            ok("$key: $el->{Attributes}{ $self->{attr_name} }{$key}", "$key: $self->{test_attr}{$key}");
+            main::is(
+                "$key: $el->{Attributes}{ $self->{attr_name} }{$key}",
+                "$key: $self->{test_attr}{$key}",
+                "  attr: $key"
+            );
         }
     }
 }
@@ -103,11 +115,15 @@ sub start_element {
 sub characters {
     my ($self, @text) = @_;
     if ($self->{test_chr}) {
+        main::ok(1, "test_chr");
         foreach my $text (@text) {
             foreach my $key (keys %{ $self->{test_chr} }) {
-                #warn $key, "\n";
-                ok("$key: $text->{$key}", "$key: $self->{test_chr}{$key}");
+                main::is(
+                    "$key: $text->{$key}",
+                    "$key: $self->{test_chr}{$key}",
+                    "  char:$key"
+                );
             }
         }
-    }    
+    }
 }

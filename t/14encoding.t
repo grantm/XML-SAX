@@ -1,51 +1,62 @@
-use Test;
-BEGIN { $tests = 0;
-    if ($] >= 5.007002) { $tests = 9 }
-    plan tests => $tests;
-}
-if ($tests) {
+use Test::More;
+
+use strict;
+use warnings;
+
 use XML::SAX::PurePerl;
 
 my $handler = TestHandler->new(); # see below for the TestHandler class
-ok($handler);
+ok($handler, 'debug handler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+ok($parser, 'PurePerl parser');
 
-# warn("utf-16\n");
 # verify that the first element is correctly decoded
-$handler->{test_elements} = [ "\x{9031}\x{5831}" ];
+$handler->test_elements( "\x{9031}\x{5831}" );
 $parser->parse_uri("testfiles/utf-16.xml");
-ok(1);
+is($handler->elements_matched, 1, 'elements matched');
 
-# warn("utf-16le\n");
-$handler->{test_elements} = [ "foo" ];
+$handler->test_elements( "foo" );
 $parser->parse_uri("testfiles/utf-16le.xml");
-ok(1);
+is($handler->elements_matched, 1, 'elements matched');
 
-# warn("koi8_r\n");
+$handler->test_elements(
+    "\x{0434}\x{043E}\x{043A}\x{0443}\x{043C}\x{0435}\x{043D}\x{0442}"
+);
 $parser->parse_uri("testfiles/koi8_r.xml");
-ok(1);
+is($handler->elements_matched, 1, 'elements matched');
 
-# warn("8859-1\n");
+$handler->test_elements( "foo" );
 $parser->parse_uri("testfiles/iso8859_1.xml");
-ok(1);
+is($handler->elements_matched, 1, 'elements matched');
 
-# warn("8859-2\n");
+$handler->test_elements( "foo" );
 $parser->parse_uri("testfiles/iso8859_2.xml");
-ok(1);
-}
+is($handler->elements_matched, 1, 'elements matched');
+
+done_testing;
+exit;
 
 package TestHandler;
-use XML::SAX::PurePerl::DebugHandler;
+
 use base qw(XML::SAX::PurePerl::DebugHandler);
-use Test;
+
+sub test_elements {
+    my $self = shift;
+    $self->{test_elements} = [ @_ ];
+    $self->{elements_matched} = 0;
+}
+
+sub elements_matched {
+    return shift->{elements_matched};
+}
 
 sub start_element {
     my $self = shift;
     if ($self->{test_elements} and
         my $value = pop @{$self->{test_elements}}) {
-        ok($_[0]->{Name}, $value);
+        main::is($_[0]->{Name} => $value, 'element name')
+            && $self->{elements_matched}++;
     }
     $self->SUPER::start_element(@_);
 }

@@ -1,38 +1,65 @@
-use Test;
-BEGIN { plan tests => 10 }
+use Test::More;
+
+use strict;
+use warnings;
+
 use XML::SAX::PurePerl;
 use XML::SAX::PurePerl::DebugHandler;
 use IO::File;
 
 my $handler = XML::SAX::PurePerl::DebugHandler->new();
-ok($handler);
+ok($handler, 'debug handler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+ok($parser, 'PurePerl parser');
 
 my $file = IO::File->new("testfiles/02a.xml");
-ok($file);
+ok($file, 'test file');
 
 # check invalid characters
 eval {
-$parser->parse_file($file);
+    $parser->parse_file($file);
 };
-ok($@);
+ok($@, 'parser threw exception');
 
-print $@;
-
-ok($@->{Message});
-ok($@->{LineNumber}, 1);
-ok($@->{ColumnNumber}, 6);
+is(
+    $@->{Message},
+    'XML Declaration lacks required version attribute, or version attribute '
+    . 'does not match XML specification',
+    'parser error message'
+);
+is(
+    $@->{LineNumber},
+    1,
+    'line number'
+);
+is(
+    $@->{ColumnNumber},
+    '6',
+    'column number'
+);
 
 # check invalid version number
 eval {
-$parser->parse_uri("file:testfiles/02b.xml");
+    $parser->parse_uri("file:testfiles/02b.xml");
 };
-ok($@);
+ok($@, 'parser threw exception');
 
-print $@;
+is(
+    $@,
+    qq{Only XML version 1.0 supported. Saw: '2.0' [Ln: 1, Col: 19]\n},
+    'parser error message'
+);
 
-ok($@->{LineNumber}, 1);
-ok($@->{ColumnNumber}, 19);
+is(
+    $@->{LineNumber},
+    1,
+    'line number'
+);
+is(
+    $@->{ColumnNumber},
+    19,
+    'column number'
+);
 
+done_testing();

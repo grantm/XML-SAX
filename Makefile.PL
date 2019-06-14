@@ -4,13 +4,16 @@ use File::Spec ();
 
 
 WriteMakefile(
-    'NAME'	=> 'XML::SAX',
-    'VERSION_FROM' => 'lib/XML/SAX.pm', # finds $VERSION
-    'PREREQ_PM' => { 
-        'File::Temp' => 0,
-        'XML::SAX::Base' => 1.05,
+    NAME            => 'XML::SAX',
+    VERSION_FROM    => 'lib/XML/SAX.pm', # finds $VERSION
+    PREREQ_PM       => {
+        'File::Temp'            => 0,
+        'XML::SAX::Base'        => 1.05,
         'XML::NamespaceSupport' => 0.03,
-    },    
+    },
+    BUILD_REQUIRES  => {
+        'Test::Simple'          => 0.88,
+    },
     META_MERGE => {
         "meta-spec" => { version => 2 },
         resources   => {

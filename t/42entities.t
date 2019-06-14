@@ -1,23 +1,24 @@
+use Test::More;
+
 use strict;
 use warnings;
 
-use Test;
-BEGIN { plan tests => 4 }
 
 use XML::SAX::PurePerl;
 
 my $handler = AttrHandler->new();
-ok($handler);
+ok($handler, 'attr handler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+ok($parser, 'PurePerl parser');
 
 $parser->parse_string('<code amp="&amp;" x3E="&#x3E;" num="&#65;" />');
-ok(1); # parser didn't die
+ok(1, 'parsed without exception');
 
 my $expected = "amp=& num=A x3E=> ";
-ok($handler->attributes, $expected);
+is($handler->attributes => $expected, 'expected attribute content');
 
+done_testing();
 exit;
 
 

@@ -1,13 +1,19 @@
-use Test;
-BEGIN { plan tests => 119 }
+use Test::More;
+
+use strict;
+use warnings;
+
 use XML::SAX::PurePerl;
 use XML::SAX::PurePerl::DebugHandler;
 use XML::SAX qw(Namespaces);
 
-warn("This test should show just 1 warning about an entity already existing\n");
+diag("This test should show just 1 warning about an entity already existing\n");
 
 my $handler = XML::SAX::PurePerl::DebugHandler->new();
+ok($handler, 'debug handler');
+
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
+ok($parser, 'PurePerl parser');
 
 $parser->set_feature(Namespaces, 0);
 
@@ -22,11 +28,11 @@ for my $id (1..119) {
         $parser->parse_uri($file);
     };
     if ($@) {
-        ok(0, 1, $@);
-        warn($@) if $ENV{DEBUG_XML};
+        is($@, undef, 'exception in $@');
     }
     else {
-        ok(1);
+        ok('parsed with no exception');
     }
 }
-    
+
+done_testing();

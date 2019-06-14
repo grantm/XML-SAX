@@ -1,8 +1,12 @@
-use Test;
-BEGIN { plan tests => 1 }
+use Test::More;
+
+use strict;
+use warnings;
+
 use File::Spec;
-ok(unlink(
-    File::Spec->catdir(qw(blib lib XML SAX ParserDetails.ini))),
-    1,
-    'delete ParserDetails.ini'
-);
+
+unlink( File::Spec->catdir(qw(blib lib XML SAX ParserDetails.ini)) ),
+ok(1, 'delete ParserDetails.ini');
+
+done_testing();
+

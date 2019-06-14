@@ -1,23 +1,24 @@
+use Test::More;
+
 use strict;
 use warnings;
 
-use Test;
-BEGIN { plan tests => 4 }
 
 use XML::SAX::PurePerl;
 
 my $handler = CDataHandler->new();
-ok($handler);
+ok($handler, 'cdata handler');
 
 my $parser = XML::SAX::PurePerl->new(Handler => $handler);
-ok($parser);
+ok($parser, 'PurePerl parser');
 
 $parser->parse_string('<code><![CDATA[<crackers & cheese>]]></code>');
-ok(1); # parser didn't die
+ok(1, 'parsed without an exception');
 
 my $expected = '<crackers & cheese>';
-ok($handler->cbuffer, $expected);
+is($handler->cbuffer, $expected, 'expected character output');
 
+done_testing();
 exit;
 
 
