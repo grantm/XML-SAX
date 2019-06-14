@@ -33,8 +33,10 @@ t/13int_ent.t
 t/14encoding.t
 t/15element.t
 t/16large.t
+t/19pi.t
 t/20factory.t
 t/21saxini.t
+t/30parse_file.t
 t/40cdata.t
 t/42entities.t
 t/99cleanup.t

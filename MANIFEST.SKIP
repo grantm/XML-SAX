@@ -1,0 +1,15 @@
+\.git
+.*[.](swp|bak)
+^Makefile$
+^MANIFEST[.]SKIP$
+^MYMETA.*
+^blib
+^pm_to_blib
+^benchmark
+^cover_db
+TODO
+t/17jclark.t
+t/lib/TestParserPackage.pm
+t/lib/SAX.ini
+testfiles/jclark
+^XML-SAX
