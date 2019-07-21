@@ -294,7 +294,7 @@ The handler is passed a structure containing just two entries:
 
 =item Target
 
-The target of the processing instrcution
+The target of the processing instruction
 
 =item Data
 
