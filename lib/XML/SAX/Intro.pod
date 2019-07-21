@@ -242,7 +242,7 @@ the values later seen by end_element.
 
 =head2 characters
 
-The characters callback may be called in serveral circumstances. The
+The characters callback may be called in several circumstances. The
 most obvious one is when seeing ordinary character data in the markup.
 But it is also called for text in a CDATA section, and is also called
 in other situations. A SAX parser has to make no guarantees whatsoever
